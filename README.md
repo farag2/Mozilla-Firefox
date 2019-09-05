@@ -1,2 +1,2 @@
 ## Overview
-Configuration file for Mozilla Firefox
+Always up-to-date configuration file for Mozilla Firefox
