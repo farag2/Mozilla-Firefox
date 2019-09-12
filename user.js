@@ -4,7 +4,7 @@ user_pref("accessibility.typeaheadfind", true);
 // Turn on notifications to show in Windows 10 Action Center
 // Включить интеграцию с центром уведомлений Windows 10
 user_pref("alerts.useSystemBackend", true);
-// Prevent bookmark menu and toolbar folder menu from closing when opening bookmark in a new tab
+// Prevent bookmark menu and Toolbar folder menu from closing when opening bookmark in a new tab
 // Отключить автозакрытие меню закладок после открытия закладки в новой вкладке
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
 // Hide mobile bookmarks folder
@@ -22,7 +22,7 @@ user_pref("browser.contentblocking.introCount", 20);
 // Turn on Ctrl+Tab cycle through recently used tabs
 // Включить переключение по Ctrl+Tab между вкладками в порядке недавнего использования
 user_pref("browser.ctrlTab.recentlyUsedOrder", true);
-// Do not auto-hide Downloads button in toolbar
+// Do not auto-hide Downloads button in Toolbar
 // Не скрывать кнопку "Загрузки" на панели инструментов
 user_pref("browser.download.autohideButton", false);
 // Turn off counting URIs in private browsing mode
