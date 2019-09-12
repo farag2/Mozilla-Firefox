@@ -22,7 +22,7 @@ user_pref("browser.contentblocking.introCount", 20);
 // Turn on Ctrl+Tab cycle through recently used tabs
 // Включить переключение по Ctrl+Tab между вкладками в порядке недавнего использования
 user_pref("browser.ctrlTab.recentlyUsedOrder", true);
-// Do not hide Downloads button on the toolbar
+// Do not auto-hide Downloads button in toolbar
 // Не скрывать кнопку "Загрузки" на панели инструментов
 user_pref("browser.download.autohideButton", false);
 // Turn off counting URIs in private browsing mode
