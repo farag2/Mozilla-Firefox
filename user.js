@@ -4,7 +4,7 @@ user_pref("accessibility.typeaheadfind", true);
 // Turn on notifications to show in Windows 10 Action Center
 // Включить интеграцию с центром уведомлений Windows 10
 user_pref("alerts.useSystemBackend", true);
-// Prevent bookmark menu and Toolbar folder menu from closing when opening bookmark in a new tab
+// Prevent bookmark menu and toolbar folder menu from closing when opening bookmark in a new tab
 // Отключить автозакрытие меню закладок после открытия закладки в новой вкладке
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
 // Hide mobile bookmarks folder
@@ -22,7 +22,7 @@ user_pref("browser.contentblocking.introCount", 20);
 // Turn on Ctrl+Tab cycle through recently used tabs
 // Включить переключение по Ctrl+Tab между вкладками в порядке недавнего использования
 user_pref("browser.ctrlTab.recentlyUsedOrder", true);
-// Do not auto-hide Downloads button in Toolbar
+// Do not auto-hide Downloads button in toolbar
 // Не скрывать кнопку "Загрузки" на панели инструментов
 user_pref("browser.download.autohideButton", false);
 // Turn off counting URIs in private browsing mode
@@ -118,9 +118,10 @@ user_pref("general.warnOnAboutConfig", false);
 // Do not select when double-clicking text the space following the text
 // Не выделять при выделении слова двойным нажатием идущий за ним пробел
 user_pref("layout.word_select.eat_space_to_next_word", false);
-// Turn on picture-in-picture mode (70)
-// Включить режим "картинка в картинке" (70)
+// Turn on picture-in-picture video controls (71)
+// Включить режим "картинка в картинке" (71)
 // user_pref("media.videocontrols.picture-in-picture.enabled", true);
+// user_pref("media.videocontrols.picture-in-picture.video-toggle.enabled", true);
 // Block coockies from third-party trackers
 // Блокировать куки со сторонних трекеров
 user_pref("network.cookie.cookieBehavior", 4);
