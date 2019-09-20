@@ -13,9 +13,9 @@ user_pref("browser.bookmarks.showMobileBookmarks", false);
 // Set Enhanced Tracking Protection to "Custom"
 // Установить блокировку содержимого на "Персональная"
 user_pref("browser.contentblocking.category", "custom");
-// Set Enhanced Tracking Protection to "Standart" (70)
+// Set Enhanced Tracking Protection to "Standard" (70)
 // Установить блокировку содержимого на "Стандартная" (70)
-// user_pref("browser.contentblocking.category", "Standart");
+// user_pref("browser.contentblocking.category", "standard");
 // Turn off Content Blocker notification
 // Не отображать уведомление о блокировке содержимого
 user_pref("browser.contentblocking.introCount", 20);
