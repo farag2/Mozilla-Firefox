@@ -10,12 +10,9 @@ user_pref("browser.bookmarks.openInTabClosesMenu", false);
 // Hide mobile bookmarks folder
 // Скрыть папку Мобильные закладки
 user_pref("browser.bookmarks.showMobileBookmarks", false);
-// Set Enhanced Tracking Protection to "Custom"
-// Установить блокировку содержимого на "Персональная"
-user_pref("browser.contentblocking.category", "custom");
 // Set Enhanced Tracking Protection to "Standard" (70)
 // Установить блокировку содержимого на "Стандартная" (70)
-// user_pref("browser.contentblocking.category", "standard");
+user_pref("browser.contentblocking.category", "standard");
 // Turn off Content Blocker notification
 // Не отображать уведомление о блокировке содержимого
 user_pref("browser.contentblocking.introCount", 20);
@@ -49,6 +46,9 @@ user_pref("browser.newtabpage.activity-stream.section.highlights.rows", 4);
 // Show Top Sites in 4 rows
 // Отобразить топ сайтов в 4 столбца
 user_pref("browser.newtabpage.activity-stream.topSitesRows", 4);
+// Show search suggestions in Private Windows (71)
+// Отображать поисковые запросы в приватной вкладке (71)
+// user_pref("browser.search.suggest.enabled.private", true);
 // Do not add search bar in toolbar
 // Не добавлять панель поиска на панель инструментов
 user_pref("browser.search.widget.inNavBar", false);
@@ -138,18 +138,6 @@ user_pref("privacy.donottrackheader.enabled", true);
 // Set time range to clear to "Everything"
 // Выбрать "Удалить всё" при удаление истории
 user_pref("privacy.sanitize.timeSpan", 0);
-// Show social media trackers and cross-site tracking cookie items in "Privacy & Security" (70)
-// Отобразить межсайтовые и социальные трекеры в разделе "Приватность и Защита" (70)
-// user_pref("privacy.socialtracking.block_cookies.enabled", true);
-// Turn on trackers blocking only in Private Windows
-// Включить блокировку трекеров только в приватных окнах
-user_pref("privacy.trackingprotection.enabled", false);
-// Turn on fingerprinters blocking
-// Включить блокировку сборщиков цифровых отпечатков
-user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
-// Turn off blocking social trackers (70)
-// Выключить блокировку трекеров социальных сетей (70)
-// user_pref("privacy.trackingprotection.socialtracking.enabled", false);
 // Turn off Firefox starting automatically after Windows 10 restart
 // Выключить автоматическое восстановление сеанса после перезапуска Windows 10
 user_pref("toolkit.winRegisterApplicationRestart", false);
