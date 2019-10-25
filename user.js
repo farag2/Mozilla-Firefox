@@ -10,8 +10,8 @@ user_pref("browser.bookmarks.openInTabClosesMenu", false);
 // Hide mobile bookmarks folder
 // Скрыть папку Мобильные закладки
 user_pref("browser.bookmarks.showMobileBookmarks", false);
-// Set Enhanced Tracking Protection to "Standard" (70)
-// Установить блокировку содержимого на "Стандартная" (70)
+// Set Enhanced Tracking Protection to "Standard"
+// Установить блокировку содержимого на "Стандартная"
 user_pref("browser.contentblocking.category", "standard");
 // Turn off Content Blocker notification
 // Не отображать уведомление о блокировке содержимого
@@ -46,9 +46,9 @@ user_pref("browser.newtabpage.activity-stream.section.highlights.rows", 4);
 // Show Top Sites in 4 rows
 // Отобразить топ сайтов в 4 столбца
 user_pref("browser.newtabpage.activity-stream.topSitesRows", 4);
-// Show search suggestions in Private Windows (71)
-// Отображать поисковые запросы в приватной вкладке (71)
-// user_pref("browser.search.suggest.enabled.private", true);
+// Show search suggestions in Private Windows
+// Отображать поисковые предложения в Приватных вкладках
+user_pref("browser.search.suggest.enabled.private", true);
 // Do not add search bar in toolbar
 // Не добавлять панель поиска на панель инструментов
 user_pref("browser.search.widget.inNavBar", false);
@@ -97,9 +97,6 @@ user_pref("dom.webnotifications.requireuserinteraction", true);
 // Run extensions in Private browsing mode
 // Запускать дополнения в приватном режиме
 user_pref("extensions.allowPrivateBrowsingByDefault", true);
-// Turn on Firefox Monitor
-// Включить Firefox Monitor
-user_pref("extensions.fxmonitor.enabled", true);
 // Turn off Extension Recommendations on the Add-ons Manager
 // Отключить рекомендуемые расширения на странице "Дополнения"
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
@@ -115,6 +112,9 @@ user_pref("general.autoScroll", false);
 // Do not show about:config warning message
 // Не предупреждать при заходе на about:config
 user_pref("general.warnOnAboutConfig", false);
+// Do not show about:config warning message (71)
+// Не предупреждать при заходе на about:config (71)
+// user_pref("browser.aboutConfig.showWarning", false);
 // Do not select when double-clicking text the space following the text
 // Не выделять при выделении слова двойным нажатием идущий за ним пробел
 user_pref("layout.word_select.eat_space_to_next_word", false);
@@ -122,9 +122,6 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 // Включить режим "картинка в картинке" (71)
 // user_pref("media.videocontrols.picture-in-picture.enabled", true);
 // user_pref("media.videocontrols.picture-in-picture.video-toggle.enabled", true);
-// Block coockies from third-party trackers
-// Блокировать куки со сторонних трекеров
-user_pref("network.cookie.cookieBehavior", 4);
 // Set automatic proxy configuration URL on https://antizapret.prostovpn.org/proxy.pac
 // Установить URL автоматической настройки прокси на https://antizapret.prostovpn.org/proxy.pac
 user_pref("network.proxy.type", 2);
