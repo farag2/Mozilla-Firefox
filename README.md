@@ -11,7 +11,7 @@ Configured toolbar
  - NNM-Club
  - RuTracker.org
  
-Hide all item in Bookmarks menu
+Hide all items in Bookmarks menu
 
 [userChrome.css](https://github.com/farag2/Mozilla-Firefox/blob/master/userChrome.css)
 
