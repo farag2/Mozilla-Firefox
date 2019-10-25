@@ -1,0 +1,16 @@
+@-moz-document url(chrome://browser/content/browser.xhtml)
+{
+	/* View Bookmarks Sidebar */
+	#BMB_viewBookmarksSidebar,
+	/* Show All Bookmarks */
+	#BMB_bookmarksShowAllTop,
+	#BMB_bookmarksShowAllTop + menuseparator,
+	/* Bookmarks Toolbars */
+	#BMB_bookmarksToolbar,
+	/* Other Bookmarks */
+	#BMB_unsortedBookmarks,
+	#BMB_mobileBookmarks + menuseparator
+	{
+		display: none !important;
+	}
+}
