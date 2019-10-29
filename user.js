@@ -89,7 +89,7 @@ user_pref("browser.taskbar.previews.enable", true);
 // Включить мобильные значки на панели инструментов
 user_pref("browser.uidensity", 2);
 // Decode copied URLs, containing UTF8 symbols
-// Декодировать URL, содержащиq UTF8
+// Декодировать URL, содержащий UTF8
 user_pref("browser.urlbar.decodeURLsOnCopy", true);
 // Require user gestures for requesting push notifications
 // Запрашивать разрешение на отправку пуш-уведомлений
