@@ -31,6 +31,12 @@ user_pref("browser.library.activity-stream.enabled", false);
 // Turn off recommended extensions
 // Отключить рекомендации расширений
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr", false);
+// Do not recommend extensions as you browse
+// Не рекомендовать расширения при просмотре
+user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
+// Do not recommend features as you browse
+// Не рекомендовать функции при просмотре
+user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 // Turn off Snippets (Updates from Mozilla and Firefox)
 // Отключить Заметки (Обновления от Mozilla и Firefox)
 user_pref("browser.newtabpage.activity-stream.feeds.snippets", false);
@@ -89,7 +95,7 @@ user_pref("browser.taskbar.previews.enable", true);
 // Включить мобильные значки на панели инструментов
 user_pref("browser.uidensity", 2);
 // Decode copied URLs, containing UTF8 symbols
-// Декодировать URL, содержащий UTF8
+// Декодировать URL, содержащий UTF8-символы
 user_pref("browser.urlbar.decodeURLsOnCopy", true);
 // Require user gestures for requesting push notifications
 // Запрашивать разрешение на отправку пуш-уведомлений
