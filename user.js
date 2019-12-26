@@ -117,17 +117,13 @@ user_pref("findbar.highlightAll", true);
 user_pref("general.autoScroll", false);
 // Do not show about:config warning message
 // Не предупреждать при заходе на about:config
-user_pref("general.warnOnAboutConfig", false);
-// Do not show about:config warning message (71)
-// Не предупреждать при заходе на about:config (71)
-// user_pref("browser.aboutConfig.showWarning", false);
+user_pref("browser.aboutConfig.showWarning", false);
 // Do not select when double-clicking text the space following the text
 // Не выделять при выделении слова двойным нажатием идущий за ним пробел
 user_pref("layout.word_select.eat_space_to_next_word", false);
-// Turn on picture-in-picture video controls (71)
-// Включить режим "картинка в картинке" (71)
-// user_pref("media.videocontrols.picture-in-picture.enabled", true);
-// user_pref("media.videocontrols.picture-in-picture.video-toggle.enabled", true);
+// Turn on picture-in-picture video controls
+// Включить режим "картинка в картинке"
+user_pref("media.videocontrols.picture-in-picture.video-toggle.enabled", true);
 // Set automatic proxy configuration URL on https://antizapret.prostovpn.org/proxy.pac
 // Установить URL автоматической настройки прокси на https://antizapret.prostovpn.org/proxy.pac
 user_pref("network.proxy.type", 2);
