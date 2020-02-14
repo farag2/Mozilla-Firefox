@@ -4,6 +4,9 @@ user_pref("accessibility.typeaheadfind", true);
 // Turn on notifications to show in Windows 10 Action Center
 // Включить интеграцию с центром уведомлений Windows 10
 user_pref("alerts.useSystemBackend", true);
+// Do not show about:config warning message
+// Не предупреждать при заходе на about:config
+user_pref("browser.aboutConfig.showWarning", false);
 // Prevent bookmark menu and toolbar folder menu from closing when opening bookmark in a new tab
 // Отключить автозакрытие меню закладок после открытия закладки в новой вкладке
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
@@ -97,6 +100,9 @@ user_pref("browser.uidensity", 2);
 // Decode copied URLs, containing UTF8 symbols
 // Декодировать URL, содержащий UTF8-символы
 user_pref("browser.urlbar.decodeURLsOnCopy", true);
+// Turn on lazy loading for images (75)
+// Включить отложенную загрузку для изображений (75)
+// user_pref("dom.dom.image-lazy-loading.enabled", true);
 // Require user gestures for requesting push notifications
 // Запрашивать разрешение на отправку пуш-уведомлений
 user_pref("dom.webnotifications.requireuserinteraction", true);
@@ -115,9 +121,6 @@ user_pref("findbar.highlightAll", true);
 // Use smooth scrolling
 // Использовать плавную прокрутку
 user_pref("general.autoScroll", false);
-// Do not show about:config warning message
-// Не предупреждать при заходе на about:config
-user_pref("browser.aboutConfig.showWarning", false);
 // Do not select when double-clicking text the space following the text
 // Не выделять при выделении слова двойным нажатием идущий за ним пробел
 user_pref("layout.word_select.eat_space_to_next_word", false);
@@ -126,8 +129,8 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 user_pref("media.videocontrols.picture-in-picture.video-toggle.enabled", true);
 // Set automatic proxy configuration URL on https://antizapret.prostovpn.org/proxy.pac
 // Установить URL автоматической настройки прокси на https://antizapret.prostovpn.org/proxy.pac
-user_pref("network.proxy.type", 2);
 user_pref("network.proxy.autoconfig_url", "https://antizapret.prostovpn.org/proxy.pac");
+user_pref("network.proxy.type", 2);
 // Block new requests asking to allow notifications
 // Блокировать новые запросы на отправку уведомлений
 user_pref("permissions.default.desktop-notification", 2);
