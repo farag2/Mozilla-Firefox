@@ -1,4 +1,4 @@
-# Close Firefox
+﻿# Close Firefox
 $firefox = Get-Process -Name firefox -ErrorAction SilentlyContinue
 IF ($firefox)
 {
