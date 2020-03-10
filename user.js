@@ -13,15 +13,9 @@ user_pref("browser.bookmarks.openInTabClosesMenu", false);
 // Hide mobile bookmarks folder
 // Скрыть папку Мобильные закладки
 user_pref("browser.bookmarks.showMobileBookmarks", false);
-// Set Enhanced Tracking Protection to "Standard"
-// Установить блокировку содержимого на "Стандартная"
-user_pref("browser.contentblocking.category", "standard");
 // Turn off Content Blocker notification
 // Не отображать уведомление о блокировке содержимого
 user_pref("browser.contentblocking.introCount", 20);
-// Turn on Ctrl+Tab cycle through recently used tabs
-// Включить переключение по Ctrl+Tab между вкладками в порядке недавнего использования
-user_pref("browser.ctrlTab.recentlyUsedOrder", true);
 // Do not auto-hide Downloads button in toolbar
 // Не скрывать кнопку "Загрузки" на панели инструментов
 user_pref("browser.download.autohideButton", false);
@@ -58,9 +52,6 @@ user_pref("browser.newtabpage.activity-stream.topSitesRows", 4);
 // Show search suggestions in Private Windows
 // Отображать поисковые предложения в Приватных вкладках
 user_pref("browser.search.suggest.enabled.private", true);
-// Do not add search bar in toolbar
-// Не добавлять панель поиска на панель инструментов
-user_pref("browser.search.widget.inNavBar", false);
 // Set number of saved closed tabs on 20
 // Установить количество закрытых вкладок для восстановления на 20
 user_pref("browser.sessionstore.max_tabs_undo", 20);
@@ -103,9 +94,6 @@ user_pref("browser.urlbar.decodeURLsOnCopy", true);
 // Turn on lazy loading for images (75)
 // Включить отложенную загрузку для изображений (75)
 // user_pref("dom.dom.image-lazy-loading.enabled", true);
-// Require user gestures for requesting push notifications
-// Запрашивать разрешение на отправку пуш-уведомлений
-user_pref("dom.webnotifications.requireuserinteraction", true);
 // Run extensions in Private browsing mode
 // Запускать дополнения в приватном режиме
 user_pref("extensions.allowPrivateBrowsingByDefault", true);
@@ -124,9 +112,6 @@ user_pref("general.autoScroll", false);
 // Do not select when double-clicking text the space following the text
 // Не выделять при выделении слова двойным нажатием идущий за ним пробел
 user_pref("layout.word_select.eat_space_to_next_word", false);
-// Turn on picture-in-picture video controls
-// Включить режим "картинка в картинке"
-user_pref("media.videocontrols.picture-in-picture.video-toggle.enabled", true);
 // Set automatic proxy configuration URL on https://antizapret.prostovpn.org/proxy.pac
 // Установить URL автоматической настройки прокси на https://antizapret.prostovpn.org/proxy.pac
 user_pref("network.proxy.autoconfig_url", "https://antizapret.prostovpn.org/proxy.pac");
