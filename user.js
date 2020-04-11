@@ -4,6 +4,9 @@ user_pref("accessibility.typeaheadfind", true);
 // Turn on notifications to show in Windows 10 Action Center
 // Включить интеграцию с центром уведомлений Windows 10
 user_pref("alerts.useSystemBackend", true);
+// Allow Firefox to install and run studies
+// Разрешить Firefox устанавливать и проводить исследования
+user_pref("app.shield.optoutstudies.enabled", true);
 // Do not show about:config warning message
 // Не предупреждать при заходе на about:config
 user_pref("browser.aboutConfig.showWarning", false);
@@ -91,9 +94,12 @@ user_pref("browser.uidensity", 2);
 // Decode copied URLs, containing UTF8 symbols
 // Декодировать URL, содержащий UTF8-символы
 user_pref("browser.urlbar.decodeURLsOnCopy", true);
-// Turn on lazy loading for images (75)
-// Включить отложенную загрузку для изображений (75)
-// user_pref("dom.dom.image-lazy-loading.enabled", true);
+// Turn off "Firefox Default Browser Agent"
+// Отключить "Firefox Default Browser Agent"
+user_pref("default-browser-agent.enabled", false);
+// Turn on lazy loading for images
+// Включить отложенную загрузку для изображений
+user_pref("dom.dom.image-lazy-loading.enabled", true);
 // Run extensions in Private browsing mode
 // Запускать дополнения в приватном режиме
 user_pref("extensions.allowPrivateBrowsingByDefault", true);
