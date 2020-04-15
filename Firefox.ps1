@@ -27,6 +27,6 @@ Else
 	)
 	Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList $extensions
 }
-# Turn off "Firefox Default Browser Agent*" scheduled task
-# Отключить запланированную задачу "Firefox Default Browser Agent"
-Get-ScheduledTask -TaskName "Firefox Default Browser Agent*" | Disable-ScheduledTask
+# Turn off all scheduled tasks in Mozilla folder
+# Отключить все запланированные задачи в папке Mozilla
+Get-ScheduledTask -TaskPath "\Mozilla\" | Disable-ScheduledTask
