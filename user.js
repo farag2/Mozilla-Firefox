@@ -134,6 +134,9 @@ user_pref("privacy.sanitize.timeSpan", 0);
 // Turn off Firefox starting automatically after Windows 10 restart
 // Выключить автоматическое восстановление сеанса после перезапуска Windows 10
 user_pref("toolkit.winRegisterApplicationRestart", false);
+// Show indicators on saved logins that are re-using those breached passwords
+// Показать индикаторы на сохраненных логинах, которые повторно используют эти скомпрометированные пароли
+user_pref("signon.management.page.vulnerable-passwords.enabled", true);
 // Turn on userChrome.css and userContent.css support
 // Включить загрузку userChrome.css и userContent.css
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
