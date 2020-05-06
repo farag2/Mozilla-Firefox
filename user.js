@@ -115,6 +115,9 @@ user_pref("findbar.highlightAll", true);
 // Use smooth scrolling
 // Использовать плавную прокрутку
 user_pref("general.autoScroll", false);
+// Turn on AVIF support (77)
+// Включить поддержку AVIF (77)
+// user_pref("image.avif.enabled", true);
 // Do not select when double-clicking text the space following the text
 // Не выделять при выделении слова двойным нажатием идущий за ним пробел
 user_pref("layout.word_select.eat_space_to_next_word", false);
@@ -140,3 +143,9 @@ user_pref("signon.management.page.vulnerable-passwords.enabled", true);
 // Turn on userChrome.css and userContent.css support
 // Включить загрузку userChrome.css и userContent.css
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+// Turn on Video Acceleration API. For display server based on Wayland
+// Включить Video Acceleration API (VA-API). В окружениях на базе Wayland
+// user_pref("widget.wayland-dmabuf-vaapi.enabled", true);
+// Turn on FFmpegDataDecoder. For display server based on Wayland
+// Включить FFmpegDataDecoder. В окружениях на базе Wayland
+// user_pref("widget.wayland-dmabuf-webgl.enabled", true);
