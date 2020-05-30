@@ -134,18 +134,21 @@ user_pref("privacy.donottrackheader.enabled", true);
 // Set time range to clear to "Everything"
 // Выбрать "Удалить всё" при удаление истории
 user_pref("privacy.sanitize.timeSpan", 0);
-// Turn off Firefox starting automatically after Windows 10 restart
-// Выключить автоматическое восстановление сеанса после перезапуска Windows 10
-user_pref("toolkit.winRegisterApplicationRestart", false);
+// Turn on UI customizations sync
+// Включить синхронизацию кастомизации интерфейса
+user_pref("services.sync.prefs.sync.browser.uiCustomization.state", true);
 // Show indicators on saved logins that are re-using those breached passwords
 // Показать индикаторы на сохраненных логинах, которые повторно используют эти скомпрометированные пароли
 user_pref("signon.management.page.vulnerable-passwords.enabled", true);
 // Turn on userChrome.css and userContent.css support
 // Включить загрузку userChrome.css и userContent.css
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
-// Turn on Video Acceleration API. For display server based on Wayland
-// Включить Video Acceleration API (VA-API). В окружениях на базе Wayland
+// Turn off Firefox starting automatically after Windows 10 restart
+// Выключить автоматическое восстановление сеанса после перезапуска Windows 10
+user_pref("toolkit.winRegisterApplicationRestart", false);
+// Turn on Video Acceleration API (VA-API). For desktop environment based on Wayland
+// Включить Video Acceleration API (VA-API). Для окружений на базе Wayland
 // user_pref("widget.wayland-dmabuf-vaapi.enabled", true);
 // Turn on FFmpegDataDecoder. For display server based on Wayland
-// Включить FFmpegDataDecoder. В окружениях на базе Wayland
+// Включить FFmpegDataDecoder. Для окружений на базе Wayland
 // user_pref("widget.wayland-dmabuf-webgl.enabled", true);
