@@ -3,6 +3,7 @@
 Always up-to-date configuration file for Mozilla Firefox
 
 ## Configured toolbar
+
 ![Configured toolbar](https://github.com/farag2/Mozilla-Firefox/blob/master/Screenshots/Toolbar.png)
 
 [Pre-configured One Clicked Search Engines](https://github.com/farag2/Mozilla-Firefox/blob/master/search.json.mozlz4)
