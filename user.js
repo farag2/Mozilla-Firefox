@@ -183,9 +183,9 @@ user_pref("privacy.donottrackheader.enabled", true);
 // Выбрать "Удалить всё" при удаление истории
 user_pref("privacy.sanitize.timeSpan", 0);
 
-// Prompts should be tab modal by default
-// Привязывать модальные диалоги по умолчанию ко вкладкам
-user_pref("prompts.defaultModalType", 2);
+// Prompts should be window modal by default
+// Привязывать модальные диалоги по умолчанию к окну
+user_pref("prompts.defaultModalType", 3);
 
 // Turn on UI customizations sync
 // Включить синхронизацию кастомизации интерфейса
