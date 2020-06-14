@@ -26,6 +26,10 @@ user_pref("browser.bookmarks.showMobileBookmarks", false);
 // Не отображать уведомление о блокировке содержимого
 user_pref("browser.contentblocking.introCount", 20);
 
+// Do not allow Firefox to make prezonalized extension recommendations
+// Не разрешать Firefox давать персональные рекомендации расширений
+user_pref("browser.discovery.enabled", false);
+
 // Do not auto-hide Downloads button in toolbar
 // Не скрывать кнопку "Загрузки" на панели инструментов
 user_pref("browser.download.autohideButton", false);
