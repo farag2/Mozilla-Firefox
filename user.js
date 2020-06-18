@@ -130,6 +130,10 @@ user_pref("browser.uidensity", 2);
 // Декодировать URL, содержащий UTF8-символы
 user_pref("browser.urlbar.decodeURLsOnCopy", true);
 
+// Do not send search term via ISP's DNS server (79)
+// Не отправлять поисковый запрос через DNS-сервер провайдера (79)
+// user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
+
 // Turn off "Firefox Default Browser Agent"
 // Отключить "Firefox Default Browser Agent"
 user_pref("default-browser-agent.enabled", false);
