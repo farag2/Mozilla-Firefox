@@ -1,19 +1,20 @@
 # Close Firefox
-$firefox = Get-Process -Name firefox -ErrorAction SilentlyContinue
+# Закрыть Firefox
+$firefox = Get-Process -Name firefox -ErrorAction Ignore
 if ($firefox)
 {
 	$firefox.CloseMainWindow()
 }
 Start-Sleep -Seconds 1
 
-# Configure Toolbar
-# Настроить панель инструментов
+# Configuring Toolbar
+# Настраиваем панель инструментов
 
 # Getting profile name
 # Получаем имя профиля
 $String = Get-Content -Path "$env:APPDATA\Mozilla\Firefox\installs.ini" | Select-String -Pattern "Default="
 $Folder = Split-Path -Path $String -Leaf
- 
+
 $prefsjs = "$env:APPDATA\Mozilla\Firefox\Profiles\$Folder\prefs.js"
 
 # Finding, where the Toolbar settings store
@@ -28,7 +29,7 @@ $Substring = $String2.Substring(44)
 # Deleting the last 3 characters to delete '");'
 # Удаляем в строке последние 3 символа, чтобы отбросить '");'
 [Object]$QuickJson = $Substring.Substring(0,$Substring.Length-3)
- 
+
 [object]$JSON = ConvertFrom-Json -InputObject $QuickJson
 # The necessary buttons sequence
 # Необходимая последовательность кнопок
@@ -60,11 +61,11 @@ $ConfiguredJSON = $JSON | ConvertTo-Json -Depth 10
 # Replacing all '"' with '\"', as it was
 # Заменяем все '"' на '\"', как было
 $ConfiguredString = $ConfiguredJSON.replace('"', '\"').ToString()
- 
+
 # Replace the entire string with the result
 # Заменяем всю строку на полученный результат
 $replace = "user_pref(`"browser.uiCustomization.state`", `"$ConfiguredString`");"
-(Get-Content -Path $prefsjs).replace($String, $replace) | Set-Content $prefsjs -Force 
+(Get-Content -Path $prefsjs).replace($String, $replace) | Set-Content $prefsjs -Force
 
 # Check whether extensions installed
 # Проверить, установлены ли расширения
