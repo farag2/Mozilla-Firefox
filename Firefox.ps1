@@ -13,9 +13,9 @@ Start-Sleep -Seconds 1
 # Getting profile name
 # Получаем имя профиля
 $String = Get-Content -Path "$env:APPDATA\Mozilla\Firefox\installs.ini" | Select-String -Pattern "Default="
-$Folder = Split-Path -Path $String -Leaf
+$Profile = Split-Path -Path $String -Leaf
 
-$prefsjs = "$env:APPDATA\Mozilla\Firefox\Profiles\$Folder\prefs.js"
+$prefsjs = "$env:APPDATA\Mozilla\Firefox\Profiles\$Profile\prefs.js"
 
 # Finding, where the Toolbar settings store
 # Находим строку, где хранятся настройки панели управления
@@ -69,17 +69,23 @@ $replace = "user_pref(`"browser.uiCustomization.state`", `"$ConfiguredString`");
 
 # Check whether extensions installed
 # Проверить, установлены ли расширения
-$uBlockOrigin = Get-Item -Path $env:APPDATA\Mozilla\Firefox\Profiles\*default*\extensions\uBlock0@raymondhill.net.xpi
-$DefaultBookmarkFolder = Get-Item -Path $env:APPDATA\Mozilla\Firefox\Profiles\*default*\extensions\default-bookmark-folder@gustiaux.com.xpi
+$uBlockOrigin = Get-Item -Path $env:APPDATA\Mozilla\Firefox\Profiles\$Profile\extensions\uBlock0@raymondhill.net.xpi
+$DefaultBookmarkFolder = Get-Item -Path $env:APPDATA\Mozilla\Firefox\Profiles\$Profile\extensions\default-bookmark-folder@gustiaux.com.xpi
+$TranslateWebPages = Get-Item -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$Profile\extensions\{036a55b4-5e72-4d05-a06c-cba2dfcc134a}.xpi"
 if (-not ($uBlockOrigin))
 {
 	# uBlock Origin
-	Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList "https://addons.mozilla.org/ru/firefox/addon/ublock-origin/"
+	Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList "https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/"
 }
 if (-not ($DefaultBookmarkFolder))
 {
 	# Default Bookmark Folder
-	Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList "https://addons.mozilla.org/ru/firefox/addon/default-bookmark-folder/"
+	Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList "https://addons.mozilla.org/en-US/firefox/addon/default-bookmark-folder/"
+}
+if (-not ($TranslateWebPages))
+{
+	# Default Bookmark Folder
+	Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList "https://addons.mozilla.org/en-US/firefox/addon/traduzir-paginas-web/"
 }
 
 # Turn off all scheduled tasks in Mozilla folder
