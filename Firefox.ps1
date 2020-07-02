@@ -80,7 +80,7 @@ if (-not ($DefaultBookmarkFolder))
 }
 if (-not ($TranslateWebPages))
 {
-	# Default Bookmark Folder
+	# Translate Web Pages
 	Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList "https://addons.mozilla.org/en-US/firefox/addon/traduzir-paginas-web/"
 }
 
