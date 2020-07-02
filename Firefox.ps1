@@ -63,27 +63,6 @@ $ConfiguredString = $ConfiguredJSON.replace('"', '\"').ToString()
 $replace = "user_pref(`"browser.uiCustomization.state`", `"$ConfiguredString`");"
 (Get-Content -Path $prefsjs).replace($String, $replace) | Set-Content $prefsjs -Force
 
-# Check whether extensions installed
-# Проверить, установлены ли расширения
-$uBlockOrigin = Get-Item -Path $env:APPDATA\Mozilla\Firefox\Profiles\$Profile\extensions\uBlock0@raymondhill.net.xpi -ErrorAction Ignore
-$DefaultBookmarkFolder = Get-Item -Path $env:APPDATA\Mozilla\Firefox\Profiles\$Profile\extensions\default-bookmark-folder@gustiaux.com.xpi -ErrorAction Ignore
-$TranslateWebPages = Get-Item -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$Profile\extensions\{036a55b4-5e72-4d05-a06c-cba2dfcc134a}.xpi" -ErrorAction Ignore
-if (-not ($uBlockOrigin))
-{
-	# uBlock Origin
-	Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList "https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/"
-}
-if (-not ($DefaultBookmarkFolder))
-{
-	# Default Bookmark Folder
-	Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList "https://addons.mozilla.org/en-US/firefox/addon/default-bookmark-folder/"
-}
-if (-not ($TranslateWebPages))
-{
-	# Translate Web Pages
-	Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList "https://addons.mozilla.org/en-US/firefox/addon/traduzir-paginas-web/"
-}
-
 # Turn off all scheduled tasks in Mozilla folder
 # Отключить все запланированные задачи в папке Mozilla
 Get-ScheduledTask -TaskPath "\Mozilla\" | Disable-ScheduledTask
@@ -115,3 +94,24 @@ $Parameters = @{
 	Verbose = [switch]::Present
 }
 Invoke-WebRequest @Parameters
+
+# Check whether extensions installed
+# Проверить, установлены ли расширения
+$uBlockOrigin = Get-Item -Path $env:APPDATA\Mozilla\Firefox\Profiles\$Profile\extensions\uBlock0@raymondhill.net.xpi -ErrorAction Ignore
+$DefaultBookmarkFolder = Get-Item -Path $env:APPDATA\Mozilla\Firefox\Profiles\$Profile\extensions\default-bookmark-folder@gustiaux.com.xpi -ErrorAction Ignore
+$TranslateWebPages = Get-Item -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$Profile\extensions\{036a55b4-5e72-4d05-a06c-cba2dfcc134a}.xpi" -ErrorAction Ignore
+if (-not ($uBlockOrigin))
+{
+	# uBlock Origin
+	Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList "https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/"
+}
+if (-not ($DefaultBookmarkFolder))
+{
+	# Default Bookmark Folder
+	Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList "https://addons.mozilla.org/en-US/firefox/addon/default-bookmark-folder/"
+}
+if (-not ($TranslateWebPages))
+{
+	# Translate Web Pages
+	Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList "https://addons.mozilla.org/en-US/firefox/addon/traduzir-paginas-web/"
+}
