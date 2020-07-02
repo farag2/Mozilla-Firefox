@@ -1,4 +1,3 @@
-cls
 # Close Firefox
 # Закрыть Firefox
 Get-Process -Name firefox -ErrorAction Ignore | Stop-Process -Force
@@ -88,3 +87,31 @@ if (-not ($TranslateWebPages))
 # Turn off all scheduled tasks in Mozilla folder
 # Отключить все запланированные задачи в папке Mozilla
 Get-ScheduledTask -TaskPath "\Mozilla\" | Disable-ScheduledTask
+
+# Download files
+# Скачать файлы
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+$Parameters = @{
+	Uri = "https://github.com/farag2/Mozilla-Firefox/raw/master/search.json.mozlz4"
+	OutFile = "$env:APPDATA\Mozilla\Firefox\Profiles\$Profile\search.json.mozlz4"
+	Verbose = [switch]::Present
+}
+Invoke-WebRequest @Parameters
+
+$Parameters = @{
+	Uri = "https://raw.githubusercontent.com/farag2/Mozilla-Firefox/master/user.js"
+	OutFile = "$env:APPDATA\Mozilla\Firefox\Profiles\$Profile\user.js"
+	Verbose = [switch]::Present
+}
+Invoke-WebRequest @Parameters
+
+if (-not (Test-Path -Path $env:APPDATA\Mozilla\Firefox\Profiles\$Profile\chrome))
+{
+	New-Item -Path $env:APPDATA\Mozilla\Firefox\Profiles\$Profile\chrome -ItemType Directory -Force
+}
+$Parameters = @{
+	Uri = "https://raw.githubusercontent.com/farag2/Mozilla-Firefox/master/chrome/userChrome.css"
+	OutFile = "$env:APPDATA\Mozilla\Firefox\Profiles\$Profile\chrome\userChrome.css"
+	Verbose = [switch]::Present
+}
+Invoke-WebRequest @Parameters
