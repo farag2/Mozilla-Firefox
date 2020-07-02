@@ -1,10 +1,7 @@
+cls
 # Close Firefox
 # Закрыть Firefox
-$firefox = Get-Process -Name firefox -ErrorAction Ignore
-if ($firefox)
-{
-	$firefox.CloseMainWindow()
-}
+Get-Process -Name firefox -ErrorAction Ignore | Stop-Process -Force
 Start-Sleep -Seconds 1
 
 # Configuring Toolbar
@@ -69,9 +66,9 @@ $replace = "user_pref(`"browser.uiCustomization.state`", `"$ConfiguredString`");
 
 # Check whether extensions installed
 # Проверить, установлены ли расширения
-$uBlockOrigin = Get-Item -Path $env:APPDATA\Mozilla\Firefox\Profiles\$Profile\extensions\uBlock0@raymondhill.net.xpi
-$DefaultBookmarkFolder = Get-Item -Path $env:APPDATA\Mozilla\Firefox\Profiles\$Profile\extensions\default-bookmark-folder@gustiaux.com.xpi
-$TranslateWebPages = Get-Item -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$Profile\extensions\{036a55b4-5e72-4d05-a06c-cba2dfcc134a}.xpi"
+$uBlockOrigin = Get-Item -Path $env:APPDATA\Mozilla\Firefox\Profiles\$Profile\extensions\uBlock0@raymondhill.net.xpi -ErrorAction Ignore
+$DefaultBookmarkFolder = Get-Item -Path $env:APPDATA\Mozilla\Firefox\Profiles\$Profile\extensions\default-bookmark-folder@gustiaux.com.xpi -ErrorAction Ignore
+$TranslateWebPages = Get-Item -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$Profile\extensions\{036a55b4-5e72-4d05-a06c-cba2dfcc134a}.xpi" -ErrorAction Ignore
 if (-not ($uBlockOrigin))
 {
 	# uBlock Origin
