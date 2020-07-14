@@ -174,10 +174,21 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 // Включить открытие ссылки в новой вкладки по нажатию на СКМ
 user_pref("middlemouse.openNewWindow", true);
 
-// Set automatic proxy configuration URL on https://antizapret.prostovpn.org/proxy.pac
-// Установить URL автоматической настройки прокси на https://antizapret.prostovpn.org/proxy.pac
+// Set automatic proxy configuration URL
+// Установить URL автоматической настройки прокси
 user_pref("network.proxy.autoconfig_url", "https://antizapret.prostovpn.org/proxy.pac");
 user_pref("network.proxy.type", 2);
+
+// https://wiki.mozilla.org/Trusted_Recursive_Resolver
+// Make DoH the browser's first choice but use regular DNS as a fallback
+// DoH используется по умолчанию, а стандартный DNS-сервер используется в качестве резервного
+user_pref("network.trr.mode", 2);
+// The URI for DoH server
+// URI для DoH-сервера 
+user_pref("network.trr.uri", "https://1.1.1.1/dns-query");
+// Set the IP address of the host name used in "network.trr.uri", to bypass using the system native resolver for it
+// Установить IP-адрес, используемого в "network.trr.uri", чтобы исключить использование системного резольвера
+user_pref("network.trr.bootstrapAddress", "1.1.1.1");
 
 // Block new requests asking to allow notifications
 // Блокировать новые запросы на отправку уведомлений
