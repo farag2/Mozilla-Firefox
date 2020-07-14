@@ -1,4 +1,4 @@
-# Close Firefox
+﻿# Close Firefox
 # Закрыть Firefox
 Get-Process -Name firefox -ErrorAction Ignore | Stop-Process -Force
 Start-Sleep -Seconds 1
@@ -18,7 +18,7 @@ $prefsjs = "$env:APPDATA\Mozilla\Firefox\Profiles\$Profile\prefs.js"
 $String = Get-Content -Path $prefsjs | Select-String -Pattern "browser.uiCustomization.state" -SimpleMatch
 # Deleting all "\" in the string
 # Удаляем в строке все "\"
-$String2 = ($String).Tostring().replace("\", "")
+$String2 = $String.ToString().Replace("\", "")
 # Deleting the first 44 characters to delete 'user_pref("browser.uiCustomization.state", "'
 # Удаляем в строке первые 44 символа, чтобы отбросить 'user_pref("browser.uiCustomization.state", "'
 $Substring = $String2.Substring(44)
@@ -61,7 +61,7 @@ $ConfiguredString = $ConfiguredJSON.replace('"', '\"').ToString()
 # Replace the entire string with the result
 # Заменяем всю строку на полученный результат
 $replace = "user_pref(`"browser.uiCustomization.state`", `"$ConfiguredString`");"
-(Get-Content -Path $prefsjs).replace($String, $replace) | Set-Content $prefsjs -Force
+(Get-Content -Path $prefsjs).Replace($String, $replace) | Set-Content -Path $prefsjs -Force
 
 # Turn off all scheduled tasks in Mozilla folder
 # Отключить все запланированные задачи в папке Mozilla
@@ -83,6 +83,7 @@ $Parameters = @{
 	Verbose = [switch]::Present
 }
 Invoke-WebRequest @Parameters
+Start-Process -FilePath "$env:APPDATA\Mozilla\Firefox\Profiles\$Profile"
 
 if (-not (Test-Path -Path $env:APPDATA\Mozilla\Firefox\Profiles\$Profile\chrome))
 {
