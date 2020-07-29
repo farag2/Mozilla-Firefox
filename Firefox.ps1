@@ -9,9 +9,9 @@ Start-Sleep -Seconds 1
 # Getting profile name
 # Получаем имя профиля
 $String = Get-Content -Path "$env:APPDATA\Mozilla\Firefox\installs.ini" | Select-String -Pattern "Default="
-$Profile = Split-Path -Path $String -Leaf
+$ProfileName = Split-Path -Path $String -Leaf
 
-$prefsjs = "$env:APPDATA\Mozilla\Firefox\Profiles\$Profile\prefs.js"
+$prefsjs = "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\prefs.js"
 
 # Finding, where the Toolbar settings store
 # Находим строку, где хранятся настройки панели управления
@@ -67,52 +67,53 @@ $replace = "user_pref(`"browser.uiCustomization.state`", `"$ConfiguredString`");
 # Отключить все запланированные задачи в папке Mozilla
 Get-ScheduledTask -TaskPath "\Mozilla\" | Disable-ScheduledTask
 
-# Download files
-# Скачать файлы
+# Download search.json.mozlz4
+# Скачать search.json.mozlz4
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 $Parameters = @{
 	Uri = "https://github.com/farag2/Mozilla-Firefox/raw/master/search.json.mozlz4"
-	OutFile = "$env:APPDATA\Mozilla\Firefox\Profiles\$Profile\search.json.mozlz4"
+	OutFile = "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\search.json.mozlz4"
 	Verbose = [switch]::Present
 }
 Invoke-WebRequest @Parameters
 
+# Download user.js
+# Скачать user.js
 $Parameters = @{
 	Uri = "https://raw.githubusercontent.com/farag2/Mozilla-Firefox/master/user.js"
-	OutFile = "$env:APPDATA\Mozilla\Firefox\Profiles\$Profile\user.js"
+	OutFile = "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\user.js"
 	Verbose = [switch]::Present
 }
 Invoke-WebRequest @Parameters
-Start-Process -FilePath "$env:APPDATA\Mozilla\Firefox\Profiles\$Profile"
+Start-Process -FilePath $env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName
 
-if (-not (Test-Path -Path $env:APPDATA\Mozilla\Firefox\Profiles\$Profile\chrome))
+# Download userChrome.css
+# Скачать userChrome.css
+if (-not (Test-Path -Path $env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\chrome))
 {
-	New-Item -Path $env:APPDATA\Mozilla\Firefox\Profiles\$Profile\chrome -ItemType Directory -Force
+	New-Item -Path $env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\chrome -ItemType Directory -Force
 }
 $Parameters = @{
 	Uri = "https://raw.githubusercontent.com/farag2/Mozilla-Firefox/master/chrome/userChrome.css"
-	OutFile = "$env:APPDATA\Mozilla\Firefox\Profiles\$Profile\chrome\userChrome.css"
+	OutFile = "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\chrome\userChrome.css"
 	Verbose = [switch]::Present
 }
 Invoke-WebRequest @Parameters
 
 # Check whether extensions installed
 # Проверить, установлены ли расширения
-$uBlockOrigin = Get-Item -Path $env:APPDATA\Mozilla\Firefox\Profiles\$Profile\extensions\uBlock0@raymondhill.net.xpi -ErrorAction Ignore
-$DefaultBookmarkFolder = Get-Item -Path $env:APPDATA\Mozilla\Firefox\Profiles\$Profile\extensions\default-bookmark-folder@gustiaux.com.xpi -ErrorAction Ignore
-$TranslateWebPages = Get-Item -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$Profile\extensions\{036a55b4-5e72-4d05-a06c-cba2dfcc134a}.xpi" -ErrorAction Ignore
-if (-not ($uBlockOrigin))
-{
+$Extensions = @{
 	# uBlock Origin
-	Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList "https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/"
-}
-if (-not ($DefaultBookmarkFolder))
-{
+	"$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions\uBlock0@raymondhill.net.xpi" = "https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/"
 	# Default Bookmark Folder
-	Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList "https://addons.mozilla.org/en-US/firefox/addon/default-bookmark-folder/"
-}
-if (-not ($TranslateWebPages))
-{
+	"$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions\default-bookmark-folder@gustiaux.com.xpi" = "https://addons.mozilla.org/en-US/firefox/addon/default-bookmark-folder/"
 	# Translate Web Pages
-	Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList "https://addons.mozilla.org/en-US/firefox/addon/traduzir-paginas-web/"
+	"$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions\{036a55b4-5e72-4d05-a06c-cba2dfcc134a}.xpi" = "https://addons.mozilla.org/en-US/firefox/addon/traduzir-paginas-web/"
+}
+foreach ($Extension in $Extensions.Keys)
+{
+	if (-not (Test-Path -Path $Extension))
+	{
+		Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList $Extensions[$Extension]
+	}
 }
