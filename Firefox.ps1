@@ -8,17 +8,15 @@ Start-Sleep -Seconds 1
 
 # Getting profile name
 # Получаем имя профиля
-$String = Get-Content -Path "$env:APPDATA\Mozilla\Firefox\installs.ini" | Select-String -Pattern "Default="
+$String = (Get-Content -Path "$env:APPDATA\Mozilla\Firefox\installs.ini" | Select-String -Pattern "^\s*Default\s*=\s*.+" | ConvertFrom-StringData).Default
 $ProfileName = Split-Path -Path $String -Leaf
 
-$prefsjs = "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\prefs.js"
-
-# Finding, where the Toolbar settings store
+# Finding where the Toolbar settings store are
 # Находим строку, где хранятся настройки панели управления
-$String = Get-Content -Path $prefsjs | Select-String -Pattern "browser.uiCustomization.state" -SimpleMatch
+[string]$String = Get-Content -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\prefs.js" | Select-String -Pattern "browser.uiCustomization.state" -SimpleMatch
 # Deleting all "\" in the string
 # Удаляем в строке все "\"
-$String2 = $String.ToString().Replace("\", "")
+$String2 = $String.Replace("\", "")
 # Deleting the first 44 characters to delete 'user_pref("browser.uiCustomization.state", "'
 # Удаляем в строке первые 44 символа, чтобы отбросить 'user_pref("browser.uiCustomization.state", "'
 $Substring = $String2.Substring(44)
@@ -56,7 +54,7 @@ $JSON.placements.'nav-bar' = $NavBar
 $ConfiguredJSON = $JSON | ConvertTo-Json -Depth 10
 # Replacing all '"' with '\"', as it was
 # Заменяем все '"' на '\"', как было
-$ConfiguredString = $ConfiguredJSON.replace('"', '\"').ToString()
+$ConfiguredString = $ConfiguredJSON.Replace('"', '\"').ToString()
 
 # Replace the entire string with the result
 # Заменяем всю строку на полученный результат
