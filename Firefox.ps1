@@ -13,18 +13,22 @@ $ProfileName = Split-Path -Path $String -Leaf
 
 # Finding where the Toolbar settings store are
 # Находим строку, где хранятся настройки панели управления
-[string]$String = Get-Content -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\prefs.js" | Select-String -Pattern "browser.uiCustomization.state" -SimpleMatch
+[string]$String = Get-Content -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\prefs.js" | Select-String -Pattern `""browser.uiCustomization.state"`" -SimpleMatch
+
 # Deleting all "\" in the string
 # Удаляем в строке все "\"
 $String2 = $String.Replace("\", "")
+
 # Deleting the first 44 characters to delete 'user_pref("browser.uiCustomization.state", "'
 # Удаляем в строке первые 44 символа, чтобы отбросить 'user_pref("browser.uiCustomization.state", "'
 $Substring = $String2.Substring(44)
+
 # Deleting the last 3 characters to delete '");'
 # Удаляем в строке последние 3 символа, чтобы отбросить '");'
 [Object]$QuickJson = $Substring.Substring(0,$Substring.Length-3)
 
-[object]$JSON = ConvertFrom-Json -InputObject $QuickJson
+[Object]$JSON = ConvertFrom-Json -InputObject $QuickJson
+
 # The necessary buttons sequence
 # Необходимая последовательность кнопок
 $NavBar = (
@@ -52,14 +56,16 @@ $NavBar = (
 )
 $JSON.placements.'nav-bar' = $NavBar
 $ConfiguredJSON = $JSON | ConvertTo-Json -Depth 10
+
 # Replacing all '"' with '\"', as it was
 # Заменяем все '"' на '\"', как было
 $ConfiguredString = $ConfiguredJSON.Replace('"', '\"').ToString()
 
 # Replace the entire string with the result
 # Заменяем всю строку на полученный результат
-$replace = "user_pref(`"browser.uiCustomization.state`", `"$ConfiguredString`");"
-(Get-Content -Path $prefsjs).Replace($String, $replace) | Set-Content -Path $prefsjs -Force
+$prefsjs = "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\prefs.js"
+$Replace = "user_pref(`"browser.uiCustomization.state`", `"$ConfiguredString`");"
+(Get-Content -Path $prefsjs).Replace($String, $Replace) | Set-Content -Path $prefsjs -Force
 
 # Turn off all scheduled tasks in Mozilla folder
 # Отключить все запланированные задачи в папке Mozilla
