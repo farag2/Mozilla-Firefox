@@ -4,9 +4,11 @@
 
 Always up-to-date configuration file for Mozilla Firefox
 
-## Configured toolbar
+## Configured toolbar via [Firefox.ps1](https://github.com/farag2/Mozilla-Firefox/blob/master/Firefox.ps1)
 
 ![Configured toolbar](https://i.imgur.com/dAZ47GX.png)
+
+## One Clicked Search Engines
 
 [Pre-configured One Clicked Search Engines](https://github.com/farag2/Mozilla-Firefox/blob/master/search.json.mozlz4)
 
@@ -16,9 +18,9 @@ Always up-to-date configuration file for Mozilla Firefox
 - NNM-Club
 - RuTracker.org
 
-Hide all items in Bookmarks menu
+## Bookmarks
 
-[userChrome.css](https://github.com/farag2/Mozilla-Firefox/blob/master/chrome/userChrome.css)
+Hide all items in Bookmarks menu via [userChrome.css](https://github.com/farag2/Mozilla-Firefox/blob/master/chrome/userChrome.css)
 
 ![Hide all items on the Bookmarks menu](https://i.imgur.com/mGwlMVT.png)
 
