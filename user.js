@@ -42,6 +42,10 @@ user_pref("browser.engagement.total_uri_count.pbm", false);
 // Скрыть "Последнее Избранное" в Библиотеки
 user_pref("browser.library.activity-stream.enabled", false);
 
+// Do not notify about new features
+// Не уведомлять о новых функциях Firefox
+user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
+
 // Turn off recommended extensions
 // Отключить рекомендации расширений
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr", false);
@@ -73,6 +77,10 @@ user_pref("browser.newtabpage.activity-stream.section.highlights.rows", 4);
 // Show Top Sites in 4 rows
 // Отобразить топ сайтов в 4 столбца
 user_pref("browser.newtabpage.activity-stream.topSitesRows", 4);
+
+// Turn on "Firefox Experiments" settings page
+// Включить раздел "Эксперименты Firefox" в настройках
+user_pref("browser.preferences.experimental", true);
 
 // Show search suggestions in Private Windows
 // Отображать поисковые предложения в Приватных вкладках
@@ -170,6 +178,10 @@ user_pref("image.avif.enabled", true);
 // Не выделять при выделении слова двойным нажатием идущий за ним пробел
 user_pref("layout.word_select.eat_space_to_next_word", false);
 
+// Turn on media cotrol (81)
+// Включить элементы управления мультимедиа (81)
+user_pref("media.hardwaremediakeys.enabled", true);
+
 // Turn on MMB for openning link a new tab
 // Включить открытие ссылки в новой вкладки по нажатию на СКМ
 user_pref("middlemouse.openNewWindow", true);
@@ -185,7 +197,7 @@ user_pref("network.proxy.type", 2);
 user_pref("network.trr.mode", 2);
 // The URI for DoH server
 // URI для DoH-сервера 
-user_pref("network.trr.uri", "https://1.1.1.1/dns-query");
+user_pref("network.trr.uri", "https://mozilla.cloudflare-dns.com/dns-query");
 // Set the IP address of the host name used in "network.trr.uri", to bypass using the system native resolver for it
 // Установить IP-адрес, используемого в "network.trr.uri", чтобы исключить использование системного резольвера
 user_pref("network.trr.bootstrapAddress", "1.1.1.1");
