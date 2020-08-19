@@ -12,7 +12,7 @@ Always up-to-date configuration file for Mozilla Firefox
 - Download [user.js](https://github.com/farag2/Mozilla-Firefox/blob/master/user.js)
 - Hide all items in Bookmarks menu via [userChrome.css](https://github.com/farag2/Mozilla-Firefox/blob/master/chrome/userChrome.css)
   - ![Image](https://i.imgur.com/mGwlMVT.png)
-- # Check whether extensions installed
+- Check whether extensions installed
 
 ## One Clicked Search Engines
 
