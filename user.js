@@ -136,6 +136,7 @@ user_pref("browser.uidensity", 2);
 
 // Decode copied URLs, containing UTF8 symbols
 // Декодировать URL, содержащий UTF8-символы
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1657526
 user_pref("browser.urlbar.decodeURLsOnCopy", true);
 
 // Do not send search term via ISP's DNS server
@@ -178,9 +179,9 @@ user_pref("image.avif.enabled", true);
 // Не выделять при выделении слова двойным нажатием идущий за ним пробел
 user_pref("layout.word_select.eat_space_to_next_word", false);
 
-// Turn on media cotrol (81)
+// Turn on media control (81)
 // Включить элементы управления мультимедиа (81)
-user_pref("media.hardwaremediakeys.enabled", true);
+// user_pref("media.hardwaremediakeys.enabled", true);
 
 // Turn on MMB for openning link a new tab
 // Включить открытие ссылки в новой вкладки по нажатию на СКМ
