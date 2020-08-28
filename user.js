@@ -137,6 +137,7 @@ user_pref("browser.uidensity", 2);
 // Decode copied URLs, containing UTF8 symbols
 // Декодировать URL, содержащий UTF8-символы
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1657526
+// http://forum.ru-board.com/topic.cgi?forum=5&topic=50414&start=3180#20
 user_pref("browser.urlbar.decodeURLsOnCopy", true);
 
 // Do not send search term via ISP's DNS server
