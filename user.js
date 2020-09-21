@@ -168,6 +168,11 @@ user_pref("extensions.pocket.enabled", false);
 // Включить подсветку при поиске текста на странице
 user_pref("findbar.highlightAll", true);
 
+// Enable site isolation (Project Fission) (82)
+// Вклчить режим строгой изоляции страниц (Project Fission) (82)
+// user_pref("fission.autostart", true);
+// user_pref("gfx.webrender.all", true);
+
 // Use smooth scrolling
 // Использовать плавную прокрутку
 user_pref("general.autoScroll", false);
@@ -182,7 +187,7 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 
 // Turn on media control (81)
 // Включить элементы управления мультимедиа (81)
-// user_pref("media.hardwaremediakeys.enabled", true);
+user_pref("media.hardwaremediakeys.enabled", true);
 
 // Turn on MMB for openning link a new tab
 // Включить открытие ссылки в новой вкладки по нажатию на СКМ
