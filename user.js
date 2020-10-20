@@ -168,8 +168,8 @@ user_pref("extensions.pocket.enabled", false);
 // Включить подсветку при поиске текста на странице
 user_pref("findbar.highlightAll", true);
 
-// Enable site isolation (Project Fission) (82)
-// Вклчить режим строгой изоляции страниц (Project Fission) (82)
+// Enable site isolation (Project Fission) (83)
+// Включить режим строгой изоляции страниц (Project Fission) (83)
 // user_pref("fission.autostart", true);
 // user_pref("gfx.webrender.all", true);
 
@@ -185,8 +185,8 @@ user_pref("image.avif.enabled", true);
 // Не выделять при выделении слова двойным нажатием идущий за ним пробел
 user_pref("layout.word_select.eat_space_to_next_word", false);
 
-// Turn on media control (81)
-// Включить элементы управления мультимедиа (81)
+// Turn on media control
+// Включить элементы управления мультимедиа
 user_pref("media.hardwaremediakeys.enabled", true);
 
 // Turn on MMB for openning link a new tab
