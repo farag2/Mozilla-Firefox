@@ -32,24 +32,34 @@ $Substring = $String2.Substring(44)
 # The necessary buttons sequence
 # Необходимая последовательность кнопок
 $NavBar = (
-	# Go back one page
-	# На предыдущую страницу
+	# Back
+	# Назад
 	"back-button",
-	# Go forward one page
-	# На следующую страницу
+
+	# Forward
+	# Вперед
 	"forward-button",
+
 	# Address bar
 	# Адресная строка
 	"urlbar-container",
-	# Firefox Home Page
-	# Домащняя страница Firefox
+
+	# Home
+	# Домой
 	"home-button",
-	# Reload Current Page
-	# Обновить текущую страницу
+
+	# Reload
+	# Обновить
 	"stop-reload-button",
-	# Show your bookmarks
-	# Показать ваши закладки
+
+	# Bookmarks menu
+	# Меню закладок
 	"bookmarks-menu-button",
+
+	# Show your bookmarks
+	# Загрузки
+	"downloads-button",
+
 	# Firefox Account
 	# Аккаунт Firefox
 	"fxa-toolbar-menu-button"
@@ -61,7 +71,7 @@ $ConfiguredJSON = $JSON | ConvertTo-Json -Depth 10
 # Заменяем все '"' на '\"', как было
 $ConfiguredString = $ConfiguredJSON.Replace('"', '\"').ToString()
 
-# Replace the entire string with the result
+# Replacing the entire string with the result
 # Заменяем всю строку на полученный результат
 $prefsjs = "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\prefs.js"
 $Replace = "user_pref(`"browser.uiCustomization.state`", `"$ConfiguredString`");"
