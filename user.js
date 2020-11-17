@@ -136,8 +136,6 @@ user_pref("browser.uidensity", 2);
 
 // Decode copied URLs, containing UTF8 symbols
 // Декодировать URL, содержащий UTF8-символы
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1657526
-// http://forum.ru-board.com/topic.cgi?forum=5&topic=50414&start=3180#20
 user_pref("browser.urlbar.decodeURLsOnCopy", true);
 
 // Do not send search term via ISP's DNS server
@@ -151,6 +149,10 @@ user_pref("default-browser-agent.enabled", false);
 // Turn on lazy loading for images
 // Включить отложенную загрузку для изображений
 user_pref("dom.dom.image-lazy-loading.enabled", true);
+
+// Enable HTTPS-Only Mode in all windows
+// Включить режим "Только HTTPS" во всех окнах
+// user_pref("dom.security.https_only_mode", true);
 
 // Run extensions in Private browsing mode
 // Запускать дополнения в приватном режиме
@@ -168,8 +170,8 @@ user_pref("extensions.pocket.enabled", false);
 // Включить подсветку при поиске текста на странице
 user_pref("findbar.highlightAll", true);
 
-// Enable site isolation (Project Fission) (83)
-// Включить режим строгой изоляции страниц (Project Fission) (83)
+// Enable site isolation (Project Fission) (84)
+// Включить режим строгой изоляции страниц (Project Fission) (84)
 // user_pref("fission.autostart", true);
 // user_pref("gfx.webrender.all", true);
 
