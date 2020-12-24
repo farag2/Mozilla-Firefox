@@ -79,7 +79,7 @@ $Replace = "user_pref(`"browser.uiCustomization.state`", `"$ConfiguredString`");
 
 # Turn off all scheduled tasks in Mozilla folder
 # Отключить все запланированные задачи в папке Mozilla
-Get-ScheduledTask -TaskPath "\Mozilla\" | Disable-ScheduledTask
+Get-ScheduledTask -TaskPath "\Mozilla\" -ErrorAction Ignore | Disable-ScheduledTask
 
 # Download search.json.mozlz4
 # Скачать search.json.mozlz4
