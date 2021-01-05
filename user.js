@@ -130,6 +130,11 @@ user_pref("browser.tabs.warnOnClose", false);
 // Отображать эскизы вкладок на панели задач
 user_pref("browser.taskbar.previews.enable", true);
 
+// Set the "Bookmarks menu" as default bookmark folder
+// Установить "Меню закладок" как папку по умочланию для закладок
+user_pref("browser.toolbars.bookmarks.2h2020", true);
+user_pref("browser.bookmarks.defaultLocation", "menu________");
+
 // Use touch density in toolbar
 // Включить мобильные значки на панели инструментов
 user_pref("browser.uidensity", 2);
@@ -170,8 +175,8 @@ user_pref("extensions.pocket.enabled", false);
 // Включить подсветку при поиске текста на странице
 user_pref("findbar.highlightAll", true);
 
-// Enable site isolation (Project Fission) (84)
-// Включить режим строгой изоляции страниц (Project Fission) (84)
+// Enable site isolation (Project Fission) (85)
+// Включить режим строгой изоляции страниц (Project Fission) (85)
 // user_pref("fission.autostart", true);
 // user_pref("gfx.webrender.all", true);
 
@@ -236,7 +241,7 @@ user_pref("services.sync.prefs.sync.browser.uiCustomization.state", true);
 user_pref("signon.management.page.vulnerable-passwords.enabled", true);
 
 // Turn on userChrome.css and userContent.css support
-// Включить загрузку userChrome.css и userContent.css
+// Включить поддержку userChrome.css и userContent.css
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
 // Turn off Firefox starting automatically after Windows 10 restart
