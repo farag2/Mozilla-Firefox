@@ -121,7 +121,7 @@ $Extensions = @{
 	"$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions\uBlock0@raymondhill.net.xpi" = "https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/"
 
 	# Default Bookmark Folder
-	"$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions\default-bookmark-folder@gustiaux.com.xpi" = "https://addons.mozilla.org/en-US/firefox/addon/default-bookmark-folder/"
+	# "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions\default-bookmark-folder@gustiaux.com.xpi" = "https://addons.mozilla.org/en-US/firefox/addon/default-bookmark-folder/"
 
 	# Translate Web Pages
 	"$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions\{036a55b4-5e72-4d05-a06c-cba2dfcc134a}.xpi" = "https://addons.mozilla.org/en-US/firefox/addon/traduzir-paginas-web/"
