@@ -12,7 +12,11 @@ user_pref("app.shield.optoutstudies.enabled", true);
 
 // Do not show about:config warning message
 // Не предупреждать при заходе на about:config
-user_pref("browser.aboutConfig.showWarning", false);
+user_pref("browser.aboutConfig.showWarning", false
+
+// Enable Backspace to go back to a previous web page (88)
+// Включить переход на предыдущую страницу по нажатию Backspace (88)
+// user_pref("browser.backspace_action", true);
 
 // Prevent bookmark menu and toolbar folder menu from closing when opening bookmark in a new tab
 // Отключить автозакрытие меню закладок после открытия закладки в новой вкладке
