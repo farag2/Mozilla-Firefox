@@ -188,8 +188,8 @@ user_pref("findbar.highlightAll", true);
 // Использовать плавную прокрутку
 user_pref("general.autoScroll", false);
 
-// Turn on AVIF support
-// Включить поддержку AVIF
+// Turn on AVIF support (86)
+// Включить поддержку AVIF (86)
 user_pref("image.avif.enabled", true);
 
 // Do not select when double-clicking text the space following the text
