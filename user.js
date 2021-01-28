@@ -239,6 +239,10 @@ user_pref("prompts.defaultModalType", 3);
 // Включить синхронизацию кастомизации интерфейса
 user_pref("services.sync.prefs.sync.browser.uiCustomization.state", true);
 
+// Enable the import of passwords as a CSV file on the about:logins page
+// Включить импорт паролей в виде CSV-файла на странице "about: logins" 
+user_pref("signon.management.page.fileImport.enabled", true);
+
 // Show indicators on saved logins that are re-using those breached passwords
 // Показать индикаторы на сохраненных логинах, которые повторно используют эти скомпрометированные пароли
 user_pref("signon.management.page.vulnerable-passwords.enabled", true);
