@@ -179,8 +179,8 @@ user_pref("extensions.pocket.enabled", false);
 // Включить подсветку при поиске текста на странице
 user_pref("findbar.highlightAll", true);
 
-// Enable site isolation (Project Fission) (85)
-// Включить режим строгой изоляции страниц (Project Fission) (85)
+// Enable site isolation (Project Fission) (87)
+// Включить режим строгой изоляции страниц (Project Fission) (87)
 // user_pref("fission.autostart", true);
 // user_pref("gfx.webrender.all", true);
 
