@@ -151,10 +151,6 @@ user_pref("browser.urlbar.decodeURLsOnCopy", true);
 // Не отправлять поисковый запрос через DNS-сервер провайдера
 user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
 
-// Turn off "Tab-to-search"
-// Отключить "Tab-to-search"
-user_pref("browser.urlbar.update2.tabToComplete", false);
-
 // Turn off "Firefox Default Browser Agent"
 // Отключить "Firefox Default Browser Agent"
 user_pref("default-browser-agent.enabled", false);
