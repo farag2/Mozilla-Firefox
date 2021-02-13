@@ -151,6 +151,10 @@ user_pref("browser.urlbar.decodeURLsOnCopy", true);
 // Не отправлять поисковый запрос через DNS-сервер провайдера
 user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
 
+// When using the address bar, do not suggest search engines
+// При использовании панели адреса не предлагать ссылки из поисковых
+user_pref("browser.urlbar.suggest.engines", false);
+
 // Turn off "Firefox Default Browser Agent"
 // Отключить "Firefox Default Browser Agent"
 user_pref("default-browser-agent.enabled", false);
