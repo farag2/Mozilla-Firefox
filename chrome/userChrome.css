@@ -1,5 +1,6 @@
 @-moz-document url(chrome://browser/content/browser.xhtml)
 {
+	/* https://www.userchrome.org/what-is-userchrome-css.html */
 	/* View Bookmarks Sidebar */
 	#BMB_viewBookmarksSidebar,
 	/* Show All Bookmarks */
