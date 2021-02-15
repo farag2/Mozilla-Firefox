@@ -179,8 +179,8 @@ user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 // Отключить Pocket
 user_pref("extensions.pocket.enabled", false);
 
-// Highlight all occurrence when searching
-// Включить подсветку при поиске текста на странице
+// Highlight all occurrences of the phrase when searching
+// Подстветить всех вхождения фразы в текст при поиске
 user_pref("findbar.highlightAll", true);
 
 // Enable site isolation (Project Fission) (87)
@@ -258,6 +258,10 @@ user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 // Turn off Firefox starting automatically after Windows 10 restart
 // Выключить автоматическое восстановление сеанса после перезапуска Windows 10
 user_pref("toolkit.winRegisterApplicationRestart", false);
+
+// Show matches next on top of scrollbar (87)
+// Показывать совпадения поверх полосы прокрутки (87)
+// user_pref("ui.textHighlightBackground", "Fireprick");
 
 // Turn on Video Acceleration API (VA-API). For desktop environment based on Wayland
 // Включить Video Acceleration API (VA-API). Для окружений на базе Wayland
