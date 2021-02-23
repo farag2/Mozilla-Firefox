@@ -78,6 +78,10 @@ user_pref("browser.newtabpage.activity-stream.migrationExpired", true);
 // Отобразить избранные сайты в 4 столбца
 user_pref("browser.newtabpage.activity-stream.section.highlights.rows", 4);
 
+// Hide sponsored top sites in Firefox Home screen
+// Скрыть топ сайтов спонсоров на домашней странице Firefox
+user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
+
 // Show Top Sites in 4 rows
 // Отобразить топ сайтов в 4 столбца
 user_pref("browser.newtabpage.activity-stream.topSitesRows", 4);
