@@ -207,6 +207,11 @@ user_pref("media.hardwaremediakeys.enabled", true);
 // Включить открытие ссылки в новой вкладки по нажатию на СКМ
 user_pref("middlemouse.openNewWindow", true);
 
+// Enable Encrypted Client Hello (ECH) (89)
+// Включить Encrypted Client Hello (ECH) (89)
+// user_pref("network.dns.echconfig.enabled", true);
+// user_pref("network.dns.use_https_rr_as_altsvc", true);
+
 // Set automatic proxy configuration URL
 // Установить URL автоматической настройки прокси
 user_pref("network.proxy.autoconfig_url", "https://antizapret.prostovpn.org/proxy.pac");
