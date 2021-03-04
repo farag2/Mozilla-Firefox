@@ -116,16 +116,18 @@ Invoke-WebRequest @Parameters
 # Проверить, установлены ли расширения
 $Extensions = @{
 	# uBlock Origin
-	"$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions\uBlock0@raymondhill.net.xpi" = "https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/"
+	"$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions\uBlock0@raymondhill.net.xpi" = "https://addons.mozilla.org/firefox/addon/ublock-origin/"
 
 	# Translate Web Pages
-	"$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions\{036a55b4-5e72-4d05-a06c-cba2dfcc134a}.xpi" = "https://addons.mozilla.org/en-US/firefox/addon/traduzir-paginas-web/"
+	"$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions\{036a55b4-5e72-4d05-a06c-cba2dfcc134a}.xpi" = "https://addons.mozilla.org/firefox/addon/traduzir-paginas-web/"
 
 	# Tampermonkey
-	"$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions\firefox@tampermonkey.net.xpi" = @("https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/", "https://greasyfork.org/ru/scripts/19993-ru-adlist-js-fixes")
+	"$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions\firefox@tampermonkey.net.xpi" = @("https://addons.mozilla.org/firefox/addon/tampermonkey/", "https://greasyfork.org/ru/scripts/19993-ru-adlist-js-fixes")
 
 	# Country Flags & IP Whois
-	"$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions\{802a552e-13d1-4683-a40a-1e5325fba4bb}.xpi" = "https://addons.mozilla.org/ru/firefox/addon/country-flags-ip-whois/"
+	"$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions\{802a552e-13d1-4683-a40a-1e5325fba4bb}.xpi" = "https://addons.mozilla.org/firefox/addon/country-flags-ip-whois/"
+	# SponsorBlock
+	"$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions\sponsorBlocker@ajay.app.xpi" = "https://addons.mozilla.org/firefox/addon/sponsorblock/"
 }
 foreach ($Extension in $Extensions.Keys)
 {
