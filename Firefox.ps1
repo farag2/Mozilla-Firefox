@@ -126,6 +126,7 @@ $Extensions = @{
 
 	# Country Flags & IP Whois
 	"$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions\{802a552e-13d1-4683-a40a-1e5325fba4bb}.xpi" = "https://addons.mozilla.org/firefox/addon/country-flags-ip-whois/"
+
 	# SponsorBlock
 	"$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions\sponsorBlocker@ajay.app.xpi" = "https://addons.mozilla.org/firefox/addon/sponsorblock/"
 }
