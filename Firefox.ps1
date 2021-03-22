@@ -11,7 +11,7 @@ $ProfileName = Split-Path -Path $String -Leaf
 
 # Finding where the Toolbar settings store are
 # Находим строку, где хранятся настройки панели управления
-[string]$String = Get-Content -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\prefs.js" | Select-String -Pattern `""browser.uiCustomization.state"`" -SimpleMatch
+[string]$String = Get-Content -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\prefs.js" | Select-String -Pattern "browser.uiCustomization.state" -SimpleMatch
 
 # Deleting all "\" in the string
 # Удаляем в строке все "\"
