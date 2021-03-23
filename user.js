@@ -14,9 +14,9 @@ user_pref("app.shield.optoutstudies.enabled", true);
 // Не предупреждать при заходе на about:config
 user_pref("browser.aboutConfig.showWarning", false
 
-// Enable Backspace to go back to a previous web page (88)
-// Включить переход на предыдущую страницу по нажатию Backspace (88)
-// user_pref("browser.backspace_action", true);
+// Enable Backspace to go back to a previous web page
+// Включить переход на предыдущую страницу по нажатию Backspace
+// user_pref("browser.backspace_action", 0);
 
 // Prevent bookmark menu and toolbar folder menu from closing when opening bookmark in a new tab
 // Отключить автозакрытие меню закладок после открытия закладки в новой вкладке
@@ -264,9 +264,9 @@ user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 // Выключить автоматическое восстановление сеанса после перезапуска Windows 10
 user_pref("toolkit.winRegisterApplicationRestart", false);
 
-// Show matches next on top of scrollbar (87)
-// Показывать совпадения поверх полосы прокрутки (87)
-// user_pref("ui.textHighlightBackground", "Fireprick");
+// Show matches next on top of scrollbar
+// Показывать совпадения поверх полосы прокрутки
+user_pref("ui.textHighlightBackground", "Fireprick");
 
 // Turn on Video Acceleration API (VA-API). For desktop environment based on Wayland
 // Включить Video Acceleration API (VA-API). Для окружений на базе Wayland
