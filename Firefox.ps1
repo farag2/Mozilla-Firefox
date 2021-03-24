@@ -1,86 +1,67 @@
 Get-Process -Name firefox -ErrorAction Ignore | Stop-Process -Force
 Start-Sleep -Seconds 1
 
-# Configuring Toolbar
-# Настраиваем панель инструментов
-
+# region Toolbar
 # Getting profile name
-# Получаем имя профиля
 $String = (Get-Content -Path "$env:APPDATA\Mozilla\Firefox\installs.ini" | Select-String -Pattern "^\s*Default\s*=\s*.+" | ConvertFrom-StringData).Default
 $ProfileName = Split-Path -Path $String -Leaf
 
 # Finding where the Toolbar settings store are
-# Находим строку, где хранятся настройки панели управления
 [string]$String = Get-Content -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\prefs.js" | Select-String -Pattern "browser.uiCustomization.state" -SimpleMatch
 
 # Deleting all "\" in the string
-# Удаляем в строке все "\"
 $String2 = $String.Replace("\", "")
 
 # Deleting the first 44 characters to delete 'user_pref("browser.uiCustomization.state", "'
-# Удаляем в строке первые 44 символа, чтобы отбросить 'user_pref("browser.uiCustomization.state", "'
 $Substring = $String2.Substring(44)
 
 # Deleting the last 3 characters to delete '");'
-# Удаляем в строке последние 3 символа, чтобы отбросить '");'
 [Object]$QuickJson = $Substring.Substring(0,$Substring.Length-3)
 
 [Object]$JSON = ConvertFrom-Json -InputObject $QuickJson
 
 # The necessary buttons sequence
-# Необходимая последовательность кнопок
 $NavBar = (
 	# Back
-	# Назад
 	"back-button",
 
 	# Forward
-	# Вперед
 	"forward-button",
 
 	# Address bar
-	# Адресная строка
 	"urlbar-container",
 
 	# Home
-	# Домой
 	"home-button",
 
 	# Reload
-	# Обновить
 	"stop-reload-button",
 
 	# Bookmarks menu
-	# Меню закладок
 	"bookmarks-menu-button",
 
 	# Show your bookmarks
-	# Загрузки
 	"downloads-button",
 
 	# Firefox Account
-	# Аккаунт Firefox
 	"fxa-toolbar-menu-button"
 )
 $JSON.placements.'nav-bar' = $NavBar
 $ConfiguredJSON = $JSON | ConvertTo-Json -Depth 10
 
 # Replacing all '"' with '\"', as it was
-# Заменяем все '"' на '\"', как было
 $ConfiguredString = $ConfiguredJSON.Replace('"', '\"').ToString()
 
 # Replacing the entire string with the result
-# Заменяем всю строку на полученный результат
 $prefsjs = "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\prefs.js"
 $Replace = "user_pref(`"browser.uiCustomization.state`", `"$ConfiguredString`");"
 (Get-Content -Path $prefsjs).Replace($String, $Replace) | Set-Content -Path $prefsjs -Force
+#endregion Toolbar
 
 # Turn off all scheduled tasks in Mozilla folder
-# Отключить все запланированные задачи в папке Mozilla
 Get-ScheduledTask -TaskPath "\Mozilla\" -ErrorAction Ignore | Disable-ScheduledTask
 
 # Download search.json.mozlz4
-# Скачать search.json.mozlz4
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 $Parameters = @{
 	Uri = "https://github.com/farag2/Mozilla-Firefox/raw/master/search.json.mozlz4"
@@ -90,7 +71,6 @@ $Parameters = @{
 Invoke-WebRequest @Parameters
 
 # Download user.js
-# Скачать user.js
 $Parameters = @{
 	Uri = "https://raw.githubusercontent.com/farag2/Mozilla-Firefox/master/user.js"
 	OutFile = "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\user.js"
@@ -100,7 +80,6 @@ Invoke-WebRequest @Parameters
 Start-Process -FilePath $env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName
 
 # Download userChrome.css
-# Скачать userChrome.css
 if (-not (Test-Path -Path $env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\chrome))
 {
 	New-Item -Path $env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\chrome -ItemType Directory -Force
@@ -112,8 +91,7 @@ $Parameters = @{
 }
 Invoke-WebRequest @Parameters
 
-# Check whether extensions installed
-# Проверить, установлены ли расширения
+# Check if extensions installed
 $Extensions = @{
 	# uBlock Origin
 	"$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions\uBlock0@raymondhill.net.xpi" = "https://addons.mozilla.org/firefox/addon/ublock-origin/"
@@ -134,6 +112,7 @@ foreach ($Extension in $Extensions.Keys)
 {
 	if (-not (Test-Path -Path $Extension))
 	{
+		# Open its' page
 		Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList "-new-tab $($Extensions[$Extension])"
 	}
 }
