@@ -1,7 +1,7 @@
 Get-Process -Name firefox -ErrorAction Ignore | Stop-Process -Force
 Start-Sleep -Seconds 1
 
-# region Toolbar
+#region Toolbar
 # Getting profile name
 $String = (Get-Content -Path "$env:APPDATA\Mozilla\Firefox\installs.ini" | Select-String -Pattern "^\s*Default\s*=\s*.+" | ConvertFrom-StringData).Default
 $ProfileName = Split-Path -Path $String -Leaf
@@ -61,6 +61,7 @@ $Replace = "user_pref(`"browser.uiCustomization.state`", `"$ConfiguredString`");
 # Turn off all scheduled tasks in Mozilla folder
 Get-ScheduledTask -TaskPath "\Mozilla\" -ErrorAction Ignore | Disable-ScheduledTask
 
+#region Download
 # Download search.json.mozlz4
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 $Parameters = @{
@@ -90,6 +91,7 @@ $Parameters = @{
 	Verbose = [switch]::Present
 }
 Invoke-WebRequest @Parameters
+#endregion Download
 
 # Check if extensions installed
 $Extensions = @{
