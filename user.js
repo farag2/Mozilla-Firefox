@@ -187,8 +187,8 @@ user_pref("extensions.pocket.enabled", false);
 // Подстветить всех вхождения фразы в текст при поиске
 user_pref("findbar.highlightAll", true);
 
-// Enable site isolation (Project Fission) (87)
-// Включить режим строгой изоляции страниц (Project Fission) (87)
+// Enable site isolation (Project Fission) (88)
+// Включить режим строгой изоляции страниц (Project Fission) (88)
 // user_pref("fission.autostart", true);
 
 // Use smooth scrolling
