@@ -105,7 +105,7 @@ $Extensions = @{
 	"$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions\firefox@tampermonkey.net.xpi" = @("https://addons.mozilla.org/firefox/addon/tampermonkey/", "https://greasyfork.org/ru/scripts/19993-ru-adlist-js-fixes")
 
 	# Country Flags & IP Whois
-	"$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions\{802a552e-13d1-4683-a40a-1e5325fba4bb}.xpi" = "https://addons.mozilla.org/firefox/addon/country-flags-ip-whois/"
+	"$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions\{1018e4d6-728f-4b20-ad56-37578a4de76b}.xpi" = "https://addons.mozilla.org/ru/firefox/addon/flagfox/"
 
 	# SponsorBlock
 	"$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions\sponsorBlocker@ajay.app.xpi" = "https://addons.mozilla.org/firefox/addon/sponsorblock/"
