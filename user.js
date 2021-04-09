@@ -26,6 +26,10 @@ user_pref("browser.bookmarks.openInTabClosesMenu", false);
 // Скрыть папку Мобильные закладки
 user_pref("browser.bookmarks.showMobileBookmarks", false);
 
+// Show the Compact option under Density in the customize menu (90)
+// Отображать опцию "Компактные" в разделе "Значки" в разделе персонализации панели инструментов (90)
+// user_pref("browser.compactmode.show", true);
+
 // Turn off Content Blocker notification
 // Не отображать уведомление о блокировке содержимого
 user_pref("browser.contentblocking.introCount", 20);
