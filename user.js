@@ -110,6 +110,10 @@ user_pref("browser.startup.homepage", "https://yandex.ru/");
 // Восстанавливать предыдущую сессию
 user_pref("browser.startup.page", 3);
 
+// Turn on "Drag Space" feature
+// Включить опцию "Место для перетаскивания"
+user_pref("browser.tabs.extraDragSpace", true);
+
 // Double-сlick to close tabs feature
 // Закрывать вкладки двойным нажатием левой кнопки мыши
 user_pref("browser.tabs.closeTabByDblclick", true);
