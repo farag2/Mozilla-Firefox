@@ -260,6 +260,10 @@ user_pref("services.sync.prefs.sync.browser.uiCustomization.state", true);
 // Включить импорт паролей в виде CSV-файла на странице "about: logins" 
 user_pref("signon.management.page.fileImport.enabled", true);
 
+// Enable urlbar built-in calculator
+// Включить встроенный в адресную строку калькулятор
+user_pref("suggest.calculator", true);
+
 // Show indicators on saved logins that are re-using those breached passwords
 // Показать индикаторы на сохраненных логинах, которые повторно используют эти скомпрометированные пароли
 user_pref("signon.management.page.vulnerable-passwords.enabled", true);
