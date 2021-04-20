@@ -54,6 +54,10 @@ user_pref("browser.library.activity-stream.enabled", false);
 // Не уведомлять о новых функциях Firefox
 user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
+// Add "View Image Info" to the image context menu
+// Добавить в контекстное меню изображений пункт "Информация об изображении"
+user_pref("browser.menu.showViewImageInfo", true);
+
 // Turn off recommended extensions
 // Отключить рекомендации расширений
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr", false);
