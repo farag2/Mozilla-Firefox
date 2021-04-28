@@ -7,7 +7,7 @@ $String = (Get-Content -Path "$env:APPDATA\Mozilla\Firefox\installs.ini" | Selec
 $ProfileName = Split-Path -Path $String -Leaf
 
 # Finding where the Toolbar settings store are
-[string]$String = Get-Content -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\prefs.js" | Select-String -Pattern "browser.uiCustomization.state" -SimpleMatch
+[string]$String = Get-Content -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\prefs.js" | Select-String -Pattern '"browser\.uiCustomization\.state"'
 
 # Deleting all "\" in the string
 $String2 = $String.Replace("\", "")
