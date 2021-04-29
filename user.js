@@ -151,7 +151,7 @@ user_pref("browser.tabs.warnOnClose", false);
 user_pref("browser.taskbar.previews.enable", true);
 
 // Set the "Bookmarks menu" as default bookmark folder
-// Установить "Меню закладок" как папку по умочланию для закладок
+// Установить "Меню закладок" как папку по умолчанию для закладок
 user_pref("browser.toolbars.bookmarks.2h2020", true);
 user_pref("browser.bookmarks.defaultLocation", "menu________");
 
