@@ -12,7 +12,7 @@ user_pref("app.shield.optoutstudies.enabled", true);
 
 // Do not show about:config warning message
 // Не предупреждать при заходе на about:config
-user_pref("browser.aboutConfig.showWarning", false
+user_pref("browser.aboutConfig.showWarning", false);
 
 // Enable Backspace to go back to a previous web page
 // Включить переход на предыдущую страницу по нажатию Backspace
