@@ -26,9 +26,9 @@ user_pref("browser.bookmarks.openInTabClosesMenu", false);
 // Скрыть папку Мобильные закладки
 user_pref("browser.bookmarks.showMobileBookmarks", false);
 
-// Show the Compact option under Density in the customize menu (90)
-// Отображать опцию "Компактные" в разделе "Значки" в разделе персонализации панели инструментов (90)
-// user_pref("browser.compactmode.show", true);
+// Show the Compact option under Density in the customize menu
+// Отображать опцию "Компактные" в разделе "Значки" в разделе персонализации панели инструментов
+user_pref("browser.compactmode.show", true);
 
 // Turn off Content Blocker notification
 // Не отображать уведомление о блокировке содержимого
@@ -114,10 +114,6 @@ user_pref("browser.startup.homepage", "https://yandex.ru/");
 // Восстанавливать предыдущую сессию
 user_pref("browser.startup.page", 3);
 
-// Turn on "Drag Space" feature (89)
-// Включить опцию "Место для перетаскивания" (89)
-// user_pref("browser.tabs.extraDragSpace", true);
-
 // Double-сlick to close tabs feature
 // Закрывать вкладки двойным нажатием левой кнопки мыши
 user_pref("browser.tabs.closeTabByDblclick", true);
@@ -199,8 +195,8 @@ user_pref("extensions.pocket.enabled", false);
 // Подстветить всех вхождения фразы в текст при поиске
 user_pref("findbar.highlightAll", true);
 
-// Enable site isolation (Project Fission) (88)
-// Включить режим строгой изоляции страниц (Project Fission) (88)
+// Enable site isolation (Project Fission) (90)
+// Включить режим строгой изоляции страниц (Project Fission) (90)
 // user_pref("fission.autostart", true);
 
 // Use smooth scrolling
@@ -219,8 +215,8 @@ user_pref("media.hardwaremediakeys.enabled", true);
 // Включить открытие ссылки в новой вкладки по нажатию на СКМ
 user_pref("middlemouse.openNewWindow", true);
 
-// Enable Encrypted Client Hello (ECH) (89)
-// Включить Encrypted Client Hello (ECH) (89)
+// Enable Encrypted Client Hello (ECH)
+// Включить Encrypted Client Hello (ECH)
 // user_pref("network.dns.echconfig.enabled", true);
 // user_pref("network.dns.use_https_rr_as_altsvc", true);
 
