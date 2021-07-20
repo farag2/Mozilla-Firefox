@@ -217,8 +217,8 @@ user_pref("middlemouse.openNewWindow", true);
 
 // Enable Encrypted Client Hello (ECH)
 // Включить Encrypted Client Hello (ECH)
-// user_pref("network.dns.echconfig.enabled", true);
-// user_pref("network.dns.use_https_rr_as_altsvc", true);
+user_pref("network.dns.echconfig.enabled", true);
+user_pref("network.dns.use_https_rr_as_altsvc", true);
 
 // Set automatic proxy configuration URL
 // Установить URL автоматической настройки прокси
