@@ -42,6 +42,10 @@ user_pref("browser.discovery.enabled", false);
 // Не скрывать кнопку "Загрузки" на панели инструментов
 user_pref("browser.download.autohideButton", false);
 
+// Automatically open downloads when complete
+// Автоматически открывать скачанный файл по завершению скачивания
+user_pref("browser.download.improvements_to_download_panel", true);
+
 // Turn off counting URIs in private browsing mode
 // Отключить подсчета URI в приватном режиме просмотра
 user_pref("browser.engagement.total_uri_count.pbm", false);
