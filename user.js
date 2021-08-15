@@ -224,6 +224,10 @@ user_pref("middlemouse.openNewWindow", true);
 user_pref("network.dns.echconfig.enabled", true);
 user_pref("network.dns.use_https_rr_as_altsvc", true);
 
+// Allow Windows single sign-on for Microsoft, work, and school accounts
+// Разрешить единый вход Windows для учётных записей Microsoft, учетных записей на работе и в учеьных заведениях
+user_pref("network.http.windows-sso.enabled", true);
+
 // Set automatic proxy configuration URL
 // Установить URL автоматической настройки прокси
 user_pref("network.proxy.autoconfig_url", "https://antizapret.prostovpn.org/proxy.pac");
