@@ -175,6 +175,10 @@ user_pref("browser.urlbar.suggest.engines", false);
 // Отключить "Firefox Default Browser Agent"
 user_pref("default-browser-agent.enabled", false);
 
+// Turn off protection for downloading files over insecure connections
+// Отключить защиту скачивания файлов через незащищенные соединения
+user_pref("dom.block_download_insecure", false);
+
 // Turn on lazy loading for images
 // Включить отложенную загрузку для изображений
 user_pref("dom.dom.image-lazy-loading.enabled", true);
