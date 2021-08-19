@@ -20,6 +20,6 @@ Always up-to-date configuration file for Mozilla Firefox
 ## Links
 
 - [Download Firefox](https://www.mozilla.org/en-US/firefox/all/)
-  - [Download via PowerShell](https://github.com/farag2/Utilities/blob/master/Download/Download%20Firefox.ps1)
+  - [Download via PowerShell](https://github.com/farag2/Utilities/tree/master/Download)
 - [userchrome.org](https://www.userchrome.org)
 - [FirefoxCSS on Reddit](https://www.reddit.com/r/FirefoxCSS/)
