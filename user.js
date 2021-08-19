@@ -203,8 +203,8 @@ user_pref("extensions.pocket.enabled", false);
 // Подстветить всех вхождения фразы в текст при поиске
 user_pref("findbar.highlightAll", true);
 
-// Enable site isolation (Project Fission) (90)
-// Включить режим строгой изоляции страниц (Project Fission) (90)
+// Enable site isolation (Project Fission)
+// Включить режим строгой изоляции страниц (Project Fission)
 // user_pref("fission.autostart", true);
 
 // Use smooth scrolling
