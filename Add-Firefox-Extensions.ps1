@@ -16,6 +16,10 @@
 	Add-FirefoxExtension @Parameters
 
 	.NOTES
+	If an extension doesn't have a valid manifets.json you to find out the ID by yourself
+	Example: https://github.com/farag2/Mozilla-Firefox/discussions/1#discussioncomment-1218530
+
+	.NOTES
 	Enable extension manually
 #>
 function Add-FirefoxExtension
@@ -116,6 +120,7 @@ function Add-FirefoxExtension
 		# Get the author id
 		$manifest = Get-Content -Path "$DownloadsFolder\Extensions\manifest.json" -Encoding Default -Force | ConvertFrom-Json
 		# Some extensions don't have valid JSON manifest
+		# https://github.com/farag2/Mozilla-Firefox/discussions/1#discussioncomment-1218530
 		if ($null -ne $manifest.applications)
 		{
 			$ApplicationID = $manifest.applications.gecko.id
