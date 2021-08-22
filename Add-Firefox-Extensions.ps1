@@ -13,7 +13,7 @@
 		ExtensionUris = @("https://addons.mozilla.org/firefox/downloads/file/3816867/ublock_origin.xpi")
 		Hive          = "HKCU"
 	}
-	New-FirefoxExtension @Parameters
+	Add-FirefoxExtension @Parameters
 
 	.NOTES
 	Enable extension manually
@@ -160,7 +160,7 @@ function Add-FirefoxExtension
 		}
 	}
 
-	# Open the about:addons page in a new tab to activate all downloaded extensions manually
+	# Open the about:addons page in a new tab to activate all installed extensions manually
 	Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList "-new-tab about:addons"
 
 	Remove-Item -Path "$DownloadsFolder\Extensions" -Recurse -Force
