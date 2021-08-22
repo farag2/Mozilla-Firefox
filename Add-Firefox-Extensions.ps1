@@ -102,9 +102,9 @@ function Add-FirefoxExtension
 		}
 
 		$Parameters = @{
-			Source  = "$DownloadsFolder\$Extension"
+			Source      = "$DownloadsFolder\$Extension"
 			Destination = "$DownloadsFolder"
-			File= "manifest.json"
+			File        = "manifest.json"
 		}
 		ExtractZIPFile @Parameters
 
