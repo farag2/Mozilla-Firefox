@@ -33,22 +33,27 @@ function Add-FirefoxExtension
 		$Hive
 	)
 
+	$DownloadsFolder = Get-ItemPropertyValue -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" -Name "{374DE290-123F-4565-9164-39C4925E467B}"
+	if (-not (Test-Path -Path "$DownloadsFolder\Extensions"))
+	{
+		New-Item -Path "$DownloadsFolder\Extensions" -ItemType Directory -Force
+	}
+
 	foreach ($Uri in $ExtensionUris)
 	{
 		# Downloading extension
 		[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
-		$DownloadsFolder = Get-ItemPropertyValue -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" -Name "{374DE290-123F-4565-9164-39C4925E467B}"
 		$Extension = Split-Path -Path $Uri -Leaf
 		$Parameters = @{
 			Uri = $Uri
-			OutFile = "$DownloadsFolder\$Extension"
+			OutFile = "$DownloadsFolder\Extensions\$Extension"
 			Verbose = [switch]::Present
 		}
 		Invoke-WebRequest @Parameters
 
 		# Copy file and rename it into .zip
-		Get-Item -Path "$DownloadsFolder\$Extension" -Force | Foreach-Object -Process {
+		Get-Item -Path "$DownloadsFolder\Extensions\$Extension" -Force | Foreach-Object -Process {
 			$NewName = $_.FullName -replace ".xpi", ".zip"
 			Copy-Item -Path $_.FullName -Destination $NewName -Force
 		}
@@ -102,14 +107,14 @@ function Add-FirefoxExtension
 		}
 
 		$Parameters = @{
-			Source      = "$DownloadsFolder\$Extension"
-			Destination = "$DownloadsFolder"
+			Source      = "$DownloadsFolder\Extensions\$Extension"
+			Destination = "$DownloadsFolder\Extensions"
 			File        = "manifest.json"
 		}
 		ExtractZIPFile @Parameters
 
 		# Get the author id
-		$manifest = Get-Content -Path "$DownloadsFolder\manifest.json" -Encoding Default -Force | ConvertFrom-Json
+		$manifest = Get-Content -Path "$DownloadsFolder\Extensions\manifest.json" -Encoding Default -Force | ConvertFrom-Json
 		# Some extensions don't have valid JSON manifest
 		if ($null -ne $manifest.applications)
 		{
@@ -120,7 +125,7 @@ function Add-FirefoxExtension
 			$ApplicationID = $manifest.browser_specific_settings.gecko.id
 		}
 
-		Get-Item -Path "$DownloadsFolder\$Extension" -Force | Rename-Item -NewName "$ApplicationID.xpi" -Force
+		Get-Item -Path "$DownloadsFolder\Extensions\$Extension" -Force | Rename-Item -NewName "$ApplicationID.xpi" -Force
 
 		# Getting Firefox profile name
 		$String = (Get-Content -Path "$env:APPDATA\Mozilla\Firefox\installs.ini" -Encoding Default | Select-String -Pattern "^\s*Default\s*=\s*.+" | ConvertFrom-StringData).Default
@@ -132,7 +137,7 @@ function Add-FirefoxExtension
 		}
 
 		# Copy .xpi extension file to the extensions folder
-		Copy-Item -Path "$DownloadsFolder\$ApplicationID.xpi" -Destination "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions" -Force
+		Copy-Item -Path "$DownloadsFolder\Extensions\$ApplicationID.xpi" -Destination "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions" -Force
 
 		switch ($Hive)
 		{
@@ -142,7 +147,7 @@ function Add-FirefoxExtension
 				{
 					New-Item -Path HKCU:\Software\Mozilla\Firefox\Extensions -Force
 				}
-				New-ItemProperty -Path HKCU:\Software\Mozilla\Firefox\Extensions -Name $ApplicationID -PropertyType String -Value "$DownloadsFolder\$ApplicationID.xpi" -Force
+				New-ItemProperty -Path HKCU:\Software\Mozilla\Firefox\Extensions -Name $ApplicationID -PropertyType String -Value "$DownloadsFolder\Extenstions\$ApplicationID.xpi" -Force
 			}
 			"HKLM"
 			{
@@ -150,10 +155,15 @@ function Add-FirefoxExtension
 				{
 					New-Item -Path HKLM:\Software\Mozilla\Firefox\Extensions -Force
 				}
-				New-ItemProperty -Path HKLM:\Software\Mozilla\Firefox\Extensions -Name $ApplicationID -PropertyType String -Value "$DownloadsFolder\$ApplicationID.xpi" -Force
+				New-ItemProperty -Path HKLM:\Software\Mozilla\Firefox\Extensions -Name $ApplicationID -PropertyType String -Value "$DownloadsFolder\Extenstions\$ApplicationID.xpi" -Force
 			}
 		}
 	}
+
+	# Open the about:addons page in a new tab to activate all downloaded extensions manually
+	Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList "-new-tab about:addons"
+
+	Remove-Item -Path "$DownloadsFolder\Extensions" -Recurse -Force
 }
 
 $Parameters = @{
