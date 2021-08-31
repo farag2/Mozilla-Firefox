@@ -171,6 +171,10 @@ user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
 // При использовании панели адреса не предлагать ссылки из поисковых
 user_pref("browser.urlbar.suggest.engines", false);
 
+// Alway show bookmarks toolbar
+// Всегда отображать панель закладок
+user_pref("browser.toolbars.bookmarks.visibility", "always");
+
 // Turn off "Firefox Default Browser Agent"
 // Отключить "Firefox Default Browser Agent"
 user_pref("default-browser-agent.enabled", false);
