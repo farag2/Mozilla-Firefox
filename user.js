@@ -142,6 +142,10 @@ user_pref("browser.tabs.insertRelatedAfterCurrent", false);
 // Открывать закладки в фоновых вкладках
 user_pref("browser.tabs.loadBookmarksInBackground", true);
 
+// Unload tabs when Firefox detects the system is running on low memory (93)
+// Выгружать вкладки, когда Firefox обнаруживает, что система работает с малым объемом памяти (93)
+// user_pref("browser.tabs.unloadOnLowMemory", true);
+
 // Do not warn when attempt to close multiple tabs
 // Не предупреждать при закрытии нескольких вкладок
 user_pref("browser.tabs.warnOnClose", false);
