@@ -93,7 +93,7 @@ $Parameters = @{
 Invoke-WebRequest @Parameters
 #endregion Download
 
-# Check if extensions installed
+<# Open extensions pages
 $Extensions = @{
 	# uBlock Origin
 	"$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions\uBlock0@raymondhill.net.xpi" = "https://addons.mozilla.org/firefox/addon/ublock-origin/"
@@ -116,9 +116,15 @@ $Extensions = @{
 }
 foreach ($Extension in $Extensions.Keys)
 {
+	# Check if extensions installed
 	if (-not (Test-Path -Path $Extension))
 	{
-		# Open its' page
+		# Open extenstion page
 		Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList "-new-tab $($Extensions[$Extension])"
 	}
 }
+#>
+
+# Install extensions
+# https://github.com/farag2/Mozilla-Firefox/blob/master/Add_Firefox_Extensions.ps1
+Invoke-RestMethod -Uri https://raw.githubusercontent.com/farag2/Mozilla-Firefox/master/Add_Firefox_Extensions.ps1 | Invoke-Expression
