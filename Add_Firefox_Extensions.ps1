@@ -16,7 +16,7 @@
 	Add-FirefoxExtension @Parameters
 
 	.NOTES
-	If an extension doesn't have a valid manifets.json you to find out the ID by yourself
+	If an extension doesn't have a valid manifets.json you have to find out the ID by yourself
 	Example: https://github.com/farag2/Mozilla-Firefox/discussions/1#discussioncomment-1218530
 
 	.NOTES
