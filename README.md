@@ -6,7 +6,7 @@ Always up-to-date configuration file for Mozilla Firefox
 
 ## Configure via [Firefox.ps1](https://github.com/farag2/Mozilla-Firefox/blob/master/Configure_Firefox.ps1)
 
-- ![Toolbar](https://i.imgur.com/dAZ47GX.png)
+- ![Toolbar](https://i.imgur.com/1qibb2A.png)
 - Turn off all scheduled tasks in Mozilla folder
 - Download [pre-configured One Clicked Search Engines](https://github.com/farag2/Mozilla-Firefox/blob/master/search.json.mozlz4)
   - Google
@@ -14,7 +14,7 @@ Always up-to-date configuration file for Mozilla Firefox
   - RuTracker.org
 - Download [user.js](https://github.com/farag2/Mozilla-Firefox/blob/master/user.js)
 - Hide all items in Bookmarks menu via [userChrome.css](https://github.com/farag2/Mozilla-Firefox/blob/master/chrome/userChrome.css)
-  - ![Image](https://i.imgur.com/mGwlMVT.png)
+  - ![Image](https://i.imgur.com/tPw4yoW.png)
 - Check whether extensions installed
 
 ## Links
