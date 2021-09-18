@@ -4,7 +4,7 @@
 
 Always up-to-date configuration file for Mozilla Firefox
 
-## Configure via [Firefox.ps1](https://github.com/farag2/Mozilla-Firefox/blob/master/Configure_Firefox.ps1)
+## Configure via [Configure_Firefox.ps1](https://github.com/farag2/Mozilla-Firefox/blob/master/Configure_Firefox.ps1)
 
 - ![Toolbar](https://i.imgur.com/1qibb2A.png)
 - Turn off all scheduled tasks in Mozilla folder
