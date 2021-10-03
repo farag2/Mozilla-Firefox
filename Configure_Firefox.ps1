@@ -64,18 +64,21 @@ Get-ScheduledTask -TaskPath "\Mozilla\" -ErrorAction Ignore | Disable-ScheduledT
 #region Download
 # Download search.json.mozlz4
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
 $Parameters = @{
-	Uri = "https://github.com/farag2/Mozilla-Firefox/raw/master/search.json.mozlz4"
-	OutFile = "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\search.json.mozlz4"
-	Verbose = [switch]::Present
+	Uri             = "https://github.com/farag2/Mozilla-Firefox/raw/master/search.json.mozlz4"
+	OutFile         = "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\search.json.mozlz4"
+	UseBasicParsing = $true
+	Verbose         = $true
 }
 Invoke-WebRequest @Parameters
 
 # Download user.js
 $Parameters = @{
-	Uri = "https://raw.githubusercontent.com/farag2/Mozilla-Firefox/master/user.js"
-	OutFile = "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\user.js"
-	Verbose = [switch]::Present
+	Uri             = "https://raw.githubusercontent.com/farag2/Mozilla-Firefox/master/user.js"
+	OutFile         = "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\user.js"
+	UseBasicParsing = $true
+	Verbose         = $true
 }
 Invoke-WebRequest @Parameters
 Start-Process -FilePath $env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName
@@ -86,9 +89,10 @@ if (-not (Test-Path -Path $env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\chr
 	New-Item -Path $env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\chrome -ItemType Directory -Force
 }
 $Parameters = @{
-	Uri = "https://raw.githubusercontent.com/farag2/Mozilla-Firefox/master/chrome/userChrome.css"
-	OutFile = "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\chrome\userChrome.css"
-	Verbose = [switch]::Present
+	Uri             = "https://raw.githubusercontent.com/farag2/Mozilla-Firefox/master/chrome/userChrome.css"
+	OutFile         = "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\chrome\userChrome.css"
+	UseBasicParsing = $true
+	Verbose         = $true
 }
 Invoke-WebRequest @Parameters
 #endregion Download
@@ -127,4 +131,9 @@ foreach ($Extension in $Extensions.Keys)
 
 # Install extensions
 # https://github.com/farag2/Mozilla-Firefox/blob/master/Add_Firefox_Extensions.ps1
-Invoke-RestMethod -Uri https://raw.githubusercontent.com/farag2/Mozilla-Firefox/master/Add_Firefox_Extensions.ps1 | Invoke-Expression
+$Parameters = @{
+	Uri             = "https://raw.githubusercontent.com/farag2/Mozilla-Firefox/master/Add_Firefox_Extensions.ps1"
+	OutFile         = "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\chrome\userChrome.css"
+	UseBasicParsing = $true
+}
+Invoke-RestMethod @Parameters | Invoke-Expression
