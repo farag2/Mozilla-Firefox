@@ -50,9 +50,10 @@ function Add-FirefoxExtension
 
 		$Extension = Split-Path -Path $Uri -Leaf
 		$Parameters = @{
-			Uri = $Uri
-			OutFile = "$DownloadsFolder\Extensions\$Extension"
-			Verbose = [switch]::Present
+			Uri              = $Uri
+			OutFile          = "$DownloadsFolder\Extensions\$Extension"
+			UseBasicParsing  = $true
+			Verbose          = $true
 		}
 		Invoke-WebRequest @Parameters
 
