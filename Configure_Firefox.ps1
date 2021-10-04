@@ -130,6 +130,10 @@ foreach ($Extension in $Extensions.Keys)
 #>
 
 # Install extensions
+# https://addons.mozilla.org/firefox/addon/ublock-origin/
+# https://addons.mozilla.org/firefox/addon/traduzir-paginas-web/
+# https://addons.mozilla.org/firefox/addon/tampermonkey/
+# https://addons.mozilla.org/firefox/addon/sponsorblock/
 # https://github.com/farag2/Mozilla-Firefox/blob/master/Add_Firefox_Extensions.ps1
 $Parameters = @{
 	Uri             = "https://raw.githubusercontent.com/farag2/Mozilla-Firefox/master/Add_Firefox_Extensions.ps1"
