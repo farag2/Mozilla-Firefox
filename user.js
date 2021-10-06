@@ -142,8 +142,8 @@ user_pref("browser.tabs.insertRelatedAfterCurrent", false);
 // Открывать закладки в фоновых вкладках
 user_pref("browser.tabs.loadBookmarksInBackground", true);
 
-// Unload tabs when Firefox detects the system is running on low memory (93)
-// Выгружать вкладки, когда Firefox обнаруживает, что система работает с малым объемом памяти (93)
+// Unload tabs when Firefox detects the system is running on low memory (94)
+// Выгружать вкладки, когда Firefox обнаруживает, что система работает с малым объемом памяти (94)
 // user_pref("browser.tabs.unloadOnLowMemory", true);
 
 // Do not warn when attempt to close multiple tabs
@@ -218,10 +218,6 @@ user_pref("findbar.highlightAll", true);
 // Use smooth scrolling
 // Использовать плавную прокрутку
 user_pref("general.autoScroll", false);
-
-// Enable AVIF image format support
-// Включить поддержку формата изображений AVIF
-user_pref("image.avif.enabled", true);
 
 // Do not select when double-clicking text the space following the text
 // Не выделять при выделении слова двойным нажатием идущий за ним пробел
