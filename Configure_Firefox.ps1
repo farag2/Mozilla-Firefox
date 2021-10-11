@@ -81,6 +81,7 @@ $Parameters = @{
 	Verbose         = $true
 }
 Invoke-WebRequest @Parameters
+
 Start-Process -FilePath $env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName
 
 # Download userChrome.css
@@ -88,6 +89,7 @@ if (-not (Test-Path -Path $env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\chr
 {
 	New-Item -Path $env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\chrome -ItemType Directory -Force
 }
+
 $Parameters = @{
 	Uri             = "https://raw.githubusercontent.com/farag2/Mozilla-Firefox/master/chrome/userChrome.css"
 	OutFile         = "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\chrome\userChrome.css"
