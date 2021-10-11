@@ -105,7 +105,6 @@ Invoke-WebRequest @Parameters
 # https://github.com/farag2/Mozilla-Firefox/blob/master/Add_Firefox_Extensions.ps1
 $Parameters = @{
 	Uri             = "https://raw.githubusercontent.com/farag2/Mozilla-Firefox/master/Add_Firefox_Extensions.ps1"
-	OutFile         = "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\chrome\userChrome.css"
 	UseBasicParsing = $true
 }
 Invoke-RestMethod @Parameters | Invoke-Expression
