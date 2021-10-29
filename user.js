@@ -16,7 +16,7 @@ user_pref("browser.aboutConfig.showWarning", false);
 
 // Enable Backspace to go back to a previous web page
 // Включить переход на предыдущую страницу по нажатию Backspace
-// user_pref("browser.backspace_action", 0);
+user_pref("browser.backspace_action", 0);
 
 // Prevent bookmark menu and toolbar folder menu from closing when opening bookmark in a new tab
 // Отключить автозакрытие меню закладок после открытия закладки в новой вкладке
@@ -142,8 +142,8 @@ user_pref("browser.tabs.insertRelatedAfterCurrent", false);
 // Открывать закладки в фоновых вкладках
 user_pref("browser.tabs.loadBookmarksInBackground", true);
 
-// Unload tabs when Firefox detects the system is running on low memory (94)
-// Выгружать вкладки, когда Firefox обнаруживает, что система работает с малым объемом памяти (94)
+// Unload tabs when Firefox detects the system is running on low memory
+// Выгружать вкладки, когда Firefox обнаруживает, что система работает с малым объемом памяти
 // user_pref("browser.tabs.unloadOnLowMemory", true);
 
 // Do not warn when attempt to close multiple tabs
