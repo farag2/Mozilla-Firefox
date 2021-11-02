@@ -213,7 +213,7 @@ user_pref("findbar.highlightAll", true);
 
 // Enable site isolation (Project Fission)
 // Включить режим строгой изоляции страниц (Project Fission)
-// user_pref("fission.autostart", true);
+user_pref("fission.autostart", true);
 
 // Use smooth scrolling
 // Использовать плавную прокрутку
