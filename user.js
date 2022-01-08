@@ -128,7 +128,7 @@ user_pref("browser.tabs.closeWindowWithLastTab", false);
 
 // Show Title Bar
 // Отобразить заголовок
-user_pref("browser.tabs.drawInTitlebar", false);
+user_pref("browser.tabs.inTitlebar", 0);
 
 // Show Drag Space
 // Отобразить место для перетаскивания окна
