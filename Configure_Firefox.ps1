@@ -6,7 +6,7 @@ Start-Sleep -Seconds 1
 $String = (Get-Content -Path "$env:APPDATA\Mozilla\Firefox\installs.ini" | Select-String -Pattern "^\s*Default\s*=\s*.+" | ConvertFrom-StringData).Default
 $ProfileName = Split-Path -Path $String -Leaf
 
-# Finding where the Toolbar settings store are
+# Finding where the Toolbar settings are being stored
 [string]$String = Get-Content -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\prefs.js" | Select-String -Pattern '"browser\.uiCustomization\.state"'
 
 # Deleting all "\" in the string
@@ -16,11 +16,12 @@ $String2 = $String.Replace("\", "")
 $Substring = $String2.Substring(44)
 
 # Deleting the last 3 characters to delete '");'
-[Object]$QuickJson = $Substring.Substring(0,$Substring.Length-3)
+$Substring.Substring(0, $Substring.Length-3)
 
 [Object]$JSON = ConvertFrom-Json -InputObject $QuickJson
 
 # The necessary buttons sequence
+# Add your extensions icons here
 $NavBar = (
 	# Back
 	"back-button",
@@ -44,7 +45,13 @@ $NavBar = (
 	"downloads-button",
 
 	# Firefox Account
-	"fxa-toolbar-menu-button"
+	"fxa-toolbar-menu-button",
+
+    # uBlock
+    "ublock0_raymondhill_net-browser-action",
+
+    # Tampermonkey
+    "firefox_tampermonkey_net-browser-action"
 )
 $JSON.placements.'nav-bar' = $NavBar
 $ConfiguredJSON = $JSON | ConvertTo-Json -Depth 10
