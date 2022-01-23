@@ -16,7 +16,7 @@ $String2 = $String.Replace("\", "")
 $Substring = $String2.Substring(44)
 
 # Deleting the last 3 characters to delete '");'
-$Substring.Substring(0, $Substring.Length-3)
+$QuickJson = $Substring.Substring(0, $Substring.Length-3)
 
 [Object]$JSON = ConvertFrom-Json -InputObject $QuickJson
 
