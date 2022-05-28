@@ -264,6 +264,10 @@ user_pref("permissions.default.desktop-notification", 2);
 // Передавать сайтам сигнал "Не отслеживать" всегда
 user_pref("privacy.donottrackheader.enabled", true);
 
+// Total Cookie Protection contains cookies to the site you’re on, so trackers can’t use them to follow you between sites.
+// Полная защита от кук ограничивает работу кук сайтом, на котором вы находитесь, чтобы трекеры не могли использовать их для слежки за вами от сайта к сайту
+user_pref("privacy.restrict3rdpartystorage.rollout.enabledByDefault", true);
+
 // Set time range to clear to "Everything"
 // Выбрать "Удалить всё" при удаление истории
 user_pref("privacy.sanitize.timeSpan", 0);
