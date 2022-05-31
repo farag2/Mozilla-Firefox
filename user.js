@@ -44,7 +44,7 @@ user_pref("browser.download.autohideButton", false);
 
 // Ask what to do for each file before downloading
 // Спрашивать, что делать для каждого файла перед загрузкой
-user_pref("browser.download.improvements_to_download_panel", false);
+user_pref("browser.download.useDownloadDir", false);
 
 // Turn off counting URIs in private browsing mode
 // Отключить подсчета URI в приватном режиме просмотра
