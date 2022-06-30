@@ -266,7 +266,7 @@ user_pref("privacy.donottrackheader.enabled", true);
 
 // Strips known tracking query parameters from URLs
 // Удалять известные отслеживающие параметры запроса из URL-адресов 
-user_pref("privacy.query_stripping.enabled", true);
+user_pref("privacy.query_stripping.enabled.pbmode", true);
 
 // Total Cookie Protection contains cookies to the site you’re on, so trackers can’t use them to follow you between sites.
 // Полная защита от кук ограничивает работу кук сайтом, на котором вы находитесь, чтобы трекеры не могли использовать их для слежки за вами от сайта к сайту
