@@ -177,7 +177,7 @@ $Parameters = @{
 		# https://addons.mozilla.org/firefox/addon/ublock-origin/
 		"https://addons.mozilla.org/firefox/downloads/file/3816867/ublock_origin.xpi",
 		# https://addons.mozilla.org/firefox/addon/traduzir-paginas-web/
-		"https://addons.mozilla.org/firefox/downloads/file/3822990/traduzir_paginas_web.xpi",
+		"https://addons.mozilla.org/firefox/downloads/file/3967080/traduzir_paginas_web.xpi",
 		# https://addons.mozilla.org/firefox/addon/tampermonkey/
 		"https://addons.mozilla.org/firefox/downloads/file/3947043/tampermonkey.xpi",
 		# https://addons.mozilla.org/firefox/addon/sponsorblock/
