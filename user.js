@@ -256,6 +256,10 @@ user_pref("network.trr.uri", "https://mozilla.cloudflare-dns.com/dns-query");
 // Установить IP-адрес, используемого в "network.trr.uri", чтобы исключить использование системного резольвера
 user_pref("network.trr.bootstrapAddress", "1.1.1.1");
 
+// Enable PDF editing feature and tools (104)
+// Включить возможность редактировать PDF-файлы (104)
+// user_pref("pdfjs.annotationEditorMode", 1);
+
 // Block new requests asking to allow notifications
 // Блокировать новые запросы на отправку уведомлений
 user_pref("permissions.default.desktop-notification", 2);
