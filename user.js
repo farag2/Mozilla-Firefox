@@ -212,6 +212,10 @@ user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 // Отключить Pocket
 user_pref("extensions.pocket.enabled", false);
 
+// Turn on Unified Extensions Toolbar button
+// Включить универсального Unified Extensions Toolbar
+user_pref("extensions.unifiedExtensions.enabled", true);
+
 // Highlight all occurrences of the phrase when searching
 // Подстветить всех вхождения фразы в текст при поиске
 user_pref("findbar.highlightAll", true);
