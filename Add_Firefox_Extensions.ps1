@@ -43,14 +43,22 @@ function Add-FirefoxExtension
 		New-Item -Path "$DownloadsFolder\Extensions" -ItemType Directory -Force
 	}
 
+	[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
 	foreach ($Uri in $ExtensionUris)
 	{
 		# Downloading extension
-		[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-
-		$Extension = Split-Path -Path $Uri -Leaf
 		$Parameters = @{
-			Uri              = $Uri
+			Uri             = $Uri
+			UseBasicParsing = $false # Disabled
+			Verbose         = $true
+		}
+		$Request = Invoke-Webrequest @Parameters
+		$URL = $Request.ParsedHtml.getElementsByClassName("InstallButtonWrapper-download-link") | ForEach-Object -Process {$_.href}
+
+		$Extension = Split-Path -Path $URL -Leaf
+		$Parameters = @{
+			Uri              = $URL
 			OutFile          = "$DownloadsFolder\Extensions\$Extension"
 			UseBasicParsing  = $true
 			Verbose          = $true
@@ -174,21 +182,17 @@ function Add-FirefoxExtension
 
 $Parameters = @{
 	ExtensionUris = @(
-		# https://addons.mozilla.org/firefox/addon/ublock-origin/
-		"https://addons.mozilla.org/firefox/downloads/file/3816867/ublock_origin.xpi",
-		# https://addons.mozilla.org/firefox/addon/traduzir-paginas-web/
-		"https://addons.mozilla.org/firefox/downloads/file/3967080/traduzir_paginas_web.xpi",
-		# https://addons.mozilla.org/firefox/addon/tampermonkey/
-		"https://addons.mozilla.org/firefox/downloads/file/3947043/tampermonkey.xpi",
-		# https://addons.mozilla.org/firefox/addon/sponsorblock/
-		"https://addons.mozilla.org/firefox/downloads/file/3820687/sponsorblock_skip_sponsorships_on_youtube.xpi"
+		"https://addons.mozilla.org/firefox/addon/ublock-origin",
+		"https://addons.mozilla.org/firefox/addon/traduzir-paginas-web",
+		"https://addons.mozilla.org/firefox/addon/tampermonkey",
+		"https://addons.mozilla.org/firefox/addon/sponsorblock"
 	)
-	Hive          = "HKCU"
+	Hive = "HKCU"
 }
 Add-FirefoxExtension @Parameters
 
 # Install additional JS scripts for Tampermonkey
-# We need to open Firefox process first to be able to open new tabs. Unless every new tab will be opned in a new process
+# We need to open Firefox process first to be able to open new tabs. Unless every new tab will be opened in a new process
 if (Test-Path -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions\firefox@tampermonkey.net.xpi")
 {
 	Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe"
@@ -196,8 +200,8 @@ if (Test-Path -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensio
 	Start-Sleep -Seconds 3
 
 	$Scripts = (
-	    "https://greasyfork.org/scripts/19993-ru-adlist-js-fixes/code/RU%20AdList%20JS%20Fixes.user.js",
-	    "https://serguun42.ru/tampermonkey/osnova_dark_theme.user.js"
+		"https://greasyfork.org/scripts/19993-ru-adlist-js-fixes/code/RU%20AdList%20JS%20Fixes.user.js",
+		"https://serguun42.ru/tampermonkey/osnova_dark_theme.user.js"
 	)
 	Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList "-new-tab $Scripts"
 }
