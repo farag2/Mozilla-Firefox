@@ -10,7 +10,7 @@
 
 	.EXAMPLE
 	$Parameters = @{
-		ExtensionUris = @("https://addons.mozilla.org/firefox/downloads/file/3816867/ublock_origin.xpi")
+		ExtensionUris = @("https://addons.mozilla.org/firefox/addon/ublock-origin")
 		Hive          = "HKCU"
 	}
 	Add-FirefoxExtension @Parameters
