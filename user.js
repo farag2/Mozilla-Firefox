@@ -171,10 +171,10 @@ user_pref("browser.urlbar.decodeURLsOnCopy", true);
 // Не отправлять поисковый запрос через DNS-сервер провайдера
 user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
 
-// Enable Quick Actions (104)
-// Включить Quick Actions (104)
-user_pref("browser.urlbar.quickactions.enabled", true);
-user_pref("browser.urlbar.shortcuts.quickactions", true);
+// Enable Quick Actions (105)
+// Включить Quick Actions (105)
+// user_pref("browser.urlbar.quickactions.enabled", true);
+// user_pref("browser.urlbar.shortcuts.quickactions", true);
 
 // When using the address bar, do not suggest search engines
 // При использовании панели адреса не предлагать ссылки из поисковых
@@ -265,8 +265,8 @@ user_pref("network.trr.uri", "https://mozilla.cloudflare-dns.com/dns-query");
 // Установить IP-адрес, используемого в "network.trr.uri", чтобы исключить использование системного резольвера
 user_pref("network.trr.bootstrapAddress", "1.1.1.1");
 
-// Enable PDF editing feature and tools (104)
-// Включить возможность редактировать PDF-файлы (104)
+// Enable PDF editing feature and tools
+// Включить возможность редактировать PDF-файлы
 user_pref("pdfjs.annotationEditorMode", 1);
 
 // Block new requests asking to allow notifications
