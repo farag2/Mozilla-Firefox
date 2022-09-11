@@ -267,7 +267,7 @@ user_pref("network.trr.bootstrapAddress", "1.1.1.1");
 
 // Enable PDF editing feature and tools (104)
 // Включить возможность редактировать PDF-файлы (104)
-// user_pref("pdfjs.annotationEditorMode", 1);
+user_pref("pdfjs.annotationEditorMode", 1);
 
 // Block new requests asking to allow notifications
 // Блокировать новые запросы на отправку уведомлений
