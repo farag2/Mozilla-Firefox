@@ -171,10 +171,10 @@ user_pref("browser.urlbar.decodeURLsOnCopy", true);
 // Не отправлять поисковый запрос через DNS-сервер провайдера
 user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
 
-// Enable Quick Actions (105)
-// Включить Quick Actions (105)
-// user_pref("browser.urlbar.quickactions.enabled", true);
-// user_pref("browser.urlbar.shortcuts.quickactions", true);
+// Enable Quick Actions
+// Включить Quick Actions
+user_pref("browser.urlbar.quickactions.enabled", true);
+user_pref("browser.urlbar.shortcuts.quickactions", true);
 
 // When using the address bar, do not suggest search engines
 // При использовании панели адреса не предлагать ссылки из поисковых
@@ -198,7 +198,7 @@ user_pref("dom.dom.image-lazy-loading.enabled", true);
 
 // Enable HTTPS-Only Mode in all windows
 // Включить режим "Только HTTPS" во всех окнах
-// user_pref("dom.security.https_only_mode", true);
+user_pref("dom.security.https_only_mode", true);
 
 // Run extensions in Private browsing mode
 // Запускать дополнения в приватном режиме
@@ -212,9 +212,9 @@ user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 // Отключить Pocket
 user_pref("extensions.pocket.enabled", false);
 
-// Turn on Unified Extensions Toolbar button
-// Включить универсального Unified Extensions Toolbar
-user_pref("extensions.unifiedExtensions.enabled", true);
+// Turn on Unified Extensions Toolbar button (105)
+// Включить универсального Unified Extensions Toolbar (105)
+// user_pref("extensions.unifiedExtensions.enabled", true);
 
 // Highlight all occurrences of the phrase when searching
 // Подстветить всех вхождения фразы в текст при поиске
