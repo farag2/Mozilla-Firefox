@@ -110,9 +110,9 @@ user_pref("browser.search.suggest.enabled.private", true);
 // Установить количество закрытых вкладок для восстановления на 20
 user_pref("browser.sessionstore.max_tabs_undo", 20);
 
-// Set homepage and new windows on https://yandex.ru
-// Установить домашнюю страницу страницу и новые окна на https://yandex.ru
-user_pref("browser.startup.homepage", "https://yandex.ru/");
+// Set homepage and new windows on https://ya.ru
+// Установить домашнюю страницу страницу и новые окна на https://ya.ru
+user_pref("browser.startup.homepage", "https://ya.ru");
 
 // Restore previous session
 // Восстанавливать предыдущую сессию
