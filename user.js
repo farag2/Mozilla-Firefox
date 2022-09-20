@@ -2,8 +2,8 @@
 // Включить поиск текста на странице по мере его набора
 user_pref("accessibility.typeaheadfind", true);
 
-// Turn on notifications to show in Windows 10 Action Center
-// Включить интеграцию с центром уведомлений Windows 10
+// Turn on notifications to show in Windows 10/11 Action Center
+// Включить интеграцию с центром уведомлений Windows 10/11
 user_pref("alerts.useSystemBackend", true);
 
 // Allow Firefox to install and run studies
@@ -267,7 +267,7 @@ user_pref("network.trr.bootstrapAddress", "1.1.1.1");
 
 // Enable PDF editing feature and tools
 // Включить возможность редактировать PDF-файлы
-user_pref("pdfjs.annotationEditorMode", 1);
+user_pref("pdfjs.annotationEditorMode", 0);
 
 // Block new requests asking to allow notifications
 // Блокировать новые запросы на отправку уведомлений
