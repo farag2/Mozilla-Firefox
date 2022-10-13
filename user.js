@@ -102,6 +102,10 @@ user_pref("browser.newtabpage.activity-stream.topSitesRows", 4);
 // Включить раздел "Эксперименты Firefox" в настройках
 user_pref("browser.preferences.experimental", true);
 
+// Hide "More from Mozilla" from Settings
+// Скрыть "Больше от Mozilla" в Настройках
+user_pref("browser.preferences.moreFromMozilla", false);
+
 // Show search suggestions in Private Windows
 // Отображать поисковые предложения в Приватных вкладках
 user_pref("browser.search.suggest.enabled.private", true);
