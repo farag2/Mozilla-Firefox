@@ -199,7 +199,7 @@ if (Test-Path -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensio
 
 	Start-Sleep -Seconds 3
 
-	$Scripts = (
+	$Scripts = @(
 		"https://greasyfork.org/scripts/19993-ru-adlist-js-fixes/code/RU%20AdList%20JS%20Fixes.user.js",
 		"https://serguun42.ru/tampermonkey/osnova_dark_theme.user.js"
 	)
