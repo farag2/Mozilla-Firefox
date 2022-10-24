@@ -21,4 +21,4 @@ Always up-to-date configuration file for Mozilla Firefox
 * [Download Firefox](https://www.mozilla.org/en-US/firefox/all/)
   * [Download via PowerShell](https://github.com/farag2/Utilities/tree/master/Download)
 * [FirefoxCSS on Reddit](https://www.reddit.com/r/FirefoxCSS/)
-* Sophia Collection on [Mozilla Addons](https://addons.mozilla.org/en-US/firefox/collections/16112274/Sophia-Collection)
+* Sophia Collection on [Mozilla Add-ons](https://addons.mozilla.org/en-US/firefox/collections/16112274/Sophia/)
