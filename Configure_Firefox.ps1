@@ -117,3 +117,5 @@ $Parameters = @{
 	UseBasicParsing = $true
 }
 Invoke-RestMethod @Parameters | Invoke-Expression
+
+Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList "-new-tab `"about:addons`""
