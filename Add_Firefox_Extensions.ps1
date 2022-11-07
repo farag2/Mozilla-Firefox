@@ -185,7 +185,8 @@ $Parameters = @{
 		"https://addons.mozilla.org/firefox/addon/ublock-origin",
 		"https://addons.mozilla.org/firefox/addon/traduzir-paginas-web",
 		"https://addons.mozilla.org/firefox/addon/tampermonkey",
-		"https://addons.mozilla.org/firefox/addon/sponsorblock"
+		"https://addons.mozilla.org/firefox/addon/sponsorblock",
+		"https://addons.mozilla.org/ru/firefox/addon/private-relay"
 	)
 	Hive = "HKCU"
 }
