@@ -43,6 +43,13 @@ function Add-FirefoxExtension
 		New-Item -Path "$DownloadsFolder\Extensions" -ItemType Directory -Force
 	}
 
+	# Skip Internet Explorer first run wizard to let script use Trident function to parse sites
+	if (-not (Test-Path -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer\Main"))
+	{
+		New-Item -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer\Main" -ItemType Directory -Force
+	}
+	New-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer\Main" -Name DisableFirstRunCustomize -PropertyType String -Value 1 -Force
+
 	[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
 	foreach ($Uri in $ExtensionUris)
