@@ -130,6 +130,10 @@ user_pref("browser.tabs.closeTabByDblclick", true);
 // Не закрывать браузер при закрытии последней вкладки
 user_pref("browser.tabs.closeWindowWithLastTab", false);
 
+// Remove "Firefox View" icon from toolbar
+// Убрать иконку "Firefox View" с панели инструментов
+user_pref("browser.tabs.firefox-view", false);
+
 // Show Title Bar
 // Отобразить заголовок
 user_pref("browser.tabs.inTitlebar", 0);
