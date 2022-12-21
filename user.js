@@ -192,6 +192,10 @@ user_pref("browser.urlbar.suggest.engines", false);
 // Всегда отображать панель закладок
 user_pref("browser.toolbars.bookmarks.visibility", "always");
 
+// Automatically click on banners that request permission to use cookies on the sites
+user_pref("cookiebanners.bannerClicking.enabled", false);
+user_pref("cookiebanners.service.mode", 2);
+
 // Turn off "Firefox Default Browser Agent"
 // Отключить "Firefox Default Browser Agent"
 user_pref("default-browser-agent.enabled", false);
