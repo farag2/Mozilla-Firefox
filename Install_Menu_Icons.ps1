@@ -3,10 +3,10 @@ $String = (Get-Content -Path "$env:APPDATA\Mozilla\Firefox\installs.ini" | Selec
 $ProfileName = Split-Path -Path $String -Leaf
 
 $Parameters = @{
-    Uri             = "https://github.com/farag2/Mozilla-Firefox/raw/master/Icons.zip"
-    OutFile         = "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\Icons.zip"
-    UseBasicParsing = $true
-    Verbose         = $true
+	Uri             = "https://github.com/farag2/Mozilla-Firefox/raw/master/Icons.zip"
+	OutFile         = "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\Icons.zip"
+	UseBasicParsing = $true
+	Verbose         = $true
 }
 Invoke-WebRequest @Parameters
 
