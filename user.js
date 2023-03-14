@@ -5,6 +5,7 @@ user_pref("accessibility.typeaheadfind", true);
 // Turn on notifications to show in Windows 10/11 Action Center
 // Включить интеграцию с центром уведомлений Windows 10/11
 user_pref("alerts.useSystemBackend", true);
+user_pref("alerts.useSystemBackend.windows.notificationserver.enabled", true);
 
 // Allow Firefox to install and run studies
 // Разрешить Firefox устанавливать и проводить исследования
@@ -193,6 +194,7 @@ user_pref("browser.urlbar.suggest.engines", false);
 user_pref("browser.toolbars.bookmarks.visibility", "always");
 
 // Automatically click on banners that request permission to use cookies on the sites
+// Автоматически нажимать на баннеры, которые запрашивают разрешение на использование файлов куки на сайтах
 user_pref("cookiebanners.bannerClicking.enabled", false);
 user_pref("cookiebanners.service.mode", 2);
 
