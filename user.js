@@ -195,7 +195,8 @@ user_pref("browser.toolbars.bookmarks.visibility", "always");
 
 // Automatically click on banners that request permission to use cookies on the sites
 // Автоматически нажимать на баннеры, которые запрашивают разрешение на использование файлов куки на сайтах
-user_pref("cookiebanners.bannerClicking.enabled", false);
+user_pref("cookiebanners.cookieInjector.enabled", true);
+user_pref("cookiebanners.bannerClicking.enabled", true);
 user_pref("cookiebanners.service.mode", 2);
 user_pref("cookiebanners.service.mode.privateBrowsing", 2);
 
