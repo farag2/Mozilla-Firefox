@@ -197,6 +197,7 @@ user_pref("browser.toolbars.bookmarks.visibility", "always");
 // Автоматически нажимать на баннеры, которые запрашивают разрешение на использование файлов куки на сайтах
 user_pref("cookiebanners.bannerClicking.enabled", false);
 user_pref("cookiebanners.service.mode", 2);
+user_pref("cookiebanners.service.mode.privateBrowsing", 2);
 
 // Turn off "Firefox Default Browser Agent"
 // Отключить "Firefox Default Browser Agent"
