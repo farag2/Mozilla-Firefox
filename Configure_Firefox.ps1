@@ -89,12 +89,10 @@ $Parameters = @{
 }
 Invoke-WebRequest @Parameters
 
-Start-Process -FilePath $env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName
-
 # Download userChrome.css
-if (-not (Test-Path -Path $env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\chrome))
+if (-not (Test-Path -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\chrome"))
 {
-	New-Item -Path $env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\chrome -ItemType Directory -Force
+	New-Item -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\chrome" -ItemType Directory -Force
 }
 
 $Parameters = @{
@@ -119,3 +117,5 @@ $Parameters = @{
 Invoke-RestMethod @Parameters | Invoke-Expression
 
 Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList "-new-tab `"about:addons`""
+Start-Sleep -Seconds 3
+Remove-Item -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\user.js" -Force
