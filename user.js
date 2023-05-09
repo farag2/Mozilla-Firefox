@@ -189,6 +189,10 @@ user_pref("browser.urlbar.shortcuts.quickactions", true);
 // При использовании панели адреса не предлагать ссылки из поисковых
 user_pref("browser.urlbar.suggest.engines", false);
 
+// Show search terms instead of URL on default search engine results page
+// Показывать поисковые запросы вместо сетевых адресов на странице выдачи поисковой системы по умолчанию
+user_pref("browser.urlbar.showSearchTerms.featureGate", false);
+
 // Alway show bookmarks toolbar
 // Всегда отображать панель закладок
 user_pref("browser.toolbars.bookmarks.visibility", "always");
