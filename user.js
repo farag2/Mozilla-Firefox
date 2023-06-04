@@ -168,6 +168,10 @@ user_pref("browser.taskbar.previews.enable", true);
 user_pref("browser.toolbars.bookmarks.2h2020", true);
 user_pref("browser.bookmarks.defaultLocation", "menu________");
 
+// Alway show bookmarks toolbar
+// Всегда отображать панель закладок
+user_pref("browser.toolbars.bookmarks.visibility", "always");
+
 // Use touch density in toolbar
 // Включить мобильные значки на панели инструментов
 user_pref("browser.uidensity", 2);
@@ -193,9 +197,10 @@ user_pref("browser.urlbar.suggest.engines", false);
 // Показывать поисковые запросы вместо сетевых адресов на странице выдачи поисковой системы по умолчанию
 user_pref("browser.urlbar.showSearchTerms.featureGate", false);
 
-// Alway show bookmarks toolbar
-// Всегда отображать панель закладок
-user_pref("browser.toolbars.bookmarks.visibility", "always");
+// Feature to add a custom search engine to the built-in list
+// Возможность добавлять новые поисковые системы через "Добавить"
+// about:preferences#search
+user_pref("browser.urlbar.update2.engineAliasRefresh", true);
 
 // Automatically click on banners that request permission to use cookies on the sites
 // Автоматически нажимать на баннеры, которые запрашивают разрешение на использование файлов куки на сайтах
