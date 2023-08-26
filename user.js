@@ -63,6 +63,10 @@ user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 // Добавить в контекстное меню изображений пункт "Информация об изображении"
 user_pref("browser.menu.showViewImageInfo", true);
 
+// Add "Import Data" in "General" category to import extensions from other browsers
+// Добавить "Импорт данных" в категории "Основные" для импорта расширений из других браузеров
+user_pref("browser.migrate.chrome.extensions.enabled", true);
+
 // Turn off recommended extensions
 // Отключить рекомендации расширений
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr", false);
