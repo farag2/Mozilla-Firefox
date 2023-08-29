@@ -1,3 +1,5 @@
+# https://github.com/QNetITQ/WaveFox
+
 # Getting profile name
 $String = (Get-Content -Path "$env:APPDATA\Mozilla\Firefox\installs.ini" | Select-String -Pattern "^\s*Default\s*=\s*.+" | ConvertFrom-StringData).Default
 $ProfileName = Split-Path -Path $String -Leaf
