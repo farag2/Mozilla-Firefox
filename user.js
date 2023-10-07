@@ -111,6 +111,10 @@ user_pref("browser.preferences.experimental", true);
 // Скрыть "Больше от Mozilla" в Настройках
 user_pref("browser.preferences.moreFromMozilla", false);
 
+// Show button to reset private browsing sessions in toolbar (120)
+// Отображать кнопку для сброса приватных сеансов на панели иснтрументов (120)
+// user_pref("browser.privatebrowsing.resetPBM.enable", true);
+
 // Show search suggestions in Private Windows
 // Отображать поисковые предложения в Приватных вкладках
 user_pref("browser.search.suggest.enabled.private", true);
