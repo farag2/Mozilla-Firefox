@@ -303,6 +303,10 @@ user_pref("network.trr.bootstrapAddress", "1.1.1.1");
 user_pref("pdfjs.annotationEditorMode", 0);
 user_pref("pdfjs.annotationMode", 2);
 
+// Enable image PDF editing feature
+// Включить возможность добавлять изображения в режиме редактирования PDF-файлов
+user_pref("pdfjs.enableStampEditor", 2);
+
 // Block new requests asking to allow notifications
 // Блокировать новые запросы на отправку уведомлений
 user_pref("permissions.default.desktop-notification", 2);
