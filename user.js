@@ -315,6 +315,11 @@ user_pref("permissions.default.desktop-notification", 2);
 // Передавать сайтам сигнал "Не отслеживать" всегда
 user_pref("privacy.donottrackheader.enabled", true);
 
+// Tell websites not to sell or share my data
+// Сообщать веб-сайтам, чтобы они не продавали и не разглашали мои данные
+user_pref("privacy.globalprivacycontrol.enabled", true);
+user_pref("privacy.globalprivacycontrol.was_ever_enabled", true);
+
 // Strips known tracking query parameters from URLs
 // Удалять известные отслеживающие параметры запроса из URL-адресов 
 user_pref("privacy.query_stripping.enabled.pbmode", true);
