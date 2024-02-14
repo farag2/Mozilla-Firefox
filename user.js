@@ -159,6 +159,10 @@ user_pref("browser.tabs.insertRelatedAfterCurrent", false);
 // Открывать закладки в фоновых вкладках
 user_pref("browser.tabs.loadBookmarksInBackground", true);
 
+// Enable tab previews 
+// Включить предпросмотр вкладок
+user_pref("browser.tabs.cardPreview.enabled", true);
+
 // Unload tabs when Firefox detects the system is running on low memory
 // Выгружать вкладки, когда Firefox обнаруживает, что система работает с малым объемом памяти
 // user_pref("browser.tabs.unloadOnLowMemory", true);
