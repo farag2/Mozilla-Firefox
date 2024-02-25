@@ -193,7 +193,6 @@ $Parameters = @{
 		"https://addons.mozilla.org/firefox/addon/traduzir-paginas-web",
 		"https://addons.mozilla.org/firefox/addon/tampermonkey",
 		"https://addons.mozilla.org/firefox/addon/sponsorblock",
-		"https://addons.mozilla.org/firefox/addon/private-relay",
 		"https://addons.mozilla.org/firefox/addon/return-youtube-dislikes"
 	)
 	Hive = "HKCU"
