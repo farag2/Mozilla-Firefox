@@ -5,9 +5,6 @@
 	.PARAMETER ExtensionUri
 	Copy URL on an extesion page by right-clicking on the Download button
 
-	.PARAMETER Hive
-	HKLM affects every user of a machine, HKCU will affect only the primary user
-
 	.EXAMPLE
 	$Parameters = @{
 		ExtensionUris = @("https://addons.mozilla.org/firefox/addon/ublock-origin")
@@ -176,7 +173,7 @@ $Parameters = @{
 }
 Add-FirefoxExtension @Parameters
 
-# Download other extentions from GitLab
+# Download another extention from GitLab
 $DownloadsFolder = Get-ItemPropertyValue -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" -Name "{374DE290-123F-4565-9164-39C4925E467B}"
 if (-not (Test-Path -Path "$DownloadsFolder\Extensions"))
 {
