@@ -37,7 +37,10 @@ function Add-FirefoxExtension
 		$Script:ProgressPreference = "SilentlyContinue"
 	}
 
-	(Get-Process -Name firefox -ErrorAction Ignore).CloseMainWindow()
+	if (Get-Process -Name firefox -ErrorAction Ignore)
+	{
+		(Get-Process -Name firefox).CloseMainWindow()
+	}
 
 	$DownloadsFolder = Get-ItemPropertyValue -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" -Name "{374DE290-123F-4565-9164-39C4925E467B}"
 	if (-not (Test-Path -Path "$DownloadsFolder\Extensions"))
