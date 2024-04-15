@@ -288,7 +288,7 @@ user_pref("network.http.windows-sso.enabled", true);
 
 // Set automatic proxy configuration URL
 // Установить URL автоматической настройки прокси
-user_pref("network.proxy.autoconfig_url", "https://antizapret.prostovpn.org:8443/proxy.pac");
+user_pref("network.proxy.autoconfig_url", "https://p.thenewone.lol:8443/proxy.pac");
 user_pref("network.proxy.type", 2);
 
 // https://wiki.mozilla.org/Trusted_Recursive_Resolver
