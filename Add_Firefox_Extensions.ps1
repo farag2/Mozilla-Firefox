@@ -36,6 +36,13 @@ function Add-FirefoxExtension
 		# https://github.com/PowerShell/PowerShell/issues/2138
 		$Script:ProgressPreference = "SilentlyContinue"
 	}
+ 
+	if ($Host.Version.Major -eq 5)
+	{
+		# Progress bar can significantly impact cmdlet performance
+		# https://github.com/PowerShell/PowerShell/issues/2138
+		$Script:ProgressPreference = "SilentlyContinue"
+	}
 
 	if (Get-Process -Name firefox -ErrorAction Ignore)
 	{
@@ -176,20 +183,12 @@ $Parameters = @{
 }
 Add-FirefoxExtension @Parameters
 
+<#
 # Download another extention from GitLab
 $DownloadsFolder = Get-ItemPropertyValue -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" -Name "{374DE290-123F-4565-9164-39C4925E467B}"
 if (-not (Test-Path -Path "$DownloadsFolder\Extensions"))
 {
 	New-Item -Path "$DownloadsFolder\Extensions" -ItemType Directory -Force
-}
-
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-
-if ($Host.Version.Major -eq 5)
-{
-	# Progress bar can significantly impact cmdlet performance
-	# https://github.com/PowerShell/PowerShell/issues/2138
-	$Script:ProgressPreference = "SilentlyContinue"
 }
 
 # https://gitlab.com/magnolia1234/bypass-paywalls-firefox-clean
@@ -218,6 +217,7 @@ $Parameters = @{
 	Verbose         = $true
 }
 Invoke-WebRequest @Parameters
+#>
 
 $Parameters = @{
 	Path            = "$DownloadsFolder\Extensions\bypass-paywalls-firefox-clean.zip"
