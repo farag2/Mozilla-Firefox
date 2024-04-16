@@ -79,8 +79,6 @@ Get-ScheduledTask -TaskPath "\Mozilla\" -ErrorAction Ignore | Disable-ScheduledT
 
 #region Download
 # Download search.json.mozlz4
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-
 $Parameters = @{
 	Uri             = "https://github.com/farag2/Mozilla-Firefox/raw/master/search.json.mozlz4"
 	OutFile         = "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\search.json.mozlz4"
