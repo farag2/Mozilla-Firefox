@@ -183,33 +183,6 @@ $Parameters = @{
 }
 Add-FirefoxExtension @Parameters
 
-<#
-# Download another extention from GitLab
-$DownloadsFolder = Get-ItemPropertyValue -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" -Name "{374DE290-123F-4565-9164-39C4925E467B}"
-if (-not (Test-Path -Path "$DownloadsFolder\Extensions"))
-{
-	New-Item -Path "$DownloadsFolder\Extensions" -ItemType Directory -Force
-}
-
-# https://gitlab.com/magnolia1234/bypass-paywalls-firefox-clean
-$Parameters = @{
-	Uri             = "https://gitlab.com/api/v4/projects/magnolia1234%2Fbypass-paywalls-firefox-clean"
-	UseBasicParsing = $true
-	Verbose         = $true
-}
-$id = (Invoke-RestMethod @Parameters).id
-
-<#
-# Get latest GitLab release version
-$Parameters = @{
-	Uri             = "https://gitlab.com/api/v4/projects/$id/releases/permalink/latest"
-	UseBasicParsing = $true
-	Verbose         = $true
-}
-Invoke-RestMethod @Parameters
-#>
-
-# https://gitlab.com/magnolia1234/bpc-uploads/
 $Parameters = @{
 	Uri             = "https://gitlab.com/magnolia1234/bpc-uploads/-/raw/master/bypass_paywalls_clean-latest.xpi?ref_type=heads&inline=false"
 	OutFile         = "$DownloadsFolder\Extensions\bypass-paywalls-firefox-clean.zip"
