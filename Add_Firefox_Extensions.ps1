@@ -161,8 +161,6 @@ function Add-FirefoxExtension
 			Copy-Item -Path "$DownloadsFolder\Extensions\$ApplicationID.xpi" -Destination "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions" -Force
 		}
 	}
-
-	Remove-Item -Path "$DownloadsFolder\Extensions" -Recurse -Force -ErrorAction Ignore
 }
 
 $Parameters = @{
