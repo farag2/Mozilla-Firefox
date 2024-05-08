@@ -1,3 +1,23 @@
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
+if ($Host.Version.Major -eq 5)
+{
+	# Progress bar can significantly impact cmdlet performance
+	# https://github.com/PowerShell/PowerShell/issues/2138
+	$Script:ProgressPreference = "SilentlyContinue"
+}
+ 
+if (Get-Process -Name firefox -ErrorAction Ignore)
+{
+	(Get-Process -Name firefox).CloseMainWindow()
+}
+
+$DownloadsFolder = Get-ItemPropertyValue -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" -Name "{374DE290-123F-4565-9164-39C4925E467B}"
+if (-not (Test-Path -Path "$DownloadsFolder\Extensions"))
+{
+	New-Item -Path "$DownloadsFolder\Extensions" -ItemType Directory -Force
+}
+
 <#
 	.SYNOPSIS
 	Add extensions to Firefox automatically
@@ -28,26 +48,6 @@ function Add-FirefoxExtension
 		$ExtensionUris
 	)
 
-	[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-
-	if ($Host.Version.Major -eq 5)
-	{
-		# Progress bar can significantly impact cmdlet performance
-		# https://github.com/PowerShell/PowerShell/issues/2138
-		$Script:ProgressPreference = "SilentlyContinue"
-	}
- 
-	if (Get-Process -Name firefox -ErrorAction Ignore)
-	{
-		(Get-Process -Name firefox).CloseMainWindow()
-	}
-
-	$DownloadsFolder = Get-ItemPropertyValue -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" -Name "{374DE290-123F-4565-9164-39C4925E467B}"
-	if (-not (Test-Path -Path "$DownloadsFolder\Extensions"))
-	{
-		New-Item -Path "$DownloadsFolder\Extensions" -ItemType Directory -Force
-	}
-
 	foreach ($Uri in $ExtensionUris)
 	{
 		# Downloading extension
@@ -71,7 +71,7 @@ function Add-FirefoxExtension
 
 		# Copy file and rename it into .zip
 		Get-Item -Path "$DownloadsFolder\Extensions\$Extension" -Force | Foreach-Object -Process {
-			Copy-Item -Path $_.FullName -Destination "$($_.BaseName).zip" -Force
+			Copy-Item -Path $_.FullName -Destination "$DownloadsFolder\Extensions\$($_.BaseName).zip" -Force
 		}
 
 		<#
@@ -132,11 +132,11 @@ function Add-FirefoxExtension
 		# Get the author id
 		$manifest = Get-Content -Path "$DownloadsFolder\Extensions\manifest.json" -Encoding Default -Force | ConvertFrom-Json
 		# Some extensions don't have valid JSON manifest
-		if ($null -ne $manifest.applications)
+		if ($manifest.applications.gecko.id)
 		{
 			$ApplicationID = $manifest.applications.gecko.id
 		}
-		else
+		elseif ($manifest.browser_specific_settings.gecko.id)
 		{
 			$ApplicationID = $manifest.browser_specific_settings.gecko.id
 		}
@@ -176,41 +176,40 @@ $Parameters = @{
 }
 Add-FirefoxExtension @Parameters
 
+# https://github.com/bpc-clone/bpc_updates
 $Parameters = @{
-	Uri             = "https://gitlab.com/magnolia1234/bpc-uploads/-/raw/master/bypass_paywalls_clean-latest.xpi?ref_type=heads&inline=false"
-	OutFile         = "$DownloadsFolder\Extensions\bypass-paywalls-firefox-clean.zip"
+	Uri             = "https://api.github.com/repos/bpc-clone/bpc_updates/releases/latest"
 	UseBasicParsing = $true
 	Verbose         = $true
 }
-Invoke-WebRequest @Parameters
-#>
+$URL = ((Invoke-RestMethod @Parameters).assets | Where-Object -FilterScript {$_.name -match "latest"}).browser_download_url
+$Parameters = @{
+	Uri             = $URL
+	Outfile         = "$DownloadsFolder\Extensions\bpc.xpi"
+	UseBasicParsing = $true
+	Verbose         = $true
+}
+Invoke-RestMethod @Parameters
+
+# Copy file and rename it into .zip
+Get-Item -Path "$DownloadsFolder\Extensions\bpc.xpi" -Force | Foreach-Object -Process {
+	Copy-Item -Path $_.FullName -Destination "$DownloadsFolder\Extensions\$($_.BaseName).zip" -Force
+}
 
 $Parameters = @{
-	Path            = "$DownloadsFolder\Extensions\bypass-paywalls-firefox-clean.zip"
+	Path            = "$DownloadsFolder\Extensions\bpc.zip"
 	DestinationPath = "$DownloadsFolder\Extensions"
 	Force           = $true
 }
 Expand-Archive @Parameters
 
-# Get latest archive version
-$Parameters = @{
-	Uri             = "https://gitlab.com/api/v4/projects/$id/releases/permalink/latest"
-	UseBasicParsing = $true
-	Verbose         = $true
-}
-$tag_name = (Invoke-RestMethod @Parameters).tag_name
-
 # Get the author id
-$Parameters = @{
-	Uri             = "https://gitlab.com/magnolia1234/bypass-paywalls-firefox-clean/-/raw/master/manifest.json?ref_type=heads"
-	UseBasicParsing = $true
-	Verbose         = $true
-}
-$ApplicationID = (Invoke-RestMethod @Parameters).browser_specific_settings.gecko.id
+$manifest = Get-Content -Path "$DownloadsFolder\Extensions\manifest.json" -Encoding Default -Force | ConvertFrom-Json
+$ApplicationID = $manifest.browser_specific_settings.gecko.id
 
 if (-not (Test-Path -Path "$DownloadsFolder\Extensions\$ApplicationID.xpi"))
 {
-	Rename-Item -Path "$DownloadsFolder\Extensions\bypass-paywalls-firefox-clean.zip" -NewName "$ApplicationID.xpi" -Force
+	Rename-Item -Path "$DownloadsFolder\Extensions\bpc.xpi" -NewName "$ApplicationID.xpi" -Force
 }
 
 # Getting Firefox profile name
