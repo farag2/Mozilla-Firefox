@@ -225,7 +225,7 @@ if (-not (Test-Path -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\ex
 	Copy-Item -Path "$DownloadsFolder\Extensions\$ApplicationID.xpi" -Destination "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions" -Force
 }
 
-Remove-Item -Path "$DownloadsFolder\Extensions" -Recurse -Force -ErrorAction Ignore
+Remove-Item -Path "$DownloadsFolder\Extensions" -Recurse -Force
 
 Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList "-new-tab about:addons"
 
