@@ -37,13 +37,6 @@ function Add-FirefoxExtension
 		$Script:ProgressPreference = "SilentlyContinue"
 	}
  
-	if ($Host.Version.Major -eq 5)
-	{
-		# Progress bar can significantly impact cmdlet performance
-		# https://github.com/PowerShell/PowerShell/issues/2138
-		$Script:ProgressPreference = "SilentlyContinue"
-	}
-
 	if (Get-Process -Name firefox -ErrorAction Ignore)
 	{
 		(Get-Process -Name firefox).CloseMainWindow()
