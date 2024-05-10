@@ -12,6 +12,11 @@ Start-Sleep -Seconds 1
 
 #region Toolbar
 # Getting profile name
+if (-not (Test-Path -Path "$env:APPDATA\Mozilla\Firefox\installs.ini"))
+{
+	exit
+}
+
 $String = (Get-Content -Path "$env:APPDATA\Mozilla\Firefox\installs.ini" | Select-String -Pattern "^\s*Default\s*=\s*.+" | ConvertFrom-StringData).Default
 $ProfileName = Split-Path -Path $String -Leaf
 
