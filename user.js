@@ -91,6 +91,10 @@ user_pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcu
 // Не предлагать импорт закладок, истории и паролей из другого браузера
 user_pref("browser.newtabpage.activity-stream.migrationExpired", true);
 
+// Enable wallpaper for new tab page
+// Включить фоновый рисунок для новой вкладки
+user_pref("browser.newtabpage.activity-stream.newtabWallpapers.enabled", true);
+
 // Show Highlights in 4 rows
 // Отобразить избранные сайты в 4 столбца
 user_pref("browser.newtabpage.activity-stream.section.highlights.rows", 4);
@@ -335,6 +339,10 @@ user_pref("privacy.query_stripping.enabled.pbmode", true);
 // Total Cookie Protection contains cookies to the site you’re on, so trackers can’t use them to follow you between sites.
 // Полная защита от кук ограничивает работу кук сайтом, на котором вы находитесь, чтобы трекеры не могли использовать их для слежки за вами от сайта к сайту
 user_pref("privacy.restrict3rdpartystorage.rollout.enabledByDefault", true);
+
+// Enable new dialog to clear history and cache
+// Включить новый упрощённый и унифицированный диалог для очистки данных пользователя
+user_pref("privacy.sanitize.useOldClearHistoryDialog", true);
 
 // Set time range to clear to "Everything"
 // Выбрать "Удалить всё" при удаление истории
