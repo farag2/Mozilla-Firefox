@@ -356,6 +356,11 @@ user_pref("prompts.defaultModalType", 3);
 // Включить синхронизацию кастомизации интерфейса
 user_pref("services.sync.prefs.sync.browser.uiCustomization.state", true);
 
+// Enable vertical tabs
+// Включить вертикальные вкладки
+user_pref("sidebar.revamp", true);
+user_pref("sidebar.verticalTabs", true);
+  
 // Enable the import of passwords as a CSV file on the about:logins page
 // Включить импорт паролей в виде CSV-файла на странице "about: logins" 
 user_pref("signon.management.page.fileImport.enabled", true);
