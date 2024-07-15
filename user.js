@@ -237,6 +237,10 @@ user_pref("dom.block_download_insecure", false);
 // Включить отложенную загрузку для изображений
 user_pref("dom.dom.image-lazy-loading.enabled", true);
 
+// Do not allow websites to perform privacy-preserving as measurement
+// Не разрешать веб-сайтам проводить измерение рекламы с сохранением приватности
+user_pref("dom.private-attribution.submission.enabled", false);
+
 // Enable HTTPS-Only Mode in all windows
 // Включить режим "Только HTTPS" во всех окнах
 user_pref("dom.security.https_only_mode", true);
