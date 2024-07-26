@@ -290,6 +290,10 @@ user_pref("middlemouse.openNewWindow", true);
 user_pref("network.dns.echconfig.enabled", true);
 user_pref("network.dns.use_https_rr_as_altsvc", true);
 
+// Turn on HTTP3
+// Включить HTTP3
+// user_pref("network.http.http3.enabled", true);
+
 // Allow Windows single sign-on for Microsoft, work, and school accounts
 // Разрешить единый вход Windows для учётных записей Microsoft, учетных записей на работе и в учеьных заведениях
 user_pref("network.http.windows-sso.enabled", true);
