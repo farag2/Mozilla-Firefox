@@ -292,7 +292,7 @@ user_pref("network.dns.use_https_rr_as_altsvc", true);
 
 // Turn on HTTP3
 // Включить HTTP3
-// user_pref("network.http.http3.enabled", true);
+// user_pref("network.http.http3.enable", true);
 
 // Allow Windows single sign-on for Microsoft, work, and school accounts
 // Разрешить единый вход Windows для учётных записей Microsoft, учетных записей на работе и в учеьных заведениях
