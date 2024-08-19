@@ -231,6 +231,8 @@ Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -Argumen
 
 # Install additional JS scripts for Tampermonkey
 # We need to open Firefox process first to be able to open new tabs. Unless every new tab will be opened in a new process
+# https://easylist-downloads.adblockplus.org/cntblock.txt
+# https://github.com/easylist/ruadlist/wiki/RU-Adlist-links
 if (Test-Path -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions\firefox@tampermonkey.net.xpi")
 {
 	Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList "-new-tab `"https://greasyfork.org/scripts/19993-ru-adlist-js-fixes/code/RU%20AdList%20JS%20Fixes.user.js`""
