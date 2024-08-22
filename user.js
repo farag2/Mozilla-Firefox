@@ -188,6 +188,10 @@ user_pref("browser.bookmarks.defaultLocation", "menu________");
 // Всегда отображать панель закладок
 user_pref("browser.toolbars.bookmarks.visibility", "always");
 
+// Never offer to translate page
+// Никогда не предлагать перевод страницы
+user_pref("browser.translations.automaticallyPopup", false);
+
 // Use touch density in toolbar
 // Включить мобильные значки на панели инструментов
 user_pref("browser.uidensity", 2);
