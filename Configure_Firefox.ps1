@@ -23,20 +23,13 @@ $ProfileName = Split-Path -Path $String -Leaf
 # Finding where the Toolbar settings are being stored
 [string]$String = Get-Content -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\prefs.js" | Select-String -Pattern '"browser\.uiCustomization\.state"'
 
-# Deleting all "\" in the string
-$String2 = $String.Replace("\", "")
+$QuickJson = $String.Replace("\", "").Replace('user_pref("browser.uiCustomization.state", "', "").Replace("`");", "")
 
-# Deleting the first 44 characters to delete 'user_pref("browser.uiCustomization.state", "'
-$Substring = $String2.Substring(44)
-
-# Deleting the last 3 characters to delete '");'
-$QuickJson = $Substring.Substring(0, $Substring.Length-3)
-
-[Object]$JSON = ConvertFrom-Json -InputObject $QuickJson
+$JSON = $QuickJson | ConvertFrom-Json
 
 # The necessary buttons sequence
 # Add your extensions icons here
-$NavBar = (
+$NavBar = @(
 	# Back
 	"back-button",
 
@@ -61,14 +54,22 @@ $NavBar = (
 	# Firefox Account
 	"fxa-toolbar-menu-button",
 
-    # uBlock
-    "ublock0_raymondhill_net-browser-action",
-
-    # Tampermonkey
-    "firefox_tampermonkey_net-browser-action"
+	# uBlock
+	"ublock0_raymondhill_net-browser-action"
 )
+
+# Check if uBlock Origin installed
+if (Test-Path -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions\uBlock0@raymondhill.net.xpi")
+{
+	$NavBar = $NavBar -ne "ublock0_raymondhill_net-browser-action"
+}
+
 $JSON.placements.'nav-bar' = $NavBar
-$ConfiguredJSON = $JSON | ConvertTo-Json -Depth 10
+
+# Remove Firefox View tab from toolbar
+$JSON.placements.TabsToolbar = @($JSON.placements.TabsToolbar | Where-Object -FilterScript {$_ -ne "firefox-view-button"})
+
+$ConfiguredJSON = $JSON | ConvertTo-Json
 
 # Replacing all '"' with '\"', as it was
 $ConfiguredString = $ConfiguredJSON.Replace('"', '\"').ToString()
