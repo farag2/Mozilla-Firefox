@@ -174,15 +174,10 @@ $Parameters = @{
 }
 Add-FirefoxExtension @Parameters
 
-# https://github.com/bpc-clone/bpc_updates
+# https://gitflic.ru/project/magnolia1234/bpc_uploads
+# https://github.com/bpc-clone/bypass-paywalls-firefox-clean
 $Parameters = @{
-	Uri             = "https://api.github.com/repos/bpc-clone/bpc_updates/releases/latest"
-	UseBasicParsing = $true
-	Verbose         = $true
-}
-$URL = ((Invoke-RestMethod @Parameters).assets | Where-Object -FilterScript {$_.name -match "latest"}).browser_download_url
-$Parameters = @{
-	Uri             = $URL
+	Uri             = "https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass_paywalls_clean-latest.xpi"
 	Outfile         = "$DownloadsFolder\Extensions\bpc.xpi"
 	UseBasicParsing = $true
 	Verbose         = $true
