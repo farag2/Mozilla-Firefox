@@ -27,7 +27,7 @@ $QuickJson = $String.Replace("\", "").Replace('user_pref("browser.uiCustomizatio
 
 $JSON = $QuickJson | ConvertFrom-Json
 
-# The necessary buttons sequence
+# Toolbar buttons sequence
 # Add your extensions icons here
 $NavBar = @(
 	# Back
@@ -57,12 +57,6 @@ $NavBar = @(
 	# uBlock
 	"ublock0_raymondhill_net-browser-action"
 )
-
-# Check if uBlock Origin installed
-if (Test-Path -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions\uBlock0@raymondhill.net.xpi")
-{
-	$NavBar = $NavBar -ne "ublock0_raymondhill_net-browser-action"
-}
 
 $JSON.placements.'nav-bar' = $NavBar
 
@@ -108,6 +102,7 @@ if (-not (Test-Path -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\ch
 	New-Item -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\chrome" -ItemType Directory -Force
 }
 
+# https://github.com/farag2/Mozilla-Firefox/blob/master/chrome/userChrome.css
 $Parameters = @{
 	Uri             = "https://raw.githubusercontent.com/farag2/Mozilla-Firefox/master/chrome/userChrome.css"
 	OutFile         = "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\chrome\userChrome.css"
@@ -120,7 +115,6 @@ Invoke-WebRequest @Parameters
 # Install extensions
 # https://addons.mozilla.org/firefox/addon/ublock-origin/
 # https://addons.mozilla.org/firefox/addon/traduzir-paginas-web/
-# https://addons.mozilla.org/firefox/addon/tampermonkey/
 # https://addons.mozilla.org/firefox/addon/sponsorblock/
 # https://github.com/farag2/Mozilla-Firefox/blob/master/Add_Firefox_Extensions.ps1
 $Parameters = @{
