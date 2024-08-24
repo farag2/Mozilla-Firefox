@@ -167,9 +167,9 @@ $Parameters = @{
 	ExtensionUris = @(
 		"https://addons.mozilla.org/firefox/addon/ublock-origin",
 		"https://addons.mozilla.org/firefox/addon/traduzir-paginas-web",
-		"https://addons.mozilla.org/firefox/addon/tampermonkey",
+		# "https://addons.mozilla.org/firefox/addon/tampermonkey",
+		# https://greasyfork.org/ru/scripts/436115-return-youtube-dislike
 		"https://addons.mozilla.org/firefox/addon/sponsorblock",
-  		# https://greasyfork.org/ru/scripts/436115-return-youtube-dislike
 		"https://addons.mozilla.org/firefox/addon/return-youtube-dislikes"
 	)
 }
