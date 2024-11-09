@@ -22,3 +22,4 @@ Always up-to-date configuration file for Mozilla Firefox
   * [Download via PowerShell](https://github.com/farag2/Utilities/tree/master/Download)
 * [FirefoxCSS on Reddit](https://www.reddit.com/r/FirefoxCSS/)
 * Sophia Collection on [Mozilla Add-ons](https://addons.mozilla.org/en-US/firefox/collections/16112274/Sophia/)
+* `chrome://geckoview/content/config.xhtml`
