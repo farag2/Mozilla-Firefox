@@ -308,7 +308,8 @@ user_pref("network.proxy.type", 2);
 // DoH используется по умолчанию, а стандартный DNS-сервер используется в качестве резервного
 user_pref("network.trr.mode", 2);
 // The URI for DoH server
-// URI для DoH-сервера 
+// URI для DoH-сервера
+// user_pref("network.trr.uri", "https://dns.comss.one/dns-query");
 user_pref("network.trr.uri", "https://mozilla.cloudflare-dns.com/dns-query");
 // Set the IP address of the host name used in "network.trr.uri", to bypass using the system native resolver for it
 // Установить IP-адрес, используемого в "network.trr.uri", чтобы исключить использование системного резольвера
