@@ -335,10 +335,6 @@ user_pref("pdfjs.enableStampEditor", 2);
 // Блокировать новые запросы на отправку уведомлений
 user_pref("permissions.default.desktop-notification", 2);
 
-// Send websites a "Do Not Track" signal always
-// Передавать сайтам сигнал "Не отслеживать" всегда
-user_pref("privacy.donottrackheader.enabled", true);
-
 // Tell websites not to sell or share my data
 // Сообщать веб-сайтам, чтобы они не продавали и не разглашали мои данные
 user_pref("privacy.globalprivacycontrol.enabled", true);
