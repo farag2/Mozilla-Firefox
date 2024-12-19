@@ -314,8 +314,8 @@ user_pref("network.trr.mode", 2);
 user_pref("network.trr.uri", "https://mozilla.cloudflare-dns.com/dns-query");
 // Set the IP address of the host name used in "network.trr.uri", to bypass using the system native resolver for it
 // Установить IP-адрес, используемого в "network.trr.uri", чтобы исключить использование системного резольвера
-// user_pref("network.trr.bootstrapAddress", "195.133.25.16");
-// user_pref("network.trr.bootstrapAddress", "195.133.25.99");
+// user_pref("network.trr.bootstrapAddress", "83.220.169.155");
+// user_pref("network.trr.bootstrapAddress", "83.220.169.155");
 user_pref("network.trr.bootstrapAddress", "1.1.1.1");
 
 // Enable PDF editing feature and tools
