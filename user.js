@@ -67,6 +67,23 @@ user_pref("browser.menu.showViewImageInfo", true);
 // Добавить "Импорт данных" в категории "Основные" для импорта расширений из других браузеров
 user_pref("browser.migrate.chrome.extensions.enabled", true);
 
+// Turn on AI chatbot
+// Включить ИИ-чат-бот
+user_pref("browser.ml.chat.enabled", true);
+
+// Choose a chatbot
+// Выберите чат-бот
+// https://chatgpt.com
+// https://claude.ai/new
+// https://gemini.google.com
+// https://huggingface.co/chat
+// https://chat.mistral.ai/chat
+user_pref("browser.ml.chat.provider", "https://chatgpt.com");
+
+// Show prompts on text select
+// Показывать подсказки при выделении текста
+user_pref("browser.ml.chat.shortcuts", true);
+
 // Turn off recommended extensions
 // Отключить рекомендации расширений
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr", false);
