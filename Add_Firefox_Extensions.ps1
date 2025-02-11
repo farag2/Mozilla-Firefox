@@ -224,12 +224,3 @@ if (-not (Test-Path -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\ex
 Remove-Item -Path "$DownloadsFolder\Extensions" -Recurse -Force
 
 Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList "-new-tab about:addons"
-
-# Install additional RU AdList: Counters
-# We need to open Firefox process first to be able to open new tabs. Unless every new tab will be opened in a new process
-# https://github.com/easylist/ruadlist/wiki/RU-Adlist-links
-# https://greasyfork.org/ru/scripts/19993-ru-adlist-js-fixes
-if (Test-Path -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\extensions\uBlock0@raymondhill.net.xpi") 
-{
-	Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList "-new-tab `"https://easylist-downloads.adblockplus.org/cntblock.txt`""
-}
