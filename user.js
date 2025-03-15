@@ -390,7 +390,7 @@ user_pref("signon.management.page.fileImport.enabled", true);
 
 // Enable urlbar built-in calculator
 // Включить встроенный в адресную строку калькулятор
-user_pref("suggest.calculator", true);
+user_pref("browser.urlbar.suggest.calculator", true);
 
 // Show indicators on saved logins that are re-using those breached passwords
 // Показать индикаторы на сохраненных логинах, которые повторно используют эти скомпрометированные пароли
