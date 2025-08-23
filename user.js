@@ -96,6 +96,10 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", fa
 // Не рекомендовать функции при просмотре
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 
+// Turn off article recommendations on New Tab
+// Выключить рекомендации на новой вкладке
+user_pref("browser.newtabpage.activity-stream.discoverystream.sections.enabled", false);
+
 // Turn off Snippets (Updates from Mozilla and Firefox)
 // Отключить Заметки (Обновления от Mozilla и Firefox)
 user_pref("browser.newtabpage.activity-stream.feeds.snippets", false);
@@ -415,3 +419,4 @@ user_pref("ui.textHighlightBackground", "Fireprick");
 // Turn on FFmpegDataDecoder. For display server based on Wayland
 // Включить FFmpegDataDecoder. Для окружений на базе Wayland
 // user_pref("widget.wayland-dmabuf-webgl.enabled", true);
+
