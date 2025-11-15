@@ -354,6 +354,11 @@ user_pref("pdfjs.enableStampEditor", 2);
 // Блокировать новые запросы на отправку уведомлений
 user_pref("permissions.default.desktop-notification", 2);
 
+// Enable Semantic History Search
+// Включить семантический поиск истории
+user_pref("places.semanticHistory.featureGate", true);
+user_pref("browser.urlbar.showDebuggingIcons", true);
+
 // Tell websites not to sell or share my data
 // Сообщать веб-сайтам, чтобы они не продавали и не разглашали мои данные
 user_pref("privacy.globalprivacycontrol.enabled", true);
@@ -419,4 +424,5 @@ user_pref("ui.textHighlightBackground", "Fireprick");
 // Turn on FFmpegDataDecoder. For display server based on Wayland
 // Включить FFmpegDataDecoder. Для окружений на базе Wayland
 // user_pref("widget.wayland-dmabuf-webgl.enabled", true);
+
 
