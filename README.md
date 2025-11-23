@@ -4,15 +4,30 @@
 
 Always up-to-date configuration file for Mozilla Firefox
 
-## Configure via [Configure_Firefox.ps1](https://github.com/farag2/Mozilla-Firefox/blob/master/Configure_Firefox.ps1)
+Configure your Firefox within one click
 
-* ![Toolbar](https://i.imgur.com/1qibb2A.png)
+# How-to
+
+Run as admin this command to configure your Firefox within one click
+
+```powershell
+https://raw.githubusercontent.com/farag2/Mozilla-Firefox/refs/heads/master/Configure_Firefox.ps1 | iex
+```
+
+## Features 
+
+* Install all these extensions at once
+  * [uBlock Origin](https://addons.mozilla.org/firefox/addon/ublock-origin)
+  * [TWP - Translate Web Pages](https://addons.mozilla.org/firefox/addon/traduzir-paginas-web)
+  * [SponsorBlock](https://addons.mozilla.org/firefox/addon/sponsorblock)
+  * [Return YouTube Dislike](https://addons.mozilla.org/firefox/addon/return-youtube-dislikes)
+* Apply [user.js](https://github.com/farag2/Mozilla-Firefox/blob/master/user.js)
+* Configure [toolbar](https://i.imgur.com/1qibb2A.png)
 * Turn off all scheduled tasks in Mozilla folder
-* Download [pre-configured One Clicked Search Engines](https://github.com/farag2/Mozilla-Firefox/blob/master/search.json.mozlz4)
+* Download and install [search engines](https://github.com/farag2/Mozilla-Firefox/blob/master/search.json.mozlz4)
   * Google
   * YouTube
   * RuTracker.org
-* Download [user.js](https://github.com/farag2/Mozilla-Firefox/blob/master/user.js)
 * Hide all items in Bookmarks menu via [userChrome.css](https://github.com/farag2/Mozilla-Firefox/blob/master/chrome/userChrome.css)
   * ![Image](https://i.imgur.com/tPw4yoW.png)
 
