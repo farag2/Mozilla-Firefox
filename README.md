@@ -22,14 +22,18 @@ https://raw.githubusercontent.com/farag2/Mozilla-Firefox/refs/heads/master/Confi
   * [SponsorBlock](https://addons.mozilla.org/firefox/addon/sponsorblock)
   * [Return YouTube Dislike](https://addons.mozilla.org/firefox/addon/return-youtube-dislikes)
 * Apply [user.js](https://github.com/farag2/Mozilla-Firefox/blob/master/user.js)
-* Configure [toolbar](https://i.imgur.com/1qibb2A.png)
+* Configure toolbar
+
+![toolbar](https://i.imgur.com/1qibb2A.png)
+
 * Turn off all scheduled tasks in Mozilla folder
 * Download and install [search engines](https://github.com/farag2/Mozilla-Firefox/blob/master/search.json.mozlz4)
   * Google
   * YouTube
   * RuTracker.org
 * Hide all items in Bookmarks menu via [userChrome.css](https://github.com/farag2/Mozilla-Firefox/blob/master/chrome/userChrome.css)
-  * ![Image](https://i.imgur.com/tPw4yoW.png)
+
+![Bookmarks](https://i.imgur.com/tPw4yoW.png)
 
 ## Links
 
