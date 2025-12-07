@@ -28,9 +28,11 @@ https://raw.githubusercontent.com/farag2/Mozilla-Firefox/refs/heads/master/Confi
 
 * Turn off all scheduled tasks in Mozilla folder
 * Download and install [search engines](https://github.com/farag2/Mozilla-Firefox/blob/master/search.json.mozlz4)
-  * Google
-  * YouTube
-  * RuTracker.org
+  * https://www.google.com
+  * https://www.youtube.com
+  * https://rutracker.org/forum/index.php
+  * https://nnmclub.to
+  * https://www.perplexity.ai
 * Hide all items in Bookmarks menu via [userChrome.css](https://github.com/farag2/Mozilla-Firefox/blob/master/chrome/userChrome.css)
 
 ![Bookmarks](https://i.imgur.com/tPw4yoW.png)
