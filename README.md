@@ -11,7 +11,7 @@ Configure your Firefox within one click
 Run as admin this command to configure your Firefox within one click
 
 ```powershell
-https://raw.githubusercontent.com/farag2/Mozilla-Firefox/refs/heads/master/Configure_Firefox.ps1 | iex
+шцк https://raw.githubusercontent.com/farag2/Mozilla-Firefox/refs/heads/master/Configure_Firefox.ps1 -useb | iex
 ```
 
 ## Features 
