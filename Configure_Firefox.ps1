@@ -120,9 +120,11 @@ Invoke-WebRequest @Parameters
 $Parameters = @{
 	Uri             = "https://raw.githubusercontent.com/farag2/Mozilla-Firefox/master/Add_Firefox_Extensions.ps1"
 	UseBasicParsing = $true
+	Verbose         = $true
 }
 Invoke-RestMethod @Parameters | Invoke-Expression
 
 Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList "-new-tab `"about:addons`""
 Start-Sleep -Seconds 3
 Remove-Item -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\user.js" -Force
+
