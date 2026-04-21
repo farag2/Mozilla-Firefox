@@ -319,11 +319,6 @@ user_pref("network.http.http3.enable", true);
 // Разрешить единый вход Windows для учётных записей Microsoft, учетных записей на работе и в учеьных заведениях
 user_pref("network.http.windows-sso.enabled", true);
 
-// Set automatic proxy configuration URL
-// Установить URL автоматической настройки прокси
-user_pref("network.proxy.autoconfig_url", "https://p.thenewone.lol:8443/proxy.pac");
-user_pref("network.proxy.type", 2);
-
 // https://wiki.mozilla.org/Trusted_Recursive_Resolver
 // Make DoH the browser's first choice but use regular DNS as a fallback
 // DoH используется по умолчанию, а стандартный DNS-сервер используется в качестве резервного
