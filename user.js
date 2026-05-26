@@ -51,6 +51,11 @@ user_pref("browser.download.useDownloadDir", false);
 // Отключить подсчета URI в приватном режиме просмотра
 user_pref("browser.engagement.total_uri_count.pbm", false);
 
+// Turn on Firefox VPN
+// Включить Firefox VPN
+// https://blog.mozilla.org/en/firefox/built-in-vpn/
+user_pref("browser.ipProtection.enabled", true);
+
 // Turn off Library Highlights
 // Скрыть "Последнее Избранное" в Библиотеки
 user_pref("browser.library.activity-stream.enabled", false);
