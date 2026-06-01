@@ -51,6 +51,9 @@ $NavBar = @(
 	# Show your bookmarks
 	"downloads-button",
 
+	# Show Firefox VPN button
+	"ipprotection-button",
+
 	# Firefox Account
 	"fxa-toolbar-menu-button",
 
