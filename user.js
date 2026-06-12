@@ -2,15 +2,6 @@
 // Включить поиск текста на странице по мере его набора
 user_pref("accessibility.typeaheadfind", true);
 
-// Turn on notifications to show in Windows 10/11 Action Center
-// Включить интеграцию с центром уведомлений Windows 10/11
-user_pref("alerts.useSystemBackend", true);
-user_pref("alerts.useSystemBackend.windows.notificationserver.enabled", true);
-
-// Allow Firefox to install and run studies
-// Разрешить Firefox устанавливать и проводить исследования
-user_pref("app.shield.optoutstudies.enabled", true);
-
 // Do not show about:config warning message
 // Не предупреждать при заходе на about:config
 user_pref("browser.aboutConfig.showWarning", false);
@@ -26,10 +17,6 @@ user_pref("browser.bookmarks.openInTabClosesMenu", false);
 // Hide mobile bookmarks folder
 // Скрыть папку Мобильные закладки
 user_pref("browser.bookmarks.showMobileBookmarks", false);
-
-// Show the Compact option under Density in the customize menu
-// Отображать опцию "Компактные" в разделе "Значки" в разделе персонализации панели инструментов
-user_pref("browser.compactmode.show", true);
 
 // Turn off Content Blocker notification
 // Не отображать уведомление о блокировке содержимого
@@ -47,18 +34,10 @@ user_pref("browser.download.autohideButton", false);
 // Спрашивать, что делать для каждого файла перед загрузкой
 user_pref("browser.download.useDownloadDir", false);
 
-// Turn off counting URIs in private browsing mode
-// Отключить подсчета URI в приватном режиме просмотра
-user_pref("browser.engagement.total_uri_count.pbm", false);
-
 // Turn on Firefox VPN
 // Включить Firefox VPN
 // https://blog.mozilla.org/en/firefox/built-in-vpn/
 user_pref("browser.ipProtection.enabled", true);
-
-// Turn off Library Highlights
-// Скрыть "Последнее Избранное" в Библиотеки
-user_pref("browser.library.activity-stream.enabled", false);
 
 // Do not notify about new features
 // Не уведомлять о новых функциях Firefox
@@ -141,10 +120,6 @@ user_pref("browser.preferences.experimental", true);
 // Скрыть "Больше от Mozilla" в Настройках
 user_pref("browser.preferences.moreFromMozilla", false);
 
-// Show button to reset private browsing sessions in toolbar (120)
-// Отображать кнопку для сброса приватных сеансов на панели иснтрументов (120)
-// user_pref("browser.privatebrowsing.resetPBM.enable", true);
-
 // Show search suggestions in Private Windows
 // Отображать поисковые предложения в Приватных вкладках
 user_pref("browser.search.suggest.enabled.private", true);
@@ -188,10 +163,6 @@ user_pref("browser.tabs.loadBookmarksInBackground", true);
 // Enable tab previews 
 // Включить предпросмотр вкладок
 user_pref("browser.tabs.cardPreview.enabled", true);
-
-// Unload tabs when Firefox detects the system is running on low memory
-// Выгружать вкладки, когда Firefox обнаруживает, что система работает с малым объемом памяти
-// user_pref("browser.tabs.unloadOnLowMemory", true);
 
 // Do not warn when attempt to close multiple tabs
 // Не предупреждать при закрытии нескольких вкладок
@@ -279,21 +250,9 @@ user_pref("extensions.allowPrivateBrowsingByDefault", true);
 // Отключить рекомендуемые расширения на странице "Дополнения"
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 
-// Turn off Pocket
-// Отключить Pocket
-user_pref("extensions.pocket.enabled", false);
-
-// Turn on Unified Extensions Toolbar button (105)
-// Включить универсального Unified Extensions Toolbar (105)
-// user_pref("extensions.unifiedExtensions.enabled", true);
-
 // Highlight all occurrences of the phrase when searching
 // Подстветить всех вхождения фразы в текст при поиске
 user_pref("findbar.highlightAll", true);
-
-// Enable site isolation (Project Fission)
-// Включить режим строгой изоляции страниц (Project Fission)
-user_pref("fission.autostart", true);
 
 // Use smooth scrolling
 // Использовать плавную прокрутку
@@ -416,13 +375,3 @@ user_pref("toolkit.winRegisterApplicationRestart", false);
 // Show matches next on top of scrollbar
 // Показывать совпадения поверх полосы прокрутки
 user_pref("ui.textHighlightBackground", "Fireprick");
-
-// Turn on Video Acceleration API (VA-API). For desktop environment based on Wayland
-// Включить Video Acceleration API (VA-API). Для окружений на базе Wayland
-// user_pref("widget.wayland-dmabuf-vaapi.enabled", true);
-
-// Turn on FFmpegDataDecoder. For display server based on Wayland
-// Включить FFmpegDataDecoder. Для окружений на базе Wayland
-// user_pref("widget.wayland-dmabuf-webgl.enabled", true);
-
-
