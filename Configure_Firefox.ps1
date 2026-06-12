@@ -119,6 +119,7 @@ Invoke-WebRequest @Parameters
 # https://addons.mozilla.org/firefox/addon/ublock-origin/
 # https://addons.mozilla.org/firefox/addon/traduzir-paginas-web/
 # https://addons.mozilla.org/firefox/addon/sponsorblock/
+# https://addons.mozilla.org/firefox/addon/return-youtube-dislikes/
 # https://github.com/farag2/Mozilla-Firefox/blob/master/Add_Firefox_Extensions.ps1
 $Parameters = @{
 	Uri             = "https://raw.githubusercontent.com/farag2/Mozilla-Firefox/master/Add_Firefox_Extensions.ps1"
@@ -130,4 +131,3 @@ Invoke-RestMethod @Parameters | Invoke-Expression
 Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList "-new-tab `"about:addons`""
 Start-Sleep -Seconds 3
 Remove-Item -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\user.js" -Force
-
