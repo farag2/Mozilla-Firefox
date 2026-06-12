@@ -97,6 +97,12 @@ $URLs = @(
 )
 Add-FirefoxExtension -URLs $URLs
 
+$DownloadsFolder = Get-ItemPropertyValue -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" -Name "{374DE290-123F-4565-9164-39C4925E467B}"
+if (-not (Test-Path -Path "$DownloadsFolder\Extensions"))
+{
+	New-Item -Path "$DownloadsFolder\Extensions" -ItemType Directory -Force
+}
+
 # https://gitflic.ru/project/magnolia1234/bpc_uploads
 $Parameters = @{
 	Uri             = "https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass_paywalls_clean-latest.xpi"
