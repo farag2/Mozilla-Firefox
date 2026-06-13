@@ -93,7 +93,8 @@ $URLs = @(
 	"https://addons.mozilla.org/firefox/addon/ublock-origin",
 	"https://addons.mozilla.org/firefox/addon/traduzir-paginas-web",
 	"https://addons.mozilla.org/firefox/addon/sponsorblock",
-	"https://addons.mozilla.org/firefox/addon/return-youtube-dislikes"
+	"https://addons.mozilla.org/firefox/addon/return-youtube-dislikes",
+	"https://addons.mozilla.org/ru/firefox/addon/reyohoho-twitch-proxy"
 )
 Add-FirefoxExtension -URLs $URLs
 
