@@ -185,6 +185,10 @@ user_pref("browser.toolbars.bookmarks.visibility", "always");
 // Никогда не предлагать перевод страницы
 user_pref("browser.translations.automaticallyPopup", false);
 
+// Seamlessly browse the web in your preferred language
+// Просматривайте бесшовно веб-страницы на выбранном вами языке
+user_pref("browser.ai.control.translations", "available");
+
 // Use touch density in toolbar
 // Включить мобильные значки на панели инструментов
 user_pref("browser.uidensity", 2);
