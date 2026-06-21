@@ -112,6 +112,11 @@ user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
 // Отобразить топ сайтов в 4 столбца
 user_pref("browser.newtabpage.activity-stream.topSitesRows", 4);
 
+// Show weather widget in a new tab
+// Отобразить виджет погоды в новой вкладке
+user_pref("browser.newtabpage.activity-stream.widgets.weather.enabled, true", true);
+user_pref("browser.newtabpage.activity-stream.widgets.system.weather.enabled, true", true);
+
 // Turn on "Firefox Experiments" settings page
 // Включить раздел "Эксперименты Firefox" в настройках
 user_pref("browser.preferences.experimental", true);
