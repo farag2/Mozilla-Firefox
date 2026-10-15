@@ -15,14 +15,10 @@ user_pref("browser.backspace_action", 0);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
 
 // Hide mobile bookmarks folder
-// Скрыть папку Мобильные закладки
+// Скрыть папку "Мобильные закладки"
 user_pref("browser.bookmarks.showMobileBookmarks", false);
 
-// Turn off Content Blocker notification
-// Не отображать уведомление о блокировке содержимого
-user_pref("browser.contentblocking.introCount", 20);
-
-// Do not allow Firefox to make prezonalized extension recommendations
+// Do not allow Firefox to make personalized extension recommendations
 // Не разрешать Firefox давать персональные рекомендации расширений
 user_pref("browser.discovery.enabled", false);
 
@@ -38,10 +34,6 @@ user_pref("browser.download.useDownloadDir", false);
 // Включить Firefox VPN
 // https://blog.mozilla.org/en/firefox/built-in-vpn/
 user_pref("browser.ipProtection.enabled", true);
-
-// Do not notify about new features
-// Не уведомлять о новых функциях Firefox
-user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
 // Add "View Image Info" to the image context menu
 // Добавить в контекстное меню изображений пункт "Информация об изображении"
@@ -68,10 +60,6 @@ user_pref("browser.ml.chat.provider", "https://chatgpt.com");
 // Показывать подсказки при выделении текста
 user_pref("browser.ml.chat.shortcuts", true);
 
-// Turn off recommended extensions
-// Отключить рекомендации расширений
-user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr", false);
-
 // Do not recommend extensions as you browse
 // Не рекомендовать расширения при просмотре
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
@@ -80,28 +68,20 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", fa
 // Не рекомендовать функции при просмотре
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 
-// Turn off article recommendations on New Tab
-// Выключить рекомендации на новой вкладке
-user_pref("browser.newtabpage.activity-stream.discoverystream.sections.enabled", false);
-
-// Turn off Snippets (Updates from Mozilla and Firefox)
-// Отключить Заметки (Обновления от Mozilla и Firefox)
-user_pref("browser.newtabpage.activity-stream.feeds.snippets", false);
+// Turn off recommended stories on New Tab
+// Выключить рекомендуемые статьи на новой вкладке
+user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
 
 // Unpin Top Sites search shortcuts
 // Открепить ярлыки поисковых сервисов в Топе сайтов
 user_pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts", false);
-
-// Does not offer import bookmarks, history and passwords from other browsers
-// Не предлагать импорт закладок, истории и паролей из другого браузера
-user_pref("browser.newtabpage.activity-stream.migrationExpired", true);
 
 // Enable wallpaper for new tab page
 // Включить фоновый рисунок для новой вкладки
 user_pref("browser.newtabpage.activity-stream.newtabWallpapers.enabled", true);
 
 // Show Highlights in 4 rows
-// Отобразить избранные сайты в 4 столбца
+// Отобразить избранные сайты в 4 ряда
 user_pref("browser.newtabpage.activity-stream.section.highlights.rows", 4);
 
 // Hide sponsored top sites in Firefox Home screen
@@ -109,24 +89,24 @@ user_pref("browser.newtabpage.activity-stream.section.highlights.rows", 4);
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
 
 // Show Top Sites in 4 rows
-// Отобразить топ сайтов в 4 столбца
+// Отобразить топ сайтов в 4 ряда
 user_pref("browser.newtabpage.activity-stream.topSitesRows", 4);
 
 // Show weather widget in a new tab
 // Отобразить виджет погоды в новой вкладке
-user_pref("browser.newtabpage.activity-stream.widgets.weather.enabled, true", true);
-user_pref("browser.newtabpage.activity-stream.widgets.system.weather.enabled, true", true);
+user_pref("browser.newtabpage.activity-stream.widgets.weather.enabled", true);
+user_pref("browser.newtabpage.activity-stream.widgets.system.weather.enabled", true);
 
-// Turn on "Firefox Experiments" settings page
-// Включить раздел "Эксперименты Firefox" в настройках
-user_pref("browser.preferences.experimental", true);
+// Turn on "Firefox Labs" settings page
+// Включить раздел "Firefox Labs" в настройках
+user_pref("browser.preferences.experimental.hidden", false);
 
 // Hide "More from Mozilla" from Settings
 // Скрыть "Больше от Mozilla" в Настройках
 user_pref("browser.preferences.moreFromMozilla", false);
 
 // Show search suggestions in Private Windows
-// Отображать поисковые предложения в Приватных вкладках
+// Отображать поисковые предложения в приватных окнах
 user_pref("browser.search.suggest.enabled.private", true);
 
 // Set number of saved closed tabs on 20
@@ -134,14 +114,14 @@ user_pref("browser.search.suggest.enabled.private", true);
 user_pref("browser.sessionstore.max_tabs_undo", 20);
 
 // Set homepage and new windows on https://ya.ru
-// Установить домашнюю страницу страницу и новые окна на https://ya.ru
+// Установить домашнюю страницу и новые окна на https://ya.ru
 user_pref("browser.startup.homepage", "https://ya.ru");
 
 // Restore previous session
 // Восстанавливать предыдущую сессию
 user_pref("browser.startup.page", 3);
 
-// Double-сlick to close tabs feature
+// Double-click to close tabs feature
 // Закрывать вкладки двойным нажатием левой кнопки мыши
 user_pref("browser.tabs.closeTabByDblclick", true);
 
@@ -153,21 +133,17 @@ user_pref("browser.tabs.closeWindowWithLastTab", false);
 // Отобразить заголовок
 user_pref("browser.tabs.inTitlebar", 0);
 
-// Show Drag Space
-// Отобразить место для перетаскивания окна
-user_pref("browser.tabs.extraDragSpace", true);
-
-// Open new tabs on the right
-// Открывать новые вкладки справа
+// Open new tabs at the end of the tab strip
+// Открывать новые вкладки в конце панели вкладок
 user_pref("browser.tabs.insertRelatedAfterCurrent", false);
 
 // Open bookmarks in a background tab
 // Открывать закладки в фоновых вкладках
 user_pref("browser.tabs.loadBookmarksInBackground", true);
 
-// Enable tab previews 
+// Enable tab previews
 // Включить предпросмотр вкладок
-user_pref("browser.tabs.cardPreview.enabled", true);
+user_pref("browser.tabs.hoverPreview.enabled", true);
 
 // Do not warn when attempt to close multiple tabs
 // Не предупреждать при закрытии нескольких вкладок
@@ -179,10 +155,9 @@ user_pref("browser.taskbar.previews.enable", true);
 
 // Set the "Bookmarks menu" as default bookmark folder
 // Установить "Меню закладок" как папку по умолчанию для закладок
-user_pref("browser.toolbars.bookmarks.2h2020", true);
 user_pref("browser.bookmarks.defaultLocation", "menu________");
 
-// Alway show bookmarks toolbar
+// Always show bookmarks toolbar
 // Всегда отображать панель закладок
 user_pref("browser.toolbars.bookmarks.visibility", "always");
 
@@ -208,28 +183,11 @@ user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
 
 // Enable Quick Actions
 // Включить Quick Actions
-user_pref("browser.urlbar.quickactions.enabled", true);
-user_pref("browser.urlbar.shortcuts.quickactions", true);
+user_pref("browser.urlbar.suggest.quickactions", true);
 
 // When using the address bar, do not suggest search engines
 // При использовании панели адреса не предлагать ссылки из поисковых
 user_pref("browser.urlbar.suggest.engines", false);
-
-// Show search terms instead of URL on default search engine results page
-// Показывать поисковые запросы вместо сетевых адресов на странице выдачи поисковой системы по умолчанию
-user_pref("browser.urlbar.showSearchTerms.featureGate", false);
-
-// Feature to add a custom search engine to the built-in list
-// Возможность добавлять новые поисковые системы через "Добавить"
-// about:preferences#search
-user_pref("browser.urlbar.update2.engineAliasRefresh", true);
-
-// Automatically click on banners that request permission to use cookies on the sites
-// Автоматически нажимать на баннеры, которые запрашивают разрешение на использование файлов куки на сайтах
-user_pref("cookiebanners.cookieInjector.enabled", true);
-user_pref("cookiebanners.bannerClicking.enabled", true);
-user_pref("cookiebanners.service.mode", 2);
-user_pref("cookiebanners.service.mode.privateBrowsing", 2);
 
 // Turn off "Firefox Default Browser Agent"
 // Отключить "Firefox Default Browser Agent"
@@ -239,32 +197,20 @@ user_pref("default-browser-agent.enabled", false);
 // Отключить защиту скачивания файлов через незащищенные соединения
 user_pref("dom.block_download_insecure", false);
 
-// Turn on lazy loading for images
-// Включить отложенную загрузку для изображений
-user_pref("dom.dom.image-lazy-loading.enabled", true);
-
-// Do not allow websites to perform privacy-preserving as measurement
-// Не разрешать веб-сайтам проводить измерение рекламы с сохранением приватности
-user_pref("dom.private-attribution.submission.enabled", false);
-
 // Enable HTTPS-Only Mode in all windows
 // Включить режим "Только HTTPS" во всех окнах
 user_pref("dom.security.https_only_mode", true);
-
-// Run extensions in Private browsing mode
-// Запускать дополнения в приватном режиме
-user_pref("extensions.allowPrivateBrowsingByDefault", true);
 
 // Turn off Extension Recommendations on the Add-ons Manager
 // Отключить рекомендуемые расширения на странице "Дополнения"
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 
 // Highlight all occurrences of the phrase when searching
-// Подстветить всех вхождения фразы в текст при поиске
+// Подсвечивать все вхождения фразы при поиске
 user_pref("findbar.highlightAll", true);
 
-// Use smooth scrolling
-// Использовать плавную прокрутку
+// Turn off autoscrolling with the middle mouse button
+// Отключить автопрокрутку по нажатию средней кнопки мыши
 user_pref("general.autoScroll", false);
 
 // Do not select when double-clicking text the space following the text
@@ -275,21 +221,12 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 // Включить элементы управления мультимедиа
 user_pref("media.hardwaremediakeys.enabled", true);
 
-// Turn on MMB for openning link a new tab
-// Включить открытие ссылки в новой вкладки по нажатию на СКМ
+// Turn on MMB for opening link in a new tab
+// Включить открытие ссылки в новой вкладке по нажатию на СКМ
 user_pref("middlemouse.openNewWindow", true);
 
-// Enable Encrypted Client Hello (ECH)
-// Включить Encrypted Client Hello (ECH)
-user_pref("network.dns.echconfig.enabled", true);
-user_pref("network.dns.use_https_rr_as_altsvc", true);
-
-// Turn on HTTP3
-// Включить HTTP3
-user_pref("network.http.http3.enable", true);
-
 // Allow Windows single sign-on for Microsoft, work, and school accounts
-// Разрешить единый вход Windows для учётных записей Microsoft, учетных записей на работе и в учеьных заведениях
+// Разрешить единый вход Windows для учётных записей Microsoft, учётных записей на работе и в учебных заведениях
 user_pref("network.http.windows-sso.enabled", true);
 
 // https://wiki.mozilla.org/Trusted_Recursive_Resolver
@@ -302,21 +239,8 @@ user_pref("network.trr.mode", 2);
 // user_pref("network.trr.uri", "https://dns.comss.one/dns-query");
 user_pref("network.trr.uri", "https://mozilla.cloudflare-dns.com/dns-query");
 // Set the IP address of the host name used in "network.trr.uri", to bypass using the system native resolver for it
-// Установить IP-адрес, используемого в "network.trr.uri", чтобы исключить использование системного резольвера
-user_pref("network.trr.bootstrapAddress", "1.1.1.1");
-
-// Enable PDF editing feature and tools
-// Включить возможность редактировать PDF-файлы
-user_pref("pdfjs.annotationEditorMode", 0);
-user_pref("pdfjs.annotationMode", 2);
-
-// Использовать приложение Windows по умолчанию для открытия PDF-файлов
-// Use Windows default application for PDF files
-user_pref("pdfjs.enabledCache.state", true);
-
-// Enable image PDF editing feature
-// Включить возможность добавлять изображения в режиме редактирования PDF-файлов
-user_pref("pdfjs.enableStampEditor", 2);
+// Установить IP-адрес хоста из "network.trr.uri", чтобы исключить использование системного резольвера
+user_pref("network.trr.bootstrapAddr", "1.1.1.1");
 
 // Block new requests asking to allow notifications
 // Блокировать новые запросы на отправку уведомлений
@@ -325,32 +249,18 @@ user_pref("permissions.default.desktop-notification", 2);
 // Enable Semantic History Search
 // Включить семантический поиск истории
 user_pref("places.semanticHistory.featureGate", true);
-user_pref("browser.urlbar.showDebuggingIcons", true);
 
 // Tell websites not to sell or share my data
 // Сообщать веб-сайтам, чтобы они не продавали и не разглашали мои данные
 user_pref("privacy.globalprivacycontrol.enabled", true);
-user_pref("privacy.globalprivacycontrol.was_ever_enabled", true);
 
 // Strips known tracking query parameters from URLs
-// Удалять известные отслеживающие параметры запроса из URL-адресов 
+// Удалять известные отслеживающие параметры запроса из URL-адресов
 user_pref("privacy.query_stripping.enabled.pbmode", true);
 
-// Total Cookie Protection contains cookies to the site you’re on, so trackers can’t use them to follow you between sites.
-// Полная защита от кук ограничивает работу кук сайтом, на котором вы находитесь, чтобы трекеры не могли использовать их для слежки за вами от сайта к сайту
-user_pref("privacy.restrict3rdpartystorage.rollout.enabledByDefault", true);
-
-// Enable new dialog to clear history and cache
-// Включить новый упрощённый и унифицированный диалог для очистки данных пользователя
-user_pref("privacy.sanitize.useOldClearHistoryDialog", true);
-
 // Set time range to clear to "Everything"
-// Выбрать "Удалить всё" при удаление истории
+// Выбрать "Удалить всё" при удалении истории
 user_pref("privacy.sanitize.timeSpan", 0);
-
-// Prompts should be window modal by default
-// Привязывать модальные диалоги по умолчанию к окну
-user_pref("prompts.defaultModalType", 3);
 
 // Turn on UI customizations sync
 // Включить синхронизацию кастомизации интерфейса
@@ -361,26 +271,22 @@ user_pref("services.sync.prefs.sync.browser.uiCustomization.state", true);
 // user_pref("sidebar.revamp", true);
 // user_pref("sidebar.verticalTabs", true);
   
-// Enable the import of passwords as a CSV file on the about:logins page
-// Включить импорт паролей в виде CSV-файла на странице "about: logins" 
-user_pref("signon.management.page.fileImport.enabled", true);
-
 // Enable urlbar built-in calculator
 // Включить встроенный в адресную строку калькулятор
 user_pref("browser.urlbar.suggest.calculator", true);
 
 // Show indicators on saved logins that are re-using those breached passwords
-// Показать индикаторы на сохраненных логинах, которые повторно используют эти скомпрометированные пароли
+// Показать индикаторы на сохраненных логинах, которые повторно используют скомпрометированные пароли
 user_pref("signon.management.page.vulnerable-passwords.enabled", true);
 
 // Turn on userChrome.css and userContent.css support
 // Включить поддержку userChrome.css и userContent.css
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
-// Turn off Firefox starting automatically after Windows 10 restart
-// Выключить автоматическое восстановление сеанса после перезапуска Windows 10
+// Turn off Firefox starting automatically after Windows restart
+// Выключить автоматическое восстановление сеанса после перезапуска Windows
 user_pref("toolkit.winRegisterApplicationRestart", false);
 
-// Show matches next on top of scrollbar
-// Показывать совпадения поверх полосы прокрутки
-user_pref("ui.textHighlightBackground", "Fireprick");
+// Background color of find-in-page matches (Firebrick)
+// Цвет фона найденных на странице совпадений (Firebrick)
+user_pref("ui.textHighlightBackground", "#B22222");
