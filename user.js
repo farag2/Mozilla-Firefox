@@ -39,10 +39,6 @@ user_pref("browser.ipProtection.enabled", true);
 // Добавить в контекстное меню изображений пункт "Информация об изображении"
 user_pref("browser.menu.showViewImageInfo", true);
 
-// Add "Import Data" in "General" category to import extensions from other browsers
-// Добавить "Импорт данных" в категории "Основные" для импорта расширений из других браузеров
-user_pref("browser.migrate.chrome.extensions.enabled", true);
-
 // Turn on AI chatbot
 // Включить ИИ-чат-бот
 user_pref("browser.ml.chat.enabled", true);
@@ -75,10 +71,6 @@ user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
 // Unpin Top Sites search shortcuts
 // Открепить ярлыки поисковых сервисов в Топе сайтов
 user_pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts", false);
-
-// Enable wallpaper for new tab page
-// Включить фоновый рисунок для новой вкладки
-user_pref("browser.newtabpage.activity-stream.newtabWallpapers.enabled", true);
 
 // Show Highlights in 4 rows
 // Отобразить избранные сайты в 4 ряда
@@ -274,10 +266,6 @@ user_pref("services.sync.prefs.sync.browser.uiCustomization.state", true);
 // Enable urlbar built-in calculator
 // Включить встроенный в адресную строку калькулятор
 user_pref("browser.urlbar.suggest.calculator", true);
-
-// Show indicators on saved logins that are re-using those breached passwords
-// Показать индикаторы на сохраненных логинах, которые повторно используют скомпрометированные пароли
-user_pref("signon.management.page.vulnerable-passwords.enabled", true);
 
 // Turn on userChrome.css and userContent.css support
 // Включить поддержку userChrome.css и userContent.css
