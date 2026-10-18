@@ -173,6 +173,11 @@ user_pref("browser.urlbar.decodeURLsOnCopy", true);
 // Не отправлять поисковый запрос через DNS-сервер провайдера
 user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
 
+// Disable urlbar simplified search 
+// Отключить упрощенный показ поискового запроса
+user_pref("browser.urlbar.showSearchTerms.enabled", false);
+user_pref("browser.urlbar.showSearchTerms.featureGate", false);
+
 // Enable Quick Actions
 // Включить Quick Actions
 user_pref("browser.urlbar.suggest.quickactions", true);
