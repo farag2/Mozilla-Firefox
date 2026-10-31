@@ -1,4 +1,6 @@
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+#Requires -RunAsAdministrator
+
+[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
 if ($Host.Version.Major -eq 5)
 {
@@ -7,28 +9,94 @@ if ($Host.Version.Major -eq 5)
 	$Script:ProgressPreference = "SilentlyContinue"
 }
 
-Get-Process -Name firefox -ErrorAction Ignore | Stop-Process -Force
-Start-Sleep -Seconds 1
-
-#region Toolbar
-# Getting profile name
 if (-not (Test-Path -Path "$env:APPDATA\Mozilla\Firefox\installs.ini"))
 {
-	exit
+	Write-Warning -Message "Please launch Firefox first."
+	return
 }
 
-$String = (Get-Content -Path "$env:APPDATA\Mozilla\Firefox\installs.ini" | Select-String -Pattern "^\s*Default\s*=\s*.+" | ConvertFrom-StringData).Default
-$ProfileName = Split-Path -Path $String -Leaf
+# Close Firefox gracefully so it flushes prefs.js and the session, then kill whatever is left
+$Processes = Get-Process -Name firefox -ErrorAction Ignore
+if ($Processes)
+{
+	$null = $Processes.CloseMainWindow()
+	$Processes | Wait-Process -Timeout 10 -ErrorAction Ignore
+	Get-Process -Name firefox -ErrorAction Ignore | Stop-Process -Force -PassThru | Wait-Process -ErrorAction Ignore
+}
 
-# Finding where the Toolbar settings are being stored
-[string]$String = Get-Content -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\prefs.js" | Select-String -Pattern '"browser\.uiCustomization\.state"'
+#region Profile
+# installs.ini may contain several installs (Release, ESR, Nightly). [308046B0AF4A39CB] is "C:\Program Files\Mozilla Firefox"
+$Section = $null
+$Defaults = [ordered]@{}
+foreach ($Line in (Get-Content -Path "$env:APPDATA\Mozilla\Firefox\installs.ini" -Encoding UTF8))
+{
+	$Line = $Line.Trim()
+	if ($Line.StartsWith("["))
+	{
+		$Section = $Line.Trim("[", "]")
+	}
+	elseif ($Line.StartsWith("Default="))
+	{
+		$Defaults[$Section] = $Line.Substring(8)
+	}
+}
 
-$QuickJson = $String.Replace("\", "").Replace('user_pref("browser.uiCustomization.state", "', "").Replace("`");", "")
+if ($Defaults.Contains("308046B0AF4A39CB"))
+{
+	$Default = $Defaults["308046B0AF4A39CB"]
+}
+else
+{
+	$Default = @($Defaults.Values)[0]
+}
 
-$JSON = $QuickJson | ConvertFrom-Json
+# The path is relative to %APPDATA%\Mozilla\Firefox unless the profile was created in a custom folder
+if (Split-Path -Path $Default -IsAbsolute)
+{
+	$ProfilePath = (Get-Item -Path $Default).FullName
+}
+else
+{
+	$ProfilePath = (Get-Item -Path "$env:APPDATA\Mozilla\Firefox\$Default").FullName
+}
+#endregion Profile
 
-# Toolbar buttons sequence
-# Add your extensions icons here
+#region Download
+# https://github.com/farag2/Mozilla-Firefox/blob/master/search.json.mozlz4
+$Parameters = @{
+	Uri             = "https://github.com/farag2/Mozilla-Firefox/raw/master/search.json.mozlz4"
+	OutFile         = "$ProfilePath\search.json.mozlz4"
+	UseBasicParsing = $true
+	Verbose         = $true
+}
+Invoke-WebRequest @Parameters
+
+# https://github.com/farag2/Mozilla-Firefox/blob/master/user.js
+$Parameters = @{
+	Uri             = "https://raw.githubusercontent.com/farag2/Mozilla-Firefox/master/user.js"
+	OutFile         = "$ProfilePath\user.js"
+	UseBasicParsing = $true
+	Verbose         = $true
+}
+Invoke-WebRequest @Parameters
+
+if (-not (Test-Path -Path "$ProfilePath\chrome"))
+{
+	New-Item -Path "$ProfilePath\chrome" -ItemType Directory -Force
+}
+
+# https://github.com/farag2/Mozilla-Firefox/blob/master/chrome/userChrome.css
+$Parameters = @{
+	Uri             = "https://raw.githubusercontent.com/farag2/Mozilla-Firefox/master/chrome/userChrome.css"
+	OutFile         = "$ProfilePath\chrome\userChrome.css"
+	UseBasicParsing = $true
+	Verbose         = $true
+}
+Invoke-WebRequest @Parameters
+#endregion Download
+
+#region Toolbar
+# Toolbar buttons sequence. Add your extensions icons here
 $NavBar = @(
 	# Back
 	"back-button",
@@ -48,78 +116,75 @@ $NavBar = @(
 	# Bookmarks menu
 	"bookmarks-menu-button",
 
-	# Show your bookmarks
+	# Downloads
 	"downloads-button",
 
-	# Show Firefox VPN button
+	# Firefox VPN
 	"ipprotection-button",
 
 	# Firefox Account
 	"fxa-toolbar-menu-button",
 
-	# uBlock
+	# uBlock Origin
 	"ublock0_raymondhill_net-browser-action"
 )
 
-$JSON.placements.'nav-bar' = $NavBar
+$Prefix = 'user_pref("browser.uiCustomization.state", '
+$State = Get-Content -Path "$ProfilePath\prefs.js" -Encoding UTF8 | Where-Object -FilterScript {$_.StartsWith($Prefix)} | Select-Object -First 1
 
-# Remove Firefox View tab from toolbar
-$JSON.placements.TabsToolbar = @($JSON.placements.TabsToolbar | Where-Object -FilterScript {$_ -ne "firefox-view-button"})
+if ($State)
+{
+	# The pref value is a JS string literal, which is also a valid JSON string literal: decode it to a string, then to an object
+	$JSON = $State.Substring($Prefix.Length).TrimEnd(";", ")") | ConvertFrom-Json | ConvertFrom-Json
 
-$ConfiguredJSON = $JSON | ConvertTo-Json
+	$JSON.placements.'nav-bar' = $NavBar
 
-# Replacing all '"' with '\"', as it was
-$ConfiguredString = $ConfiguredJSON.Replace('"', '\"').ToString()
+	# Remove these buttons and Firefox View from all other areas so that nothing is placed twice
+	foreach ($Area in @($JSON.placements.PSObject.Properties.Name))
+	{
+		if ($Area -ne "nav-bar")
+		{
+			$JSON.placements.$Area = @($JSON.placements.$Area | Where-Object -FilterScript {($_ -notin $NavBar) -and ($_ -ne "firefox-view-button")})
+		}
+	}
 
-# Replacing the entire string with the result
-$prefsjs = "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\prefs.js"
-$Replace = "user_pref(`"browser.uiCustomization.state`", `"$ConfiguredString`");"
-(Get-Content -Path $prefsjs).Replace($String, $Replace) | Set-Content -Path $prefsjs -Force
+	# Pass the pref via user.js instead of rewriting prefs.js: Firefox applies it on the next start and saves it to prefs.js itself
+	$Value = $JSON | ConvertTo-Json -Depth 10 -Compress | ConvertTo-Json -Compress
+	[System.IO.File]::AppendAllText("$ProfilePath\user.js", "`n$Prefix$Value);`n", [System.Text.UTF8Encoding]::new($false))
+}
+else
+{
+	Write-Warning -Message "browser.uiCustomization.state not found in prefs.js. Toolbar was not configured."
+}
 #endregion Toolbar
 
 # Turn off all scheduled tasks in Mozilla folder
 Get-ScheduledTask -TaskPath "\Mozilla\" -ErrorAction Ignore | Disable-ScheduledTask
 
-#region Download
-# Download search.json.mozlz4
-$Parameters = @{
-	Uri             = "https://github.com/farag2/Mozilla-Firefox/raw/master/search.json.mozlz4"
-	OutFile         = "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\search.json.mozlz4"
-	UseBasicParsing = $true
-	Verbose         = $true
-}
-Invoke-WebRequest @Parameters
-
-# Download user.js
-$Parameters = @{
-	Uri             = "https://raw.githubusercontent.com/farag2/Mozilla-Firefox/master/user.js"
-	OutFile         = "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\user.js"
-	UseBasicParsing = $true
-	Verbose         = $true
-}
-Invoke-WebRequest @Parameters
-
-# Download userChrome.css
-if (-not (Test-Path -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\chrome"))
+#region Search engine
+# tapochek.net supports windows-1251 encoding only. Cannot be added via UI
+# Firefox reads policies at startup, so they have to be set before launch
+# https://firefox-admin-docs.mozilla.org/reference/policies/searchengines/
+if (-not (Test-Path -Path "HKLM:\SOFTWARE\Policies\Mozilla\Firefox\SearchEngines\Add\1"))
 {
-	New-Item -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\chrome" -ItemType Directory -Force
+	New-Item -Path "HKLM:\SOFTWARE\Policies\Mozilla\Firefox\SearchEngines\Add\1" -Force
 }
 
-# https://github.com/farag2/Mozilla-Firefox/blob/master/chrome/userChrome.css
-$Parameters = @{
-	Uri             = "https://raw.githubusercontent.com/farag2/Mozilla-Firefox/master/chrome/userChrome.css"
-	OutFile         = "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\chrome\userChrome.css"
-	UseBasicParsing = $true
-	Verbose         = $true
+$Engine = [ordered]@{
+	Name        = "Tapochek"
+	URLTemplate = "https://tapochek.net/tracker.php?nm={searchTerms}"
+	Method      = "GET"
+	Encoding    = "windows-1251"
+	Alias       = "@tp"
+	IconURL     = "https://tapochek.net/favicon.ico"
 }
-Invoke-WebRequest @Parameters
-#endregion Download
+foreach ($Property in $Engine.GetEnumerator())
+{
+	New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Mozilla\Firefox\SearchEngines\Add\1" -Name $Property.Key -PropertyType String -Value $Property.Value -Force
+}
+#endregion Search engine
 
-# Install extensions
-# https://addons.mozilla.org/firefox/addon/ublock-origin/
-# https://addons.mozilla.org/firefox/addon/traduzir-paginas-web/
-# https://addons.mozilla.org/firefox/addon/sponsorblock/
-# https://addons.mozilla.org/firefox/addon/return-youtube-dislikes/
+# Install extensions and launch Firefox with about:addons
 # https://github.com/farag2/Mozilla-Firefox/blob/master/Add_Firefox_Extensions.ps1
 $Parameters = @{
 	Uri             = "https://raw.githubusercontent.com/farag2/Mozilla-Firefox/master/Add_Firefox_Extensions.ps1"
@@ -128,6 +193,15 @@ $Parameters = @{
 }
 Invoke-RestMethod @Parameters | Invoke-Expression
 
-Start-Process -FilePath "$env:ProgramFiles\Mozilla Firefox\firefox.exe" -ArgumentList "-new-tab `"about:addons`""
-Start-Sleep -Seconds 3
-Remove-Item -Path "$env:APPDATA\Mozilla\Firefox\Profiles\$ProfileName\user.js" -Force
+# Wait for the browser window (up to 60 s): by then Firefox has already read user.js
+for ($i = 0; $i -lt 120; $i++)
+{
+	if (Get-Process -Name firefox -ErrorAction Ignore | Where-Object -FilterScript {$_.MainWindowHandle -ne 0})
+	{
+		break
+	}
+
+	Start-Sleep -Milliseconds 500
+}
+
+Remove-Item -Path "$ProfilePath\user.js" -Force
